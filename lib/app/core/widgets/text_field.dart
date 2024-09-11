@@ -5,21 +5,37 @@ import 'package:recicla_palmas/app/core/widgets/text_form_validate.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField._();
 
-  static Widget standart({required TextEditingController controller}) =>
+  static Widget user(
+          {required TextEditingController controller,
+          required String placeholder}) =>
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: TextFormField(
-          decoration: CustomBorderStyles.completeDecoration(label: "Email"),
+          decoration: CustomBorderStyles.completeDecoration(label: placeholder),
+          validator: (text) => TextValidate.userValidator(text),
+          controller: controller,
+        ),
+      );
+
+  static Widget email(
+          {required TextEditingController controller,
+          required String placeholder}) =>
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 40),
+        child: TextFormField(
+          decoration: CustomBorderStyles.completeDecoration(label: placeholder),
           validator: (text) => TextValidate.emailValidator(text),
           controller: controller,
         ),
       );
 
-  static Widget password({required TextEditingController controller}) =>
+  static Widget password(
+          {required TextEditingController controller,
+          required String placeholder}) =>
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: TextFormField(
-          decoration: CustomBorderStyles.completeDecoration(label: "Senha"),
+          decoration: CustomBorderStyles.completeDecoration(label: placeholder),
           obscureText: true,
           validator: (text) => TextValidate.passwordValidator(text),
           controller: controller,

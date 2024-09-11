@@ -29,6 +29,9 @@ class CustomButtons {
           minimumSize: WidgetStateProperty.all<Size>(
             Size(width, height),
           ),
+          alignment: Alignment.center,
+          elevation: WidgetStateProperty.all<double>(1),
+          padding: WidgetStateProperty.all<EdgeInsets>(EdgeInsets.zero),
         ),
         child: Text(
           label,

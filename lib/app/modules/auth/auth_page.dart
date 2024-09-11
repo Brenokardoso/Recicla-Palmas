@@ -12,7 +12,8 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  final TextEditingController standartController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController userController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final ValueNotifier<bool> changeForms = ValueNotifier<bool>(false);
@@ -20,9 +21,11 @@ class _AuthPageState extends State<AuthPage> {
   @override
   void initState() {
     super.initState();
-    standartController;
+    emailController;
+    userController;
     passwordController;
     formKey;
+    changeForms;
   }
 
   @override
@@ -32,24 +35,25 @@ class _AuthPageState extends State<AuthPage> {
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraits) {
-            return Container(
-              width: constraits.maxWidth / 1.5,
-              height: constraits.maxHeight / 2,
-              constraints: constraits,
-              color: CustomColors.cardColor,
-              child: ValueListenableBuilder(
-                valueListenable: changeForms,
-                builder: (_, value, __) => Column(
+            return ValueListenableBuilder(
+              valueListenable: changeForms,
+              builder: (_, value, __) => Container(
+                width: constraits.maxWidth / 1.5,
+                height: value
+                    ? constraits.maxHeight / 1.4
+                    : constraits.maxHeight / 1.8,
+                constraints: constraits,
+                color: CustomColors.cardColor,
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Form(
                       key: formKey,
                       child: value
-                          ? Container(
-                              width: 10,
-                              height: 200,
-                              color: Colors.red,
+                          ? cadastro(
+                              maxWidth: constraits.maxWidth,
+                              maxHeight: constraits.maxHeight,
                             )
                           : login(
                               maxWidth: constraits.maxWidth,
@@ -61,10 +65,10 @@ class _AuthPageState extends State<AuthPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         CustomButtons.buttonPrimary(
-                          label: "Cadastre-se",
+                          label: value ? "Login" : "Cadastre-se",
                           fontSize: 10,
-                          width: constraits.maxWidth / 20,
-                          height: constraits.maxHeight / 20,
+                          width: constraits.maxWidth / 12,
+                          height: constraits.maxHeight / 16,
                           // color: CustomColors.inputBorderFocusColor,
                           function: () {
                             changeForms.value = !changeForms.value;
@@ -73,8 +77,8 @@ class _AuthPageState extends State<AuthPage> {
                         CustomButtons.buttonPrimary(
                           label: "Enviar",
                           fontSize: 10,
-                          width: constraits.maxWidth / 20,
-                          height: constraits.maxHeight / 20,
+                          width: constraits.maxWidth / 12,
+                          height: constraits.maxHeight / 16,
                           function: () {
                             var currentStateFormKey =
                                 formKey.currentState?.validate();
@@ -123,14 +127,71 @@ class _AuthPageState extends State<AuthPage> {
         ),
         space,
         Flexible(
-          child: CustomTextFormField.standart(
-            controller: standartController,
+          child: CustomTextFormField.user(
+            controller: emailController,
+            placeholder: "Email",
           ),
         ),
         space,
         Flexible(
           child: CustomTextFormField.password(
             controller: passwordController,
+            placeholder: "Senha",
+          ),
+        ),
+        space,
+      ],
+    );
+  }
+
+  Widget cadastro({required double? maxWidth, required double? maxHeight}) {
+    SizedBox space = const SizedBox(height: 40);
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Flexible(
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Container(
+              width: maxWidth,
+              height: maxHeight! / 13,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: CustomColors.colorGradientHeader,
+                ),
+              ),
+              alignment: Alignment.center,
+              child: const Text(
+                "Cadastro",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+        ),
+        space,
+        Flexible(
+          child: CustomTextFormField.user(
+            controller: userController,
+            placeholder: "Usuário",
+          ),
+        ),
+        space,
+        Flexible(
+          child: CustomTextFormField.email(
+            controller: emailController,
+            placeholder: "Email",
+          ),
+        ),
+        space,
+        Flexible(
+          child: CustomTextFormField.password(
+            controller: passwordController,
+            placeholder: "Senha",
           ),
         ),
         space,
