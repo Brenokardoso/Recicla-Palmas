@@ -5,10 +5,20 @@
 
 [Metas]:
 
-- [] Obscure Text visivel/invisivel
-- [] Botões
-- [] Tela de Login
-- [] Tela de Castro
+- [x] Obscure Text visivel/invisivel
+- [x] Botões
+- [x] Tela de Login
+- [x] Tela de Castro
 - [] Inicar o banco
+- [] Fazer os testes com o device preview
 
 
+[Front]
+
+- [] Imagem de fundo (natureza)
+- [] Trocar o fundo do card para um branco e borda com elevação / boxshandow
+
+
+[Bugs]
+
+- [x] button que leva para cadastro

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
 class CustomButtons {
   CustomButtons._();
@@ -10,7 +9,8 @@ class CustomButtons {
     required double width,
     required double height,
     void Function()? function,
-    Color? color,
+    Color? colorFont,
+    Color? colorBackground,
   }) =>
       ElevatedButton(
         onPressed: function,
@@ -31,12 +31,16 @@ class CustomButtons {
           ),
           alignment: Alignment.center,
           elevation: WidgetStateProperty.all<double>(1),
-          padding: WidgetStateProperty.all<EdgeInsets>(EdgeInsets.zero),
+          padding:
+              WidgetStateProperty.all<EdgeInsets>(const EdgeInsets.all(10)),
+          backgroundColor: WidgetStateProperty.all<Color?>(
+            colorBackground,
+          ),
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: color ?? Colors.black,
+            color: colorFont ?? Colors.black,
           ),
         ),
       );

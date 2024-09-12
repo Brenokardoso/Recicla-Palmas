@@ -1,8 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 import 'package:recicla_palmas/app/core/themes/custom_themeData.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() {
+  SupabaseDb.init();
+
   runApp(
     const MyApp(),
   );
