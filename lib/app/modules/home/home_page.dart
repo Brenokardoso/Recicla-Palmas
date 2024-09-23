@@ -4,6 +4,7 @@ import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer_itens.dart';
+import 'package:recicla_palmas/app/core/widgets/map.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -53,7 +54,8 @@ class _HomePage extends State<HomePage> {
                     customHeader(
                       context,
                       "Clique nos pontos para ir para os locais de reciclagem mais perto de você",
-                    )
+                    ),
+                    OsmImplemetation(),
                   ],
                 ),
               ),
