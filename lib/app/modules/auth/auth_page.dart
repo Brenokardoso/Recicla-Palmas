@@ -32,7 +32,9 @@ class _AuthPageState extends State<AuthPage> {
     changeForms;
     SupabaseDb.supabase.auth.onAuthStateChange.listen((authState) {
       if (authState.session != null) {
-        // Redirecione para a pagina desejada com pushReplacement
+        context.mounted
+            ? Navigator.of(context).pushReplacementNamed(Routes.homeRoute)
+            : null;
       } else {
         if (context.mounted) {
           Navigator.of(context).pushReplacementNamed(Routes.authRoute);
