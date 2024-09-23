@@ -11,6 +11,7 @@ class DrawerItens {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
+        
         children: [
           MouseRegion(
             cursor: SystemMouseCursors.click,

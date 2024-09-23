@@ -38,21 +38,51 @@ class _HomePage extends State<HomePage> {
         builder: (context, constraints) {
           return Container(
             width: constraints.maxWidth,
-            height: constraints.maxHeight / 2,
-            color: Colors.green[200],
-            child: const Padding(
-              padding: EdgeInsets.all(24),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text("Tela"),
-                ],
+            height: constraints.maxHeight,
+            color: Colors.green[50],
+            child: Padding(
+              padding: const EdgeInsets.all(48),
+              child: Container(
+                width: constraints.maxWidth / 4,
+                height: constraints.maxHeight / 2,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    customHeader(
+                      context,
+                      "Clique nos pontos para ir para os locais de reciclagem mais perto de você",
+                    )
+                  ],
+                ),
               ),
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget customHeader(BuildContext context, String label) {
+    return Flexible(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Flexible(
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 24,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                overflow: TextOverflow.fade,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
