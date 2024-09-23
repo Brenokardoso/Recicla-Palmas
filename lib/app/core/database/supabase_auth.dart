@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_db.dart';
-import 'package:recicla_palmas/app/core/utils/dialogs.dart';
+import 'package:recicla_palmas/app/core/utils/ui_warnings.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuth {
@@ -8,35 +8,47 @@ class SupabaseAuth {
     required BuildContext context,
     required String email,
     required String password,
+    void Function()? function,
   }) async {
     try {
       final dbInstance = SupabaseDb.supabase;
-      final response = await dbInstance.auth.signUp(
+      final response = await dbInstance.auth
+          .signUp(
         email: email,
         password: password,
-      );
-      if (context.mounted) {
-        CustomDialog.showSuccessMaterialBanner(
-          context: context,
-          // "Usuário logado com sucesso",
-        );
-      }
-      print("Response value : $response");
-      if (response.user?.email == null) {
-        if (response.user?.email != null) {
-        } else {
+      )
+          .whenComplete(
+        () {
           if (context.mounted) {
-            CustomDialog.showFailDialog(
-              context,
-              "Não foi possivel fazer o login",
+            CustomWarnings.showSuccessSnackBar(
+              context: context,
+              label: "Usuário cadastrado com sucesso",
             );
           }
+        },
+      );
+      if (response.user?.email == null) {
+        if (context.mounted) {
+          CustomWarnings.showFailDialog(
+            context,
+            "Não foi possivel fazer o login",
+          );
         }
       }
     } on AuthException catch (errorType, erroCode) {
-      print("Houve um error por $errorType em $erroCode");
+      if (context.mounted) {
+        CustomWarnings.showFailSnackBar(
+          context: context,
+          label: "Houve um erro de $errorType por motivos de $erroCode",
+        );
+      }
     } catch (errorType, erroCode) {
-      print("Houve um error por motivos de $errorType em $erroCode");
+      if (context.mounted) {
+        CustomWarnings.showFailSnackBar(
+          context: context,
+          label: "Houve um erro de $errorType por motivos de $erroCode",
+        );
+      }
     }
   }
 
@@ -47,48 +59,74 @@ class SupabaseAuth {
   }) async {
     try {
       final dbInstance = SupabaseDb.supabase;
-      final response = await dbInstance.auth.signInWithPassword(
+      final response = await dbInstance.auth
+          .signInWithPassword(
         email: email,
         password: passsword,
+      )
+          .whenComplete(
+        () {
+          if (context.mounted) {
+            CustomWarnings.showSuccessSnackBar(
+              context: context,
+              label: "Usuário logado com sucesso",
+            );
+          }
+        },
       );
-      print("Response value : $response");
-      if (context.mounted) {
-        CustomDialog.showSuccessDialog(
-          context,
-          "Usuário logado com sucesso",
-        );
-      }
-      if (response.user?.email != null) {
-        print("Caixa de dialogo : OK");
-      } else {
+
+      if (response.user?.email == null) {
         if (context.mounted) {
-          CustomDialog.showFailDialog(
+          CustomWarnings.showFailDialog(
             context,
             "Não foi possivel fazer o login",
           );
         }
       }
     } on AuthException catch (errorType, erroCode) {
-      print("Houve um error por motivos de $errorType em $erroCode");
+      if (context.mounted) {
+        CustomWarnings.showFailSnackBar(
+          context: context,
+          label: "Houve um erro de $errorType por motivos de $erroCode",
+        );
+      }
     } catch (errorType, erroCode) {
-      print("Houve um error por motivos de $errorType em $erroCode");
+      if (context.mounted) {
+        CustomWarnings.showFailSnackBar(
+          context: context,
+          label: "Houve um erro de $errorType por motivos de $erroCode",
+        );
+      }
     }
   }
 
   static Future<void> signOut(BuildContext context) async {
     try {
       final dbInstance = SupabaseDb.supabase;
-      final response = await dbInstance.auth.signOut();
+      final response = await dbInstance.auth.signOut().whenComplete(
+        () {
+          if (context.mounted) {
+            CustomWarnings.showSuccessDialog(
+              context,
+              "Usuário deslogado com sucesso",
+            );
+          }
+        },
+      );
+    } on AuthException catch (errorType, erroCode) {
       if (context.mounted) {
-        CustomDialog.showSuccessDialog(
-          context,
-          "Usuário deslogado com sucesso",
+        CustomWarnings.showFailSnackBar(
+          context: context,
+          label: "Houve um erro de $errorType por motivos de $erroCode",
         );
       }
-    } on AuthException catch (errorType, erroCode) {
-      print("Houve um error por motivos de $errorType em $erroCode");
     } catch (errorType, erroCode) {
-      print("Houve um error por motivos de $errorType em $erroCode");
+      if (context.mounted) {
+        CustomWarnings.showFailSnackBar(
+          context: context,
+          label: "Houve um erro de $errorType por motivos de $erroCode",
+        );
+      }
     }
   }
 }

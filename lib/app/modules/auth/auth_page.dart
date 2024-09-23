@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_auth.dart';
+import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
+import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
 import 'package:recicla_palmas/app/core/widgets/buttons.dart';
 import 'package:recicla_palmas/app/core/widgets/text_form_field.dart';
@@ -28,6 +30,15 @@ class _AuthPageState extends State<AuthPage> {
     passwordController;
     formKey;
     changeForms;
+    SupabaseDb.supabase.auth.onAuthStateChange.listen((authState) {
+      if (authState.session != null) {
+        // Redirecione para a pagina desejada com pushReplacement
+      } else {
+        if (context.mounted) {
+          Navigator.of(context).pushReplacementNamed(Routes.authRoute);
+        }
+      }
+    });
   }
 
   @override
@@ -50,8 +61,8 @@ class _AuthPageState extends State<AuthPage> {
               builder: (_, value, __) => Container(
                 width: constraits.maxWidth / 1.5,
                 height: value
-                    ? constraits.maxHeight / 1.65
-                    : constraits.maxHeight / 1.85,
+                    ? constraits.maxHeight / 1.80
+                    : constraits.maxHeight / 1.80,
                 constraints: constraits,
                 color: CustomColors.cardColor,
                 child: Column(
@@ -170,13 +181,6 @@ class _AuthPageState extends State<AuthPage> {
                 ),
               ),
             ),
-          ),
-        ),
-        space,
-        Flexible(
-          child: CustomTextFormField.user(
-            controller: userController,
-            placeholder: "Usuário",
           ),
         ),
         space,

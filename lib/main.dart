@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: "Recicla Palmas",
       debugShowCheckedModeBanner: false,
       theme: customTheme,
-      initialRoute: Routes.auth,
+      initialRoute: Routes.authRoute,
       routes: myRoutes,
     );
   }
