@@ -13,7 +13,7 @@ class CustomColors {
   ];
   static Color inputBorderFocusColor = Colors.green[300]!;
   static Color inputBorderEnableColor = Colors.green;
-  static Color inputBorderErroColor = Colors.red;
+  static Color inputBorderErrorColor = Colors.red;
   static Color inputBorderColor = Colors.yellow;
   // static Color? inputBorder_Color = Colors.blue[500];
 }

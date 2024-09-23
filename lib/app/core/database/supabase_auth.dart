@@ -1,8 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_db.dart';
+import 'package:recicla_palmas/app/core/utils/dialogs.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseAuth {
-  static Future<bool> signUp({
+  static Future<void> signUp({
+    required BuildContext context,
     required String email,
     required String password,
   }) async {
@@ -12,21 +15,33 @@ class SupabaseAuth {
         email: email,
         password: password,
       );
-
+      if (context.mounted) {
+        CustomDialog.showSuccessMaterialBanner(
+          context: context,
+          // "Usuário logado com sucesso",
+        );
+      }
+      print("Response value : $response");
       if (response.user?.email == null) {
-        return true;
-      } else {
-        return false;
+        if (response.user?.email != null) {
+        } else {
+          if (context.mounted) {
+            CustomDialog.showFailDialog(
+              context,
+              "Não foi possivel fazer o login",
+            );
+          }
+        }
       }
     } on AuthException catch (errorType, erroCode) {
       print("Houve um error por $errorType em $erroCode");
     } catch (errorType, erroCode) {
       print("Houve um error por motivos de $errorType em $erroCode");
     }
-    return false;
   }
 
   static Future<void> signIn({
+    required BuildContext context,
     required String email,
     required String passsword,
   }) async {
@@ -36,11 +51,22 @@ class SupabaseAuth {
         email: email,
         password: passsword,
       );
-
+      print("Response value : $response");
+      if (context.mounted) {
+        CustomDialog.showSuccessDialog(
+          context,
+          "Usuário logado com sucesso",
+        );
+      }
       if (response.user?.email != null) {
-        print("Usuário logado com sucesso");
+        print("Caixa de dialogo : OK");
       } else {
-        print("Não foi possivel logar o usuáro");
+        if (context.mounted) {
+          CustomDialog.showFailDialog(
+            context,
+            "Não foi possivel fazer o login",
+          );
+        }
       }
     } on AuthException catch (errorType, erroCode) {
       print("Houve um error por motivos de $errorType em $erroCode");
@@ -49,11 +75,16 @@ class SupabaseAuth {
     }
   }
 
-  static Future<void> signOut() async {
+  static Future<void> signOut(BuildContext context) async {
     try {
       final dbInstance = SupabaseDb.supabase;
       final response = await dbInstance.auth.signOut();
-      print("deslogado com sucesso");
+      if (context.mounted) {
+        CustomDialog.showSuccessDialog(
+          context,
+          "Usuário deslogado com sucesso",
+        );
+      }
     } on AuthException catch (errorType, erroCode) {
       print("Houve um error por motivos de $errorType em $erroCode");
     } catch (errorType, erroCode) {

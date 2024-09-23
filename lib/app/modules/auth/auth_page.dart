@@ -39,7 +39,7 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext scaffoldContext) {
     return Scaffold(
       appBar: customAppBar("Recicla Palmas"),
       body: Center(
@@ -50,8 +50,8 @@ class _AuthPageState extends State<AuthPage> {
               builder: (_, value, __) => Container(
                 width: constraits.maxWidth / 1.5,
                 height: value
-                    ? constraits.maxHeight / 1.4
-                    : constraits.maxHeight / 1.8,
+                    ? constraits.maxHeight / 1.65
+                    : constraits.maxHeight / 1.85,
                 constraints: constraits,
                 color: CustomColors.cardColor,
                 child: Column(
@@ -86,7 +86,10 @@ class _AuthPageState extends State<AuthPage> {
     );
   }
 
-  Widget cardLogin({required double? maxWidth, required double? maxHeight}) {
+  Widget cardLogin({
+    required double? maxWidth,
+    required double? maxHeight,
+  }) {
     SizedBox space = const SizedBox(height: 40);
 
     return Column(
@@ -196,53 +199,63 @@ class _AuthPageState extends State<AuthPage> {
     );
   }
 
-  Widget buttons(
-          {required double maxWidth,
-          required double maxHeight,
-          required bool change}) =>
-      Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Flexible(
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CustomButtons.buttonPrimary(
-                  label: change ? "Login" : "Cadastre-se",
-                  fontSize: 10,
-                  width: maxWidth / 12,
-                  height: maxHeight / 16,
-                  colorBackground: CustomColors.green500,
-                  colorFont: Colors.white,
-                  function: () {
-                    changeForms.value = !changeForms.value;
-                  },
-                ),
-                CustomButtons.buttonPrimary(
-                  label: "Enviar",
-                  fontSize: 10,
-                  colorBackground: CustomColors.green500,
-                  colorFont: Colors.white,
-                  width: maxWidth / 12,
-                  height: maxHeight / 16,
-                  function: () {
-                    if (formKey.currentState?.validate() == true) {
-                      SupabaseAuth.signUp(
-                        email: emailController.value.text,
-                        password: passwordController.value.text,
-                      );
-                      userController.clear();
-                      passwordController.clear();
-                      emailController.clear();
-                    }
-                  },
-                )
-              ],
-            ),
-          )
-        ],
+  Widget buttons({
+    required double maxWidth,
+    required double maxHeight,
+    required bool change,
+  }) =>
+      Flexible(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Flexible(
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CustomButtons.buttonPrimary(
+                    label: change ? "Login" : "Cadastre-se",
+                    fontSize: 10,
+                    width: maxWidth / 12,
+                    height: maxHeight / 16,
+                    colorBackground: CustomColors.green500,
+                    colorFont: Colors.white,
+                    function: () {
+                      changeForms.value = !changeForms.value;
+                    },
+                  ),
+                  CustomButtons.buttonPrimary(
+                    label: "Enviar",
+                    fontSize: 10,
+                    colorBackground: CustomColors.green500,
+                    colorFont: Colors.white,
+                    width: maxWidth / 12,
+                    height: maxHeight / 16,
+                    function: () {
+                      if (formKey.currentState?.validate() == true) {
+                        change
+                            ? SupabaseAuth.signUp(
+                                context: context,
+                                email: emailController.value.text,
+                                password: passwordController.value.text,
+                              )
+                            : SupabaseAuth.signIn(
+                                context: context,
+                                email: emailController.value.text,
+                                passsword: passwordController.value.text,
+                              );
+                        userController.clear();
+                        passwordController.clear();
+                        emailController.clear();
+                      }
+                    },
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       );
 }

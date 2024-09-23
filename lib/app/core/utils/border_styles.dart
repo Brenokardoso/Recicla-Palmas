@@ -13,7 +13,7 @@ class CustomBorderStyles {
   static OutlineInputBorder erroBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(30),
     borderSide: BorderSide(
-      color: CustomColors.inputBorderErroColor,
+      color: CustomColors.inputBorderErrorColor,
       width: 1,
     ),
   );
@@ -21,7 +21,7 @@ class CustomBorderStyles {
   static OutlineInputBorder erroFocusBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(30),
     borderSide: BorderSide(
-      color: CustomColors.inputBorderErroColor,
+      color: CustomColors.inputBorderErrorColor,
       width: 2,
     ),
   );
