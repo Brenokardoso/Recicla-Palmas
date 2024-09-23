@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recicla_palmas/app/core/database/supabase_db.dart';
+import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer_itens.dart';
@@ -11,6 +13,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timestamp) {
+      SupabaseDb.supabase.auth.onAuthStateChange.listen(
+        (authState) {
+          if (authState.session == null) {
+            Navigator.of(context).pushReplacementNamed(Routes.authRoute);
+          }
+        },
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -29,9 +29,9 @@ class SupabaseAuth {
       );
       if (response.user?.email == null) {
         if (context.mounted) {
-          CustomWarnings.showFailDialog(
-            context,
-            "Não foi possivel fazer o login",
+          CustomWarnings.showFailSnackBar(
+            context: context,
+            label: "Não foi possivel fazer o login",
           );
         }
       }
@@ -77,9 +77,9 @@ class SupabaseAuth {
 
       if (response.user?.email == null) {
         if (context.mounted) {
-          CustomWarnings.showFailDialog(
-            context,
-            "Não foi possivel fazer o login",
+          CustomWarnings.showFailSnackBar(
+            context: context,
+            label: "Não foi possível faer o login",
           );
         }
       }
@@ -106,9 +106,9 @@ class SupabaseAuth {
       final response = await dbInstance.auth.signOut().whenComplete(
         () {
           if (context.mounted) {
-            CustomWarnings.showSuccessDialog(
-              context,
-              "Usuário deslogado com sucesso",
+            CustomWarnings.showSuccessSnackBar(
+              context: context,
+              label: "Usuário cadastrado com sucesso",
             );
           }
         },

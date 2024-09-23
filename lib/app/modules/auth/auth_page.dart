@@ -30,17 +30,19 @@ class _AuthPageState extends State<AuthPage> {
     passwordController;
     formKey;
     changeForms;
-    SupabaseDb.supabase.auth.onAuthStateChange.listen((authState) {
-      if (authState.session != null) {
-        context.mounted
-            ? Navigator.of(context).pushReplacementNamed(Routes.homeRoute)
-            : null;
-      } else {
-        if (context.mounted) {
-          Navigator.of(context).pushReplacementNamed(Routes.authRoute);
-        }
-      }
-    });
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) {
+        SupabaseDb.supabase.auth.onAuthStateChange.listen(
+          (authState) {
+            if (authState.session != null) {
+              context.mounted
+                  ? Navigator.of(context).pushReplacementNamed(Routes.homeRoute)
+                  : null;
+            }
+          },
+        );
+      },
+    );
   }
 
   @override
@@ -62,9 +64,7 @@ class _AuthPageState extends State<AuthPage> {
               valueListenable: changeForms,
               builder: (_, value, __) => Container(
                 width: constraits.maxWidth / 1.5,
-                height: value
-                    ? constraits.maxHeight / 1.80
-                    : constraits.maxHeight / 1.80,
+                height: constraits.maxHeight / 2,
                 constraints: constraits,
                 color: CustomColors.cardColor,
                 child: Column(
