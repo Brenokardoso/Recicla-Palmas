@@ -17,6 +17,7 @@
 ///         License:   SIL ()
 ///         Homepage:  http://fortawesome.github.com/Font-Awesome/
 ///
+library;
 import 'package:flutter/widgets.dart';
 
 class EyesIcon {

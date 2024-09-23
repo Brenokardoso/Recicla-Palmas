@@ -6,5 +6,5 @@ class Routes {
 }
 
 Map<String, Widget Function(BuildContext)> myRoutes = {
-  Routes.auth: (context) => AuthPage()
+  Routes.auth: (context) => const AuthPage()
 };
