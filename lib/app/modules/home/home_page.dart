@@ -37,29 +37,17 @@ class _HomePage extends State<HomePage> {
       ]),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          return Container(
-            width: constraints.maxWidth,
-            height: constraints.maxHeight,
-            color: Colors.green[50],
-            child: Padding(
-              padding: const EdgeInsets.all(48),
-              child: Container(
-                width: constraints.maxWidth / 4,
-                height: constraints.maxHeight / 2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    customHeader(
-                      context,
-                      "Clique nos pontos para ir para os locais de reciclagem mais perto de você",
-                    ),
-                    OsmImplemetation(),
-                  ],
-                ),
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              customHeader(
+                context,
+                "Clique nos pontos para ir para os locais de reciclagem mais perto de você",
               ),
-            ),
+              const OsmImplemetation(),
+            ],
           );
         },
       ),
@@ -74,13 +62,16 @@ class _HomePage extends State<HomePage> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Flexible(
-            child: Text(
-              label,
-              style: const TextStyle(
-                fontSize: 24,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                overflow: TextOverflow.fade,
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 24,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  overflow: TextOverflow.fade,
+                ),
               ),
             ),
           ),

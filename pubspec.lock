@@ -159,7 +159,7 @@ packages:
     source: hosted
     version: "3.0.2"
   flutter_osm_interface:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_osm_interface
       sha256: a46a3973b21176582d78db115cceaf4ea730614bd3471119b9958108d884fa0f
@@ -175,7 +175,7 @@ packages:
     source: hosted
     version: "1.3.3+1"
   flutter_osm_web:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: flutter_osm_web
       sha256: c8626554a149a59ba7ba31ef088a3b171bc3aaa6f843a2ac810ac88d8389b471

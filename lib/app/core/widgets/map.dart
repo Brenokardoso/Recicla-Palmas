@@ -42,14 +42,20 @@ class _OSMState extends State<OsmImplemetation> {
 
   @override
   Widget build(BuildContext context) {
+    double sizeWidth = MediaQuery.of(context).size.width;
+    double sizeHeight = MediaQuery.of(context).size.height;
+
     return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: SizedBox(
-        width: 3000,
-        height: 750,
-        child: OSMFlutter(
-          controller: mapController,
-          osmOption: const OSMOption(),
+      borderRadius: BorderRadius.circular(30),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: SizedBox(
+          width: sizeWidth,
+          height: sizeHeight * 0.8,
+          child: OSMFlutter(
+            controller: mapController,
+            osmOption: const OSMOption(),
+          ),
         ),
       ),
     );
