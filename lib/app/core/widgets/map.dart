@@ -89,6 +89,8 @@ class _OSMState extends State<OsmImplemetation> {
 
   Future<void> drawMap() async {
     List mapList = [];
+    List<List<List>> coordenandas;
+    List<List> lis;
     Map<String, dynamic> mapJson = {};
     tocantinsMap = await jsonRead(
       pathFile: "lib/app/core/assets/json/map_of_tocantins.json",
@@ -99,14 +101,20 @@ class _OSMState extends State<OsmImplemetation> {
         if (key.contains("features")) {
           mapList = value;
           if (mapList.isNotEmpty) {
-            mapJson = mapList[0];
-            print(mapJson);
+            for (var mapCity in mapList) {
+              coordenandas = mapCity['geometry']['coordinates'];
+              coordenandas.map(
+                (element) {
+                  print(element);
+                  print('\n\n');
+                },
+              );
+            }
           }
         }
         return MapEntry(key, value);
       },
     );
-    if (mapJson.containsKey('geometry')) {}
   }
 
   Future<void> limitAreaMap() async {
