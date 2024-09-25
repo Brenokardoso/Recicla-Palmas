@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
 class OsmImplemetation extends StatefulWidget {
   const OsmImplemetation({
@@ -11,7 +12,7 @@ class OsmImplemetation extends StatefulWidget {
 }
 
 class _OSMState extends State<OsmImplemetation> {
-  MapController mapController = MapController(
+  late MapController mapController = MapController(
     initPosition: GeoPoint(
       latitude: -10.1689,
       longitude: -48.3317,
@@ -29,7 +30,9 @@ class _OSMState extends State<OsmImplemetation> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
       (timeStamp) {
-        mapController;
+        if (mounted) {
+          mapController.init();
+        }
       },
     );
   }
@@ -45,6 +48,19 @@ class _OSMState extends State<OsmImplemetation> {
     double sizeWidth = MediaQuery.of(context).size.width;
     double sizeHeight = MediaQuery.of(context).size.height;
 
+    Future<void> drawRoadOnMap() async {
+      await mapController.drawRoad(
+        GeoPoint(
+          latitude: -4.1689,
+          longitude: -26.3317,
+        ),
+        GeoPoint(
+          latitude: -10.1689,
+          longitude: -48.3317,
+        ),
+      );
+    }
+
     return ClipRRect(
       borderRadius: BorderRadius.circular(30),
       child: Padding(
@@ -53,9 +69,26 @@ class _OSMState extends State<OsmImplemetation> {
           width: sizeWidth,
           height: sizeHeight * 0.8,
           child: OSMFlutter(
+            mapIsLoading: mapIsLoading(context, sizeWidth / 6, sizeHeight / 6),
+            onMapIsReady: (mapEvent) {
+              drawRoadOnMap();
+            },
             controller: mapController,
             osmOption: const OSMOption(),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget mapIsLoading(BuildContext context, double width, double height) {
+    return Center(
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: CircularProgressIndicator(
+          backgroundColor: Colors.white,
+          color: CustomColors.green500,
         ),
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_auth.dart';
-import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 
 class DrawerItens {
   DrawerItens._();

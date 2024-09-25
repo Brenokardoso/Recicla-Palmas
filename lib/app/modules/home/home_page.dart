@@ -20,7 +20,7 @@ class _HomePage extends State<HomePage> {
     WidgetsBinding.instance.addPostFrameCallback((timestamp) {
       SupabaseDb.supabase.auth.onAuthStateChange.listen(
         (authState) {
-          if (authState.session == null) {
+          if (authState.session == null && mounted) {
             Navigator.of(context).pushReplacementNamed(Routes.authRoute);
           }
         },
