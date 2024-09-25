@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
+import 'package:recicla_palmas/app/core/utils/json_read.dart';
 
 class OsmImplemetation extends StatefulWidget {
   const OsmImplemetation({
@@ -12,28 +13,17 @@ class OsmImplemetation extends StatefulWidget {
 }
 
 class _OSMState extends State<OsmImplemetation> {
-  late MapController mapController = MapController(
-    initPosition: GeoPoint(
-      latitude: -10.1689,
-      longitude: -48.3317,
-    ),
-    areaLimit: const BoundingBox(
-      east: -45.54,
-      north: -4.91,
-      south: -13.60,
-      west: -50.98,
-    ),
-  );
+  late final MapController mapController;
+  Map<String, dynamic> tocantinsMap = {};
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(
-      (timeStamp) {
-        if (mounted) {
-          mapController.init();
-        }
-      },
+    mapController = MapController(
+      initPosition: GeoPoint(
+        latitude: -10.1689,
+        longitude: -48.3317,
+      ),
     );
   }
 
@@ -48,19 +38,6 @@ class _OSMState extends State<OsmImplemetation> {
     double sizeWidth = MediaQuery.of(context).size.width;
     double sizeHeight = MediaQuery.of(context).size.height;
 
-    Future<void> drawRoadOnMap() async {
-      await mapController.drawRoad(
-        GeoPoint(
-          latitude: -4.1689,
-          longitude: -26.3317,
-        ),
-        GeoPoint(
-          latitude: -10.1689,
-          longitude: -48.3317,
-        ),
-      );
-    }
-
     return ClipRRect(
       borderRadius: BorderRadius.circular(30),
       child: Padding(
@@ -69,19 +46,35 @@ class _OSMState extends State<OsmImplemetation> {
           width: sizeWidth,
           height: sizeHeight * 0.8,
           child: OSMFlutter(
-            mapIsLoading: mapIsLoading(context, sizeWidth / 6, sizeHeight / 6),
+            mapIsLoading: mapIsLoading(
+              context,
+              sizeWidth / 9,
+              sizeHeight / 6,
+            ),
             onMapIsReady: (mapEvent) {
-              drawRoadOnMap();
+              drawMap();
+              limitAreaMap();
             },
             controller: mapController,
-            osmOption: const OSMOption(),
+            osmOption: const OSMOption(
+              zoomOption: ZoomOption(
+                // Zoom para fixar no Tocantins
+                initZoom: 6.48505,
+                minZoomLevel: 6.48505,
+                maxZoomLevel: 19,
+              ),
+            ),
           ),
         ),
       ),
     );
   }
 
-  Widget mapIsLoading(BuildContext context, double width, double height) {
+  Widget mapIsLoading(
+    BuildContext context,
+    double width,
+    double height,
+  ) {
     return Center(
       child: SizedBox(
         width: width,
@@ -90,6 +83,28 @@ class _OSMState extends State<OsmImplemetation> {
           backgroundColor: Colors.white,
           color: CustomColors.green500,
         ),
+      ),
+    );
+  }
+
+  Future<void> drawMap() async {
+    tocantinsMap = await jsonRead(
+        pathFile: "lib/app/core/assets/json/map_of_tocantins.json");
+    tocantinsMap.map(
+      (key, value) {
+        print("Chave : $key Valor : $value");
+        return MapEntry(key, value);
+      },
+    );
+  }
+
+  Future<void> limitAreaMap() async {
+    await mapController.limitAreaMap(
+      BoundingBox(
+        east: -45.54,
+        north: -4.91,
+        south: -13.60,
+        west: -50.98,
       ),
     );
   }

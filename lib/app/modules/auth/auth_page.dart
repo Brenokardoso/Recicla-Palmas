@@ -34,10 +34,8 @@ class _AuthPageState extends State<AuthPage> {
       (timeStamp) {
         SupabaseDb.supabase.auth.onAuthStateChange.listen(
           (authState) {
-            if (authState.session != null) {
-              context.mounted
-                  ? Navigator.of(context).pushReplacementNamed(Routes.homeRoute)
-                  : null;
+            if (authState.session != null && mounted) {
+              Navigator.of(context).pushReplacementNamed(Routes.homeRoute);
             }
           },
         );
