@@ -100,9 +100,9 @@ class _OSMState extends State<OsmImplemetation> {
           if (mapList.isNotEmpty) {
             for (var mapCity in mapList) {
               coordenandas = mapCity['geometry']['coordinates'][0];
-              print(coordenandas);
               coordenandas.forEach((element) {
                 print(element);
+                print(element.runtimeType);
               });
             }
           }
