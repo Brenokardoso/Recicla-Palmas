@@ -88,14 +88,25 @@ class _OSMState extends State<OsmImplemetation> {
   }
 
   Future<void> drawMap() async {
+    List mapList = [];
+    Map<String, dynamic> mapJson = {};
     tocantinsMap = await jsonRead(
-        pathFile: "lib/app/core/assets/json/map_of_tocantins.json");
+      pathFile: "lib/app/core/assets/json/map_of_tocantins.json",
+    );
+
     tocantinsMap.map(
       (key, value) {
-        print("Chave : $key Valor : $value");
+        if (key.contains("features")) {
+          mapList = value;
+          if (mapList.isNotEmpty) {
+            mapJson = mapList[0];
+            print(mapJson);
+          }
+        }
         return MapEntry(key, value);
       },
     );
+    if (mapJson.containsKey('geometry')) {}
   }
 
   Future<void> limitAreaMap() async {
