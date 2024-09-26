@@ -3,8 +3,7 @@ import 'package:recicla_palmas/app/modules/auth/auth_page.dart';
 import 'package:recicla_palmas/app/modules/home/home_page.dart';
 
 class Routes {
-  static String baseRoute = '/';
-  static String authRoute = "/auth";
+  static String authRoute = "/";
   static String homeRoute = "/home";
 }
 

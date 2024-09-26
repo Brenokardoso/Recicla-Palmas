@@ -9,7 +9,9 @@
 - [x] Botões
 - [x] Tela de Login
 - [x] Tela de Castro
-- [] Inicar o banco
+- [x] Inicar o banco
+- []  Construir o headers do Drawer
+- []  Padronizar os itens do Drawer
 - [] Fazer os testes com o device preview
 
 
@@ -21,4 +23,3 @@
 
 [Bugs]
 
-- [x] button que leva para cadastro

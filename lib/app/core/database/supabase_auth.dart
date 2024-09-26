@@ -108,7 +108,7 @@ class SupabaseAuth {
           if (context.mounted) {
             CustomWarnings.showSuccessSnackBar(
               context: context,
-              label: "Usuário cadastrado com sucesso",
+              label: "Usuário deslogado com sucesso",
             );
           }
         },
