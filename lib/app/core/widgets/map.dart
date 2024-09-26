@@ -106,7 +106,7 @@ class _OSMState extends State<OsmImplemetation> {
 
   RoadOption customRoadOption = const RoadOption(
     roadColor: Colors.blueGrey,
-    roadWidth: 2,
+    roadWidth: 3,
     zoomInto: false,
   );
 
