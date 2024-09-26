@@ -32,10 +32,13 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar('Página inicial'),
-      drawer: customDrawer([
-        DrawerItens.drawerHeader(),
-        DrawerItens.logOutSystem(context),
-      ],),
+      drawer: customDrawer(
+        width: 30,
+        itens: [
+          DrawerItens.drawerHeader(),
+          DrawerItens.logOutSystem(context),
+        ],
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Column(
