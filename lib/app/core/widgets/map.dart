@@ -15,6 +15,8 @@ class OsmImplemetation extends StatefulWidget {
 class _OSMState extends State<OsmImplemetation> {
   late final MapController mapController;
   Map<String, dynamic> tocantinsMap = {};
+  List<GeoPoint> geoPointList = [];
+  Map<String, dynamic> geoMap = {};
 
   @override
   void initState() {
@@ -25,6 +27,7 @@ class _OSMState extends State<OsmImplemetation> {
         longitude: -48.3317,
       ),
     );
+    cathGeoPoitns();
   }
 
   @override
@@ -44,16 +47,16 @@ class _OSMState extends State<OsmImplemetation> {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: SizedBox(
           width: sizeWidth,
-          height: sizeHeight * 0.8,
+          height: sizeHeight * 0.7,
           child: OSMFlutter(
             mapIsLoading: mapIsLoading(
               context,
-              sizeWidth / 9,
-              sizeHeight / 6,
+              sizeWidth / 10,
+              sizeHeight / 7,
             ),
-            onMapIsReady: (mapEvent) {
-              drawMap();
-              limitAreaMap();
+            onMapIsReady: (mapEvent) async {
+              await limitAreaMap();
+              await drawnTocantinsMap();
             },
             controller: mapController,
             osmOption: const OSMOption(
@@ -63,6 +66,9 @@ class _OSMState extends State<OsmImplemetation> {
                 minZoomLevel: 6.48505,
                 maxZoomLevel: 19,
               ),
+              showContributorBadgeForOSM: true,
+              showDefaultInfoWindow: true,
+              showZoomController: false,
             ),
           ),
         ),
@@ -87,29 +93,50 @@ class _OSMState extends State<OsmImplemetation> {
     );
   }
 
-  Future<void> drawMap() async {
+  Future<void> drawnTocantinsMap() async {
+    geoMap.forEach(
+      (cityName, cityCoordinates) async {
+        print(cityName);
+        await mapController.drawRoadManually(cityCoordinates, customRoadOption);
+      },
+    );
+  }
+
+  RoadOption customRoadOption = const RoadOption(
+    roadColor: Colors.blueGrey,
+    roadWidth: 2,
+    zoomInto: false,
+  );
+
+  Future<List<GeoPoint>> cathGeoPoitns() async {
     List mapList = [];
     List<dynamic> coordenandas;
     tocantinsMap = await jsonRead(
         pathFile: "lib/app/core/assets/json/map_of_tocantins.json");
-
     tocantinsMap.map(
       (key, value) {
         if (key.contains("features")) {
           mapList = value;
           if (mapList.isNotEmpty) {
             for (var mapCity in mapList) {
+              String cityName = mapCity["properties"]["name"];
               coordenandas = mapCity['geometry']['coordinates'][0];
-              coordenandas.forEach((element) {
-                print(element);
-                print(element.runtimeType);
-              });
+              geoPointList.clear();
+              for (var coords in coordenandas) {
+                var localGeoPoint = GeoPoint(
+                  longitude: coords[0],
+                  latitude: coords[1],
+                );
+                geoPointList.add(localGeoPoint);
+              }
+              geoMap.addAll({cityName: geoPointList});
             }
           }
         }
         return MapEntry(key, value);
       },
     );
+    return geoPointList;
   }
 
   Future<void> limitAreaMap() async {
