@@ -33,8 +33,9 @@ class _HomePage extends State<HomePage> {
     return Scaffold(
       appBar: customAppBar('Página inicial'),
       drawer: customDrawer([
+        DrawerItens.drawerHeader(),
         DrawerItens.logOutSystem(context),
-      ]),
+      ],),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Column(
