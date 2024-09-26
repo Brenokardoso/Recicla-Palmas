@@ -56,7 +56,7 @@ class _OSMState extends State<OsmImplemetation> {
             ),
             onMapIsReady: (mapEvent) async {
               await limitAreaMap();
-              await drawnTocantinsMap();
+              // await drawnTocantinsMap();
             },
             controller: mapController,
             osmOption: const OSMOption(
@@ -97,7 +97,8 @@ class _OSMState extends State<OsmImplemetation> {
     geoMap.forEach(
       (cityName, cityCoordinates) async {
         print(cityName);
-        await mapController.drawRoadManually(cityCoordinates, customRoadOption);
+        print(cityCoordinates);
+        mapController.drawRoadManually(cityCoordinates, customRoadOption);
       },
     );
   }
@@ -120,8 +121,10 @@ class _OSMState extends State<OsmImplemetation> {
           if (mapList.isNotEmpty) {
             for (var mapCity in mapList) {
               String cityName = mapCity["properties"]["name"];
-              coordenandas = mapCity['geometry']['coordinates'][0];
+              coordenandas = mapCity['geometry']['coordinates'];
               geoPointList.clear();
+
+
               for (var coords in coordenandas) {
                 var localGeoPoint = GeoPoint(
                   longitude: coords[0],
