@@ -94,7 +94,14 @@ class _OSMState extends State<OsmImplemetation> {
   }
 
   Future<void> drawnTocantinsMap() async {
-    print(geoMap);
+    geoMap.forEach(
+      (cityName, geoPoitsCity) async {
+        await mapController.drawRoadManually(
+          geoPoitsCity,
+          customRoadOption,
+        );
+      },
+    );
   }
 
   RoadOption customRoadOption = const RoadOption(
@@ -103,7 +110,7 @@ class _OSMState extends State<OsmImplemetation> {
     zoomInto: false,
   );
 
-  Future<List<GeoPoint>> cathGeoPoitns() async {
+  Future<void> cathGeoPoitns() async {
     List mapList = [];
     List<dynamic> coordenandas;
     tocantinsMap = await jsonRead(
@@ -115,27 +122,25 @@ class _OSMState extends State<OsmImplemetation> {
           if (mapList.isNotEmpty) {
             for (var mapCity in mapList) {
               String cityName = mapCity["properties"]["name"];
-              geoMap.putIfAbsent(cityName, () => []);
               coordenandas = mapCity['geometry']['coordinates'];
+              List<GeoPoint> cityGeoPoints = [];
+              geoMap.putIfAbsent(cityName, () => []);
               for (var majorCoords in coordenandas) {
                 for (var minorCoords in majorCoords) {
                   GeoPoint myCoords = GeoPoint(
                     longitude: minorCoords[0],
                     latitude: minorCoords[1],
                   );
-                  geoPointList.add(myCoords);
+                  cityGeoPoints.add(myCoords);
                 }
               }
-              print("$cityName  :  ${geoPointList.length}");
-              geoMap[cityName] = geoPointList;
-              geoPointList.clear();
+              geoMap[cityName] = cityGeoPoints;
             }
           }
         }
         return MapEntry(key, value);
       },
     );
-    return geoPointList;
   }
 
   Future<void> limitAreaMap() async {
