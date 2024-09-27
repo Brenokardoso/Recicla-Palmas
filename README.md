@@ -23,3 +23,4 @@
 
 [Bugs]
 
+- [] mensagems de auth para cadastro e login

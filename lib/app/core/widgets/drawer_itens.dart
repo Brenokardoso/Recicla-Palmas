@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_auth.dart';
+import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
 class DrawerItens {
   DrawerItens._();
@@ -10,42 +11,11 @@ class DrawerItens {
     fontWeight: FontWeight.w400,
   );
 
-  static Widget _defaultBodyDrawerItem({
-    required BuildContext context,
-    required String label,
-    dynamic function,
-  }) =>
-      Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(
-            child: MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-                onTap: () {
-                  print("Entrou");
-                  function;
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  color: Colors.white,
-                  height: 60,
-                  child: Text(
-                    label,
-                    style: customTextSyle,
-                  ),
-                ),
-              ),
-            ),
-          )
-        ],
-      );
-
   static DrawerHeader drawerHeader() {
     SizedBox space = const SizedBox(height: 10);
     return DrawerHeader(
+      margin: const EdgeInsets.only(bottom: 0.0),
+      padding: const EdgeInsets.symmetric(horizontal: 0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,18 +27,35 @@ class DrawerItens {
             ),
           ),
           space,
+          space,
           const Text("Avatar Name")
         ],
       ),
     );
   }
 
-  static Widget logOutSystem(BuildContext context) => _defaultBodyDrawerItem(
-        context: context,
-        label: "Sair",
-        function: () async {
-          print("Dando o fora daqui tá ligado meu irmão");
-          await SupabaseAuth.signOut(context);
+  static Widget logOutSystem(BuildContext context, String label) {
+    return _customDrawerItens(context, label, () {
+      print("Tomi saídas");
+      SupabaseAuth.signOut(context);
+    });
+  }
+
+  static Widget _customDrawerItens(
+      BuildContext context, String label, VoidCallback? func) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: () {
+          func?.call();
         },
-      );
+        child: Container(
+          width: 200,
+          height: 100,
+          color: CustomColors.inputBorderFocusColor,
+          child: Text(label, style: customTextSyle),
+        ),
+      ),
+    );
+  }
 }

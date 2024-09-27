@@ -41,34 +41,36 @@ class _OSMState extends State<OsmImplemetation> {
     double sizeWidth = MediaQuery.of(context).size.width;
     double sizeHeight = MediaQuery.of(context).size.height;
 
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(30),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: SizedBox(
-          width: sizeWidth,
-          height: sizeHeight * 0.7,
-          child: OSMFlutter(
-            mapIsLoading: mapIsLoading(
-              context,
-              sizeWidth / 10,
-              sizeHeight / 7,
-            ),
-            onMapIsReady: (mapEvent) async {
-              await limitAreaMap();
-              await drawnTocantinsMap();
-            },
-            controller: mapController,
-            osmOption: const OSMOption(
-              zoomOption: ZoomOption(
-                // Zoom para fixar no Tocantins
-                initZoom: 6.48505,
-                minZoomLevel: 6.48505,
-                maxZoomLevel: 19,
+    return Center(
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(30),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: SizedBox(
+            width: sizeWidth * 0.8,
+            height: sizeHeight * 0.65,
+            child: OSMFlutter(
+              mapIsLoading: mapIsLoading(
+                context,
+                sizeWidth / 10,
+                sizeHeight / 7,
               ),
-              showContributorBadgeForOSM: true,
-              showDefaultInfoWindow: true,
-              showZoomController: false,
+              onMapIsReady: (mapEvent) async {
+                await limitAreaMap();
+                await drawnTocantinsMap();
+              },
+              controller: mapController,
+              osmOption: const OSMOption(
+                zoomOption: ZoomOption(
+                  // Zoom para fixar no Tocantins
+                  initZoom: 6.48505,
+                  minZoomLevel: 6.48505,
+                  maxZoomLevel: 19,
+                ),
+                showContributorBadgeForOSM: true,
+                showDefaultInfoWindow: true,
+                showZoomController: false,
+              ),
             ),
           ),
         ),

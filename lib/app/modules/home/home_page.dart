@@ -30,13 +30,14 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: customAppBar('Página inicial'),
       drawer: customDrawer(
-        width: 30,
+        width: sizeWidth / 10,
         itens: [
           DrawerItens.drawerHeader(),
-          DrawerItens.logOutSystem(context),
+          DrawerItens.logOutSystem(context, "Sair")
         ],
       ),
       body: LayoutBuilder(
