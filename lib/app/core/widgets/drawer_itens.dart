@@ -42,7 +42,7 @@ class DrawerItens {
   }
 
   static Widget _customDrawerItens(
-      BuildContext context, String label, VoidCallback? func) {
+      BuildContext context, String label, void Function()? func) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
