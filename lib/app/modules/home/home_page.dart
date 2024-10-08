@@ -36,7 +36,7 @@ class _HomePage extends State<HomePage> {
       drawer: customDrawer(
         width: sizeWidth / 10,
         itens: [
-          DrawerItens.drawerHeader(),
+          DrawerItens.drawerHeader("Breno Cardoso"),
           DrawerItens.logOutSystem(context, "Sair")
         ],
       ),

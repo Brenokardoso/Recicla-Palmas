@@ -10,8 +10,8 @@
 - [x] Tela de Login
 - [x] Tela de Castro
 - [x] Inicar o banco
-- []  Construir o headers do Drawer
-- []  Padronizar os itens do Drawer
+- [x]  Construir o headers do Drawer
+- [x]  Padronizar os itens do Drawer
 - [] Fazer os testes com o device preview
 
 
