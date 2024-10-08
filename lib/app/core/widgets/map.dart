@@ -140,7 +140,7 @@ class _OSMState extends State<OsmImplemetation> {
             icon: Icon(
               Icons.location_on,
               color: CustomColors.inputBorderEnableColor,
-              size: 20,
+              size: 25,
             ),
           ),
         );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
+import 'package:recicla_palmas/app/core/widgets/custom_card_item.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer_itens.dart';
 import 'package:recicla_palmas/app/core/widgets/map.dart';
@@ -42,17 +43,36 @@ class _HomePage extends State<HomePage> {
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              customHeader(
-                context,
-                "Clique nos pontos para ir para os locais de reciclagem mais perto de você",
-              ),
-              const OsmImplemetation(),
-            ],
+          return SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                customHeader(
+                  context,
+                  "Clique nos pontos para ir para os locais de reciclagem mais perto de você",
+                ),
+                const OsmImplemetation(),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 185),
+                  width: constraints.maxWidth,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      customCardItem(
+                        pathImage:
+                            "lib/app/core/assets/img/image_auth_backgorund.png",
+                        descricao: 'Descrição Teste level 1',
+                        descricaoDosMateriais: 'Vidro,plástico,borracha,uranio',
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           );
         },
       ),
