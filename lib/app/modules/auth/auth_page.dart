@@ -55,43 +55,55 @@ class _AuthPageState extends State<AuthPage> {
   Widget build(BuildContext scaffoldContext) {
     return Scaffold(
       appBar: customAppBar("Recicla Palmas"),
-      body: Center(
-        child: LayoutBuilder(
-          builder: (context, constraits) {
-            return ValueListenableBuilder(
-              valueListenable: changeForms,
-              builder: (_, value, __) => Container(
-                width: constraits.maxWidth / 1.5,
-                height: constraits.maxHeight / 2,
-                constraints: constraits,
-                color: CustomColors.cardColor,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Form(
-                      key: formKey,
-                      child: value
-                          ? cardCadastro(
-                              maxWidth: constraits.maxWidth,
-                              maxHeight: constraits.maxHeight,
-                            )
-                          : cardLogin(
-                              maxWidth: constraits.maxWidth,
-                              maxHeight: constraits.maxHeight,
-                            ),
-                    ),
-                    buttons(
-                      maxWidth: constraits.maxWidth,
-                      maxHeight: constraits.maxHeight,
-                      change: value,
-                    )
-                  ],
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fitWidth,
+            filterQuality: FilterQuality.high,
+            image: AssetImage("lib/app/core/assets/img/lake.jpg"),
+          ),
+        ),
+        child: Center(
+          child: LayoutBuilder(
+            builder: (context, constraits) {
+              return ValueListenableBuilder(
+                valueListenable: changeForms,
+                builder: (_, value, __) => Container(
+                  width: constraits.maxWidth / 1.5,
+                  height: constraits.maxHeight / 2,
+                  decoration: BoxDecoration(
+                    color: CustomColors.cardColor,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  constraints: constraits,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Form(
+                        key: formKey,
+                        child: value
+                            ? cardCadastro(
+                                maxWidth: constraits.maxWidth,
+                                maxHeight: constraits.maxHeight,
+                              )
+                            : cardLogin(
+                                maxWidth: constraits.maxWidth,
+                                maxHeight: constraits.maxHeight,
+                              ),
+                      ),
+                      buttons(
+                        maxWidth: constraits.maxWidth,
+                        maxHeight: constraits.maxHeight,
+                        change: value,
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );
@@ -115,6 +127,10 @@ class _AuthPageState extends State<AuthPage> {
               width: maxWidth,
               height: maxHeight! / 13,
               decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
                 gradient: LinearGradient(
                   colors: CustomColors.colorGradientHeader,
                 ),
@@ -130,6 +146,7 @@ class _AuthPageState extends State<AuthPage> {
             ),
           ),
         ),
+        space,
         space,
         Flexible(
           child: CustomTextFormField.user(

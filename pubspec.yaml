@@ -68,6 +68,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/app/core/assets/json/map_of_tocantins.json
+    - lib/app/core/assets/img/image_auth_backgorund.png
+    - lib/app/core/assets/img/lake.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
