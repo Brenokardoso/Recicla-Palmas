@@ -80,141 +80,72 @@ class _OSMState extends State<OsmImplemetation> {
   }
 
   dynamic drawPointsIntheMap() async {
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.1800044,
-          longitude: -48.3398663,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(Icons.location_on,
-              color: CustomColors.inputBorderEnableColor),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.199413,
-          longitude: -48.3137959,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(Icons.location_on,
-              color: CustomColors.inputBorderEnableColor),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.2170479,
-          longitude: -48.3347741,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(Icons.location_on,
-              color: CustomColors.inputBorderEnableColor),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.1826897,
-          longitude: -48.3469972,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
+    List<GeoPoint> geoPointList = [
+      GeoPoint(
+        latitude: -10.1800044,
+        longitude: -48.3398663,
+      ),
+      GeoPoint(
+        latitude: -10.199413,
+        longitude: -48.3137959,
+      ),
+      GeoPoint(
+        latitude: -10.2170479,
+        longitude: -48.3347741,
+      ),
+      GeoPoint(
+        latitude: -10.1826897,
+        longitude: -48.3469972,
+      ),
+      GeoPoint(
+        latitude: -10.2074703,
+        longitude: -48.3469764,
+      ),
+      GeoPoint(
+        latitude: -10.1947066,
+        longitude: -48.3273138,
+      ),
+      GeoPoint(
+        latitude: -10.2184872,
+        longitude: -48.3402029,
+      ),
+      GeoPoint(
+        latitude: -10.2461177,
+        longitude: -48.345443,
+      ),
+      GeoPoint(
+        latitude: -10.182342,
+        longitude: -48.336706,
+      ),
+      GeoPoint(
+        latitude: -10.1766799,
+        longitude: -48.3470613,
+      ),
+      GeoPoint(
+        latitude: -10.1823224,
+        longitude: -48.3355458,
+      ),
+      GeoPoint(
+        latitude: -10.1817440,
+        longitude: -48.3166820,
+      ),
+    ];
+
+    // FAVOR,NÃO TROQUE ESSA BOSTA POR UM .MAP
+    geoPointList.forEach(
+      (geoPoint) async {
+        await mapController.addMarker(
+          geoPoint,
+          markerIcon: MarkerIcon(
+            icon: Icon(
+              Icons.location_on,
+              color: CustomColors.inputBorderEnableColor,
+              size: 20,
+            ),
           ),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.2074703,
-          longitude: -48.3469764,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
-          ),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.1947066,
-          longitude: -48.3273138,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
-          ),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.2184872,
-          longitude: -48.3402029,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
-          ),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.2461177,
-          longitude: -48.345443,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
-          ),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.182342,
-          longitude: -48.336706,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
-          ),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.1766799,
-          longitude: -48.3470613,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
-          ),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.1823224,
-          longitude: -48.3355458,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
-          ),
-        ));
-    mapController.addMarker(
-        GeoPoint(
-          latitude: -10.1817440,
-          longitude: -48.3166820,
-        ),
-        markerIcon: MarkerIcon(
-          icon: Icon(
-            Icons.location_on,
-            color: CustomColors.inputBorderEnableColor,
-            size: 45,
-          ),
-        ));
+        );
+      },
+    );
   }
 
   Widget mapIsLoading(
