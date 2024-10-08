@@ -42,15 +42,23 @@ Widget customCardItem({
         ),
       );
 
-  ElevatedButton customButton(
-          VoidCallback? function, String label, IconData icon) =>
-      ElevatedButton.icon(
-        onPressed: () => function?.call(),
-        style: ButtonStyle(
-          padding: WidgetStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
-        ),
-        label: Text(label),
-        icon: Icon(icon),
+  Widget customButton(VoidCallback? function, String label, IconData icon) =>
+      Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: ElevatedButton.icon(
+              onPressed: () => function?.call(),
+              style: ButtonStyle(
+                padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
+                    EdgeInsets.zero),
+              ),
+              label: Text(label),
+              icon: Icon(icon),
+            ),
+          ),
+        ],
       );
 
   return Card(
