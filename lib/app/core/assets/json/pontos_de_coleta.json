@@ -1,0 +1,141 @@
+{
+    "pontos_de_coleta": [
+        {
+            "nome": "Ecoponto da ACNO 1 (103 Norte) - Anexo III da Corregedoria da Justiça",
+            "coordenadas": [
+                -10.1800044,
+                -48.3398663
+            ],
+            "materiais_recebidos": [
+                "Metal",
+                "Papel",
+                "Plástico"
+            ]
+        },
+        {
+            "nome": "Ecoponto da Arse 34 (310 Sul) - IFTO",
+            "coordenadas": [
+                -10.199413,
+                -48.3137959
+            ],
+            "materiais_recebidos": [
+                "Papel",
+                "Plástico",
+                "Metal",
+                "Vidro"
+            ]
+        },
+        {
+            "nome": "Ecoponto da AASE 50 (502 Sul) - Defensoria Pública na Avenida Teotônio Segurado",
+            "coordenadas": [
+                -10.2170479,
+                -48.3347741
+            ],
+            "materiais_recebidos": [
+                "Metal",
+                "Plástico",
+                "Papel"
+            ]
+        },
+        {
+            "nome": "Ecoponto da Arno 12 (105 Norte) Prédio Royal",
+            "coordenadas": [
+                -10.1826897,
+                -48.3469972
+            ],
+            "materiais_recebidos": [
+                "Plástico",
+                "Metal",
+                "Papel"
+            ]
+        },
+        {
+            "nome": "Ecoponto na Praça da Arso 42 (405 Sul)",
+            "coordenadas": [
+                -10.2074703,
+                -48.3469764
+            ],
+            "materiais_recebidos": [
+                "Vidro",
+                "Metal",
+                "Papel",
+                "Plástico"
+            ]
+        },
+        {
+            "nome": "Ecoponto na Praça da Arse 21 (204 Sul)",
+            "coordenadas": [
+                -10.1947066,
+                -48.3273138
+            ],
+            "materiais_recebidos": [
+                "Papel",
+                "Vidro",
+                "Metal",
+                "Plástico"
+            ]
+        },
+        {
+            "nome": "Ecoponto da Arso 61 (603 Sul)",
+            "coordenadas": [
+                -10.2184872,
+                -48.3402029
+            ],
+            "materiais_recebidos": [
+                "Papel",
+                "Metal",
+                "Plástico"
+            ]
+        },
+        {
+            "nome": "Ecoponto da Arso 102 (1005 Sul)",
+            "coordenadas": [
+                -10.2461177,
+                -48.345443
+            ],
+            "materiais_recebidos": [
+                "Metal",
+                "Plástico",
+                "Papel"
+            ]
+        },
+        {
+            "nome": "Ecoponto na Praça dos Girassóis (Terratins)",
+            "coordenadas": [
+                -10.182342,
+                -48.336706
+            ],
+            "materiais_recebidos": [
+                "Plástico",
+                "Papel",
+                "Metal",
+                "Vidro"
+            ]
+        },
+        {
+            "nome": "Ecoponto da Arno 22 (205 Norte) Condomínio Privillege",
+            "coordenadas": [
+                -10.1766799,
+                -48.3470613
+            ],
+            "materiais_recebidos": [
+                "Papel",
+                "Metal",
+                "Plástico"
+            ]
+        },
+        {
+            "nome": "Ecoponto na Praça dos Girassóis (Tribunal de Justiça)",
+            "coordenadas": [
+                -10.1823224,
+                -48.3355458
+            ],
+            "materiais_recebidos": [
+                "Metal",
+                "Vidro",
+                "Plástico",
+                "Papel"
+            ]
+        }
+    ]
+}

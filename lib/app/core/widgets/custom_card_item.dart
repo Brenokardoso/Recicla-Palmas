@@ -50,8 +50,8 @@ Widget customCardItem({
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 325,
-          height: 200,
+          width: 360,
+          height: 205,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.fitWidth,
@@ -62,7 +62,7 @@ Widget customCardItem({
           ),
         ),
         Container(
-          width: 325,
+          width: 360,
           height: 250,
           color: CustomColors.green400,
           child: Column(

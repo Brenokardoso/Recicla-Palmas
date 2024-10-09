@@ -16,6 +16,7 @@ class OsmImplemetation extends StatefulWidget {
 class _OSMState extends State<OsmImplemetation> {
   late final MapController mapController;
   Map<String, dynamic> tocantinsMap = {};
+  Map<String, dynamic> ecoPoints = {};
   List<GeoPoint> geoPointList = [];
   Map<String, dynamic> geoMap = {};
 
@@ -66,6 +67,7 @@ class _OSMState extends State<OsmImplemetation> {
                       await limitAreaMap();
                       await drawnTocantinsMap();
                       await drawPointsIntheMap();
+                      cathEcoPoints();
                     },
                     controller: mapController,
                     osmOption: const OSMOption(
@@ -92,9 +94,8 @@ class _OSMState extends State<OsmImplemetation> {
                         "Locais para o descarte de materais recicláveis:"))),
           ),
           Center(
-            child: Container(
-              width: sizeWidth * 0.85,
-              color: Colors.blue,
+            child: SizedBox(
+              width: sizeWidth * 0.9,
               child: Wrap(
                 runAlignment: WrapAlignment.start,
                 alignment: sizeWidth < 650
@@ -256,6 +257,13 @@ class _OSMState extends State<OsmImplemetation> {
     roadWidth: 3,
     zoomInto: false,
   );
+
+  Future<void> cathEcoPoints() async {
+    ecoPoints = await jsonRead(
+      pathFile: "lib/app/core/assets/json/pontos_de_coleta.json",
+    );
+    print(ecoPoints);
+  }
 
   Future<void> cathGeoPoitns() async {
     List mapList = [];
