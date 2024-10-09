@@ -54,23 +54,6 @@ class _HomePage extends State<HomePage> {
                   "Clique nos pontos para ir para os locais de reciclagem mais perto de você",
                 ),
                 const OsmImplemetation(),
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 185),
-                  width: constraints.maxWidth,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      customCardItem(
-                        pathImage:
-                            "lib/app/core/assets/img/image_auth_backgorund.png",
-                        descricao: 'Descrição Teste level 1',
-                        descricaoDosMateriais: 'Vidro,plástico,borracha,uranio',
-                      ),
-                    ],
-                  ),
-                )
               ],
             ),
           );

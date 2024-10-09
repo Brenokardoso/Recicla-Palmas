@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 import 'package:recicla_palmas/app/core/utils/json_read.dart';
+import 'package:recicla_palmas/app/core/widgets/custom_card_item.dart';
 
 class OsmImplemetation extends StatefulWidget {
   const OsmImplemetation({
@@ -41,41 +42,73 @@ class _OSMState extends State<OsmImplemetation> {
     double sizeWidth = MediaQuery.of(context).size.width;
     double sizeHeight = MediaQuery.of(context).size.height;
 
-    return Center(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(30),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: SizedBox(
-            width: sizeWidth * 0.8,
-            height: sizeHeight * 0.65,
-            child: OSMFlutter(
-              mapIsLoading: mapIsLoading(
-                context,
-                sizeWidth / 10,
-                sizeHeight / 7,
-              ),
-              onMapIsReady: (mapEvent) async {
-                await limitAreaMap();
-                await drawnTocantinsMap();
-                await drawPointsIntheMap();
-              },
-              controller: mapController,
-              osmOption: const OSMOption(
-                zoomOption: ZoomOption(
-                  // Zoom para fixar no Tocantins
-                  initZoom: 6.48505,
-                  minZoomLevel: 6.48505,
-                  maxZoomLevel: 19,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Center(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(30),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: SizedBox(
+                width: sizeWidth * 0.8,
+                height: sizeHeight * 0.65,
+                child: OSMFlutter(
+                  mapIsLoading: mapIsLoading(
+                    context,
+                    sizeWidth / 10,
+                    sizeHeight / 7,
+                  ),
+                  onMapIsReady: (mapEvent) async {
+                    await limitAreaMap();
+                    await drawnTocantinsMap();
+                    await drawPointsIntheMap();
+                  },
+                  controller: mapController,
+                  osmOption: const OSMOption(
+                    zoomOption: ZoomOption(
+                      // Zoom para fixar no Tocantins
+                      initZoom: 6.48505,
+                      minZoomLevel: 6.48505,
+                      maxZoomLevel: 19,
+                    ),
+                    showContributorBadgeForOSM: true,
+                    showDefaultInfoWindow: true,
+                    showZoomController: false,
+                  ),
                 ),
-                showContributorBadgeForOSM: true,
-                showDefaultInfoWindow: true,
-                showZoomController: false,
               ),
             ),
           ),
         ),
-      ),
+        Center(
+          child: Container(
+            width: sizeWidth * 0.8,
+            height: sizeHeight * 0.65,
+            color: Colors.amber,
+            child: Wrap(
+              alignment: WrapAlignment.start,
+              spacing: 20,
+              children: [
+                customCardItem(
+                  pathImage:
+                      "lib/app/core/assets/img/image_auth_backgorund.png",
+                  descricao: "Titulo do card",
+                  descricaoDosMateriais: "Descrição no card",
+                ),
+                customCardItem(
+                  pathImage:
+                      "lib/app/core/assets/img/image_auth_backgorund.png",
+                  descricao: "Titulo do card 2 ",
+                  descricaoDosMateriais: "Descrição no card 2",
+                )
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 
