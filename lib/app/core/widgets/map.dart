@@ -19,6 +19,7 @@ class _OSMState extends State<OsmImplemetation> {
   Map<String, dynamic> ecoPoints = {};
   List<GeoPoint> geoPointList = [];
   Map<String, dynamic> geoMap = {};
+  List cardInformations = [];
 
   @override
   void initState() {
@@ -30,6 +31,7 @@ class _OSMState extends State<OsmImplemetation> {
       ),
     );
     cathGeoPoitns();
+    cathEcoPoints();
   }
 
   @override
@@ -63,11 +65,20 @@ class _OSMState extends State<OsmImplemetation> {
                       sizeWidth / 10,
                       sizeHeight / 7,
                     ),
+                    onGeoPointClicked: (clickedGeoPoint) {
+                      geoPointList.map(
+                        (geoPointItem) {
+                          if (clickedGeoPoint == geoPointItem) {
+                            print(
+                                "Tem esse ponto no banco caralhooooooooooooooooooooooooooooooooooooo");
+                          }
+                        },
+                      );
+                    },
                     onMapIsReady: (mapEvent) async {
                       await limitAreaMap();
                       await drawnTocantinsMap();
                       await drawPointsIntheMap();
-                      cathEcoPoints();
                     },
                     controller: mapController,
                     osmOption: const OSMOption(
@@ -89,9 +100,10 @@ class _OSMState extends State<OsmImplemetation> {
           const Padding(
             padding: EdgeInsets.all(24.0),
             child: Center(
-                child: SizedBox(
-                    child: Text(
-                        "Locais para o descarte de materais recicláveis:"))),
+              child: SizedBox(
+                child: Text("Locais para o descarte de materais recicláveis:"),
+              ),
+            ),
           ),
           Center(
             child: SizedBox(
@@ -258,11 +270,12 @@ class _OSMState extends State<OsmImplemetation> {
     zoomInto: false,
   );
 
-  Future<void> cathEcoPoints() async {
+  Future<List<dynamic>> cathEcoPoints() async {
     ecoPoints = await jsonRead(
       pathFile: "lib/app/core/assets/json/pontos_de_coleta.json",
     );
-    print(ecoPoints);
+    cardInformations = ecoPoints["pontos_de_coleta"];
+    return cardInformations;
   }
 
   Future<void> cathGeoPoitns() async {
