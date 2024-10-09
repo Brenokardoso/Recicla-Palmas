@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
+import 'package:recicla_palmas/app/core/widgets/buttons.dart';
 
 Widget customCardItem({
   required String pathImage,
@@ -63,7 +64,7 @@ Widget customCardItem({
         Container(
           width: 275,
           height: 250,
-          color: CustomColors.green500,
+          color: CustomColors.green400,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +74,14 @@ Widget customCardItem({
               space,
               textDescription(descricaoDosMateriais),
               space,
-              
+              CustomButtons.buttonSecondary(
+                label: "ButtonTest",
+                icon: Icons.abc,
+                fontSize: 12,
+                width: 275,
+                height: 50,
+                function: () {},
+              )
             ],
           ),
         )
