@@ -85,11 +85,11 @@ class _OSMState extends State<OsmImplemetation> {
         ),
         Center(
           child: Container(
-            width: sizeWidth * 0.8,
+            width: sizeWidth * 0.801,
             height: sizeHeight * 0.65,
             color: Colors.amber,
             child: Wrap(
-              alignment: WrapAlignment.start,
+              alignment:  sizeWidth < 650 ?  WrapAlignment.center : WrapAlignment.start,
               spacing: 20,
               children: [
                 customCardItem(

@@ -42,25 +42,6 @@ Widget customCardItem({
         ),
       );
 
-  Widget customButton(VoidCallback? function, String label, IconData icon) =>
-      Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: ElevatedButton.icon(
-              onPressed: () => function?.call(),
-              style: ButtonStyle(
-                padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
-                    EdgeInsets.zero),
-              ),
-              label: Text(label),
-              icon: Icon(icon),
-            ),
-          ),
-        ],
-      );
-
   return Card(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -68,7 +49,7 @@ Widget customCardItem({
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 250,
+          width: 275,
           height: 200,
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -80,7 +61,7 @@ Widget customCardItem({
           ),
         ),
         Container(
-          width: 250,
+          width: 275,
           height: 250,
           color: CustomColors.green500,
           child: Column(
@@ -92,9 +73,7 @@ Widget customCardItem({
               space,
               textDescription(descricaoDosMateriais),
               space,
-              customButton(() {
-                print("TESTE");
-              }, "Teste", Icons.abc)
+              
             ],
           ),
         )
