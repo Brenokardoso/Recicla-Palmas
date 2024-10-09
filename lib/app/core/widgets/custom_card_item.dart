@@ -50,7 +50,7 @@ Widget customCardItem({
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 275,
+          width: 325,
           height: 200,
           decoration: BoxDecoration(
             image: DecorationImage(
@@ -62,7 +62,7 @@ Widget customCardItem({
           ),
         ),
         Container(
-          width: 275,
+          width: 325,
           height: 250,
           color: CustomColors.green400,
           child: Column(
@@ -75,13 +75,15 @@ Widget customCardItem({
               textDescription(descricaoDosMateriais),
               space,
               space,
-              CustomButtons.buttonSecondary(
-                label: "ButtonTest",
-                icon: Icons.abc,
-                fontSize: 12,
-                width: 275,
-                height: 50,
-                function: () {},
+              Center(
+                child: CustomButtons.buttonSecondary(
+                  label: "ButtonTest",
+                  icon: Icons.abc,
+                  fontSize: 12,
+                  width: 275,
+                  height: 50,
+                  function: () {},
+                ),
               )
             ],
           ),

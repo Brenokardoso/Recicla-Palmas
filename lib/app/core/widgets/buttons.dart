@@ -70,27 +70,25 @@ class CustomButtons {
     Color? colorFont,
     Color? colorBackground,
   }) =>
-      Flexible(
-        child: ElevatedButton.icon(
-          iconAlignment: IconAlignment.end,
-          icon: Icon(
-            icon,
-            color: CustomColors.green400,
+      ElevatedButton.icon(
+        iconAlignment: IconAlignment.end,
+        icon: Icon(
+          icon,
+          color: CustomColors.green400,
+        ),
+        label: Text(
+          label,
+          style: TextStyle(
+            color: colorFont ?? Colors.black,
           ),
-          label: Text(
-            label,
-            style: TextStyle(
-              color: colorFont ?? Colors.black,
-            ),
-          ),
-          onPressed: function,
-          style: _customButtomStyle(
-            label: label,
-            fontSize: fontSize,
-            width: width,
-            height: height,
-            colorBackground: colorBackground,
-          ),
+        ),
+        onPressed: function,
+        style: _customButtomStyle(
+          label: label,
+          fontSize: fontSize,
+          width: width,
+          height: height,
+          colorBackground: colorBackground,
         ),
       );
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
-import 'package:recicla_palmas/app/core/widgets/custom_card_item.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer_itens.dart';
 import 'package:recicla_palmas/app/core/widgets/map.dart';
@@ -50,9 +49,7 @@ class _HomePage extends State<HomePage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 customHeader(
-                  context,
-                  "Clique nos pontos para ir para os locais de reciclagem mais perto de você",
-                ),
+                    context, "Descubra os locais de reciclagem perto de você"),
                 const OsmImplemetation(),
               ],
             ),
