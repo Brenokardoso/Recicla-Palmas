@@ -80,8 +80,8 @@ Widget customCardItem({
                   label: "ButtonTest",
                   icon: Icons.abc,
                   fontSize: 12,
-                  width: 275,
-                  height: 50,
+                  width: 225,
+                  height: 60,
                   function: () {},
                 ),
               )
