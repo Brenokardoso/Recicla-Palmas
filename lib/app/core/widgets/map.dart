@@ -89,7 +89,8 @@ class _OSMState extends State<OsmImplemetation> {
             height: sizeHeight * 0.65,
             color: Colors.amber,
             child: Wrap(
-              alignment:  sizeWidth < 650 ?  WrapAlignment.center : WrapAlignment.start,
+              alignment:
+                  sizeWidth < 650 ? WrapAlignment.center : WrapAlignment.start,
               spacing: 20,
               children: [
                 customCardItem(
@@ -103,7 +104,37 @@ class _OSMState extends State<OsmImplemetation> {
                       "lib/app/core/assets/img/image_auth_backgorund.png",
                   descricao: "Titulo do card 2 ",
                   descricaoDosMateriais: "Descrição no card 2",
-                )
+                ),
+                customCardItem(
+                  pathImage:
+                      "lib/app/core/assets/img/image_auth_backgorund.png",
+                  descricao: "Titulo do card 2 ",
+                  descricaoDosMateriais: "Descrição no card 2",
+                ),
+                customCardItem(
+                  pathImage:
+                      "lib/app/core/assets/img/image_auth_backgorund.png",
+                  descricao: "Titulo do card 2 ",
+                  descricaoDosMateriais: "Descrição no card 2",
+                ),
+                customCardItem(
+                  pathImage:
+                      "lib/app/core/assets/img/image_auth_backgorund.png",
+                  descricao: "Titulo do card 2 ",
+                  descricaoDosMateriais: "Descrição no card 2",
+                ),
+                customCardItem(
+                  pathImage:
+                      "lib/app/core/assets/img/image_auth_backgorund.png",
+                  descricao: "Titulo do card 2 ",
+                  descricaoDosMateriais: "Descrição no card 2",
+                ),
+                customCardItem(
+                  pathImage:
+                      "lib/app/core/assets/img/image_auth_backgorund.png",
+                  descricao: "Titulo do card 2 ",
+                  descricaoDosMateriais: "Descrição no card 2",
+                ),
               ],
             ),
           ),

@@ -7,7 +7,7 @@ Widget customCardItem({
   required String descricao,
   required String descricaoDosMateriais,
 }) {
-  SizedBox space = const SizedBox(height: 10);
+  SizedBox space = const SizedBox(height: 15);
 
   TextStyle titleTextStyle = const TextStyle(
     color: Colors.white,
@@ -73,6 +73,7 @@ Widget customCardItem({
               titleTextDescription(descricao),
               space,
               textDescription(descricaoDosMateriais),
+              space,
               space,
               CustomButtons.buttonSecondary(
                 label: "ButtonTest",

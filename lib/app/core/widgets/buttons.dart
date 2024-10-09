@@ -60,7 +60,7 @@ class CustomButtons {
         ),
       );
 
-  static ElevatedButton buttonSecondary({
+  static Widget buttonSecondary({
     required String label,
     required IconData icon,
     required double fontSize,
@@ -70,25 +70,27 @@ class CustomButtons {
     Color? colorFont,
     Color? colorBackground,
   }) =>
-      ElevatedButton.icon(
-        iconAlignment: IconAlignment.end,
-        icon: Icon(
-          icon,
-          color: CustomColors.green400,
-        ),
-        label: Text(
-          label,
-          style: TextStyle(
-            color: colorFont ?? Colors.black,
+      Flexible(
+        child: ElevatedButton.icon(
+          iconAlignment: IconAlignment.end,
+          icon: Icon(
+            icon,
+            color: CustomColors.green400,
           ),
-        ),
-        onPressed: function,
-        style: _customButtomStyle(
-          label: label,
-          fontSize: fontSize,
-          width: width,
-          height: height,
-          colorBackground: colorBackground,
+          label: Text(
+            label,
+            style: TextStyle(
+              color: colorFont ?? Colors.black,
+            ),
+          ),
+          onPressed: function,
+          style: _customButtomStyle(
+            label: label,
+            fontSize: fontSize,
+            width: width,
+            height: height,
+            colorBackground: colorBackground,
+          ),
         ),
       );
 }
