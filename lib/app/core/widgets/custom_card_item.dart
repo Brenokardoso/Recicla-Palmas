@@ -6,6 +6,7 @@ Widget customCardItem({
   required String pathImage,
   required String descricao,
   required String descricaoDosMateriais,
+  void Function()? func,
 }) {
   SizedBox space = const SizedBox(height: 15);
 
@@ -89,7 +90,7 @@ Widget customCardItem({
                 width: 2.0,
                 color: Colors.greenAccent,
               ),
-              top: BorderSide(
+              bottom: BorderSide(
                 width: 2.0,
                 color: Colors.greenAccent,
               ),
@@ -107,12 +108,12 @@ Widget customCardItem({
               space,
               Center(
                 child: CustomButtons.buttonSecondary(
-                  label: "ButtonTest",
+                  label: "Ir para o ponto de reciclagem",
                   icon: Icons.abc,
                   fontSize: 12,
                   width: 225,
                   height: 60,
-                  function: () {},
+                  function: () => func!.call(),
                 ),
               )
             ],
