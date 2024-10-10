@@ -12,13 +12,12 @@ Widget customCardItem({
   TextStyle titleTextStyle = const TextStyle(
     color: Colors.white,
     fontSize: 18,
-    fontWeight: FontWeight.w600,
-    overflow: TextOverflow.ellipsis,
+    fontWeight: FontWeight.w700,
   );
 
   TextStyle descriptionTextStyle = const TextStyle(
     color: Colors.white,
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: FontWeight.w200,
     overflow: TextOverflow.ellipsis,
   );
@@ -29,6 +28,7 @@ Widget customCardItem({
           child: Text(
             title,
             style: titleTextStyle,
+            textAlign: TextAlign.center,
           ),
         ),
       );
@@ -53,6 +53,20 @@ Widget customCardItem({
           width: 360,
           height: 205,
           decoration: BoxDecoration(
+            border: const Border(
+              left: BorderSide(
+                width: 2.0,
+                color: Colors.greenAccent,
+              ),
+              right: BorderSide(
+                width: 2.0,
+                color: Colors.greenAccent,
+              ),
+              top: BorderSide(
+                width: 2.0,
+                color: Colors.greenAccent,
+              ),
+            ),
             image: DecorationImage(
               fit: BoxFit.fitWidth,
               image: AssetImage(
@@ -64,7 +78,23 @@ Widget customCardItem({
         Container(
           width: 360,
           height: 250,
-          color: CustomColors.green400,
+          decoration: BoxDecoration(
+            color: CustomColors.green400,
+            border: const Border(
+              left: BorderSide(
+                width: 2.0,
+                color: Colors.greenAccent,
+              ),
+              right: BorderSide(
+                width: 2.0,
+                color: Colors.greenAccent,
+              ),
+              top: BorderSide(
+                width: 2.0,
+                color: Colors.greenAccent,
+              ),
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

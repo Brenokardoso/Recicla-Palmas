@@ -93,6 +93,7 @@ class _OSMState extends State<OsmImplemetation> {
   Widget build(BuildContext context) {
     double sizeWidth = MediaQuery.of(context).size.width;
     double sizeHeight = MediaQuery.of(context).size.height;
+    String cardImage = "lib/app/core/assets/img/image_auth_backgorund.png";
 
     return SingleChildScrollView(
       child: Column(
@@ -163,46 +164,68 @@ class _OSMState extends State<OsmImplemetation> {
                 runSpacing: 10,
                 children: [
                   customCardItem(
-                    pathImage:
-                        "lib/app/core/assets/img/image_auth_backgorund.png",
-                    descricao: "Titulo do card",
-                    descricaoDosMateriais: "Descrição no card",
+                    pathImage: cardImage,
+                    descricao:
+                        "Ecoponto da ACNO 1 (103 Norte) - Anexo III da Corregedoria da Justiça",
+                    descricaoDosMateriais: "Metal, papel, plástico",
                   ),
                   customCardItem(
-                    pathImage:
-                        "lib/app/core/assets/img/image_auth_backgorund.png",
-                    descricao: "Titulo do card 2 ",
-                    descricaoDosMateriais: "Descrição no card 2",
+                    pathImage: cardImage,
+                    descricao: "Ecoponto da Arse 34 (310 Sul) - IFTO",
+                    descricaoDosMateriais: "Papel, plástico, metal, vidro",
                   ),
                   customCardItem(
-                    pathImage:
-                        "lib/app/core/assets/img/image_auth_backgorund.png",
-                    descricao: "Titulo do card 2 ",
-                    descricaoDosMateriais: "Descrição no card 2",
+                    pathImage: cardImage,
+                    descricao:
+                        "Ecoponto da AASE 50 (502 Sul) - Defensoria Pública na Avenida Teotônio Segurado",
+                    descricaoDosMateriais: "Metal, plástico, papel",
                   ),
                   customCardItem(
-                    pathImage:
-                        "lib/app/core/assets/img/image_auth_backgorund.png",
-                    descricao: "Titulo do card 2 ",
-                    descricaoDosMateriais: "Descrição no card 2",
+                    pathImage: cardImage,
+                    descricao: "Ecoponto da Arno 12 (105 Norte) Prédio Royal",
+                    descricaoDosMateriais: "Plástico, metal, papel",
                   ),
                   customCardItem(
-                    pathImage:
-                        "lib/app/core/assets/img/image_auth_backgorund.png",
-                    descricao: "Titulo do card 2 ",
-                    descricaoDosMateriais: "Descrição no card 2",
+                    pathImage: cardImage,
+                    descricao: "Ecoponto na Praça da Arso 42 (405 Sul)",
+                    descricaoDosMateriais: "Vidro, metal, papel, plástico",
                   ),
                   customCardItem(
-                    pathImage:
-                        "lib/app/core/assets/img/image_auth_backgorund.png",
-                    descricao: "Titulo do card 2 ",
-                    descricaoDosMateriais: "Descrição no card 2",
+                    pathImage: cardImage,
+                    descricao: "Ecoponto na Praça da Arse 21 (204 Sul)",
+                    descricaoDosMateriais: "Papel, vidro, metal, plástico",
                   ),
                   customCardItem(
-                    pathImage:
-                        "lib/app/core/assets/img/image_auth_backgorund.png",
-                    descricao: "Titulo do card 2 ",
-                    descricaoDosMateriais: "Descrição no card 2",
+                    pathImage: cardImage,
+                    descricao: "Ecoponto da Arso 61 (603 Sul)",
+                    descricaoDosMateriais: "Papel, metal, plástico",
+                  ),
+                  customCardItem(
+                    pathImage: cardImage,
+                    descricao: "Ecoponto da Arso 102 (1005 Sul)",
+                    descricaoDosMateriais: "Metal, plástico, papel",
+                  ),
+                  customCardItem(
+                    pathImage: cardImage,
+                    descricao: "Ecoponto na Praça dos Girassóis (Terratins)",
+                    descricaoDosMateriais: "Plástico, papel, metal, vidro",
+                  ),
+                  customCardItem(
+                    pathImage: cardImage,
+                    descricao:
+                        "Ecoponto da Arno 22 (205 Norte) Condomínio Privillege",
+                    descricaoDosMateriais: "Papel, metal, plástico",
+                  ),
+                  customCardItem(
+                    pathImage: cardImage,
+                    descricao:
+                        "Ecoponto na Praça dos Girassóis (Tribunal de Justiça)",
+                    descricaoDosMateriais: "Metal, vidro, plástico, papel",
+                  ),
+                  customCardItem(
+                    pathImage: cardImage,
+                    descricao: "Ecoponto na Praça da Arne 13 (108 Norte)",
+                    descricaoDosMateriais: "Papel, plástico, metal, vidro",
                   ),
                 ],
               ),
