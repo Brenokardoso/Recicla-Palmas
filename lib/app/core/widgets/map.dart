@@ -115,11 +115,11 @@ class _OSMState extends State<OsmImplemetation> {
                       sizeHeight / 7,
                     ),
                     onGeoPointClicked: (clickedGeoPoint) {
-                      geoPointList.forEach((item) {
+                      for (var item in geoPointList) {
                         if (item == clickedGeoPoint) {
                           null;
                         }
-                      });
+                      }
                     },
                     onMapIsReady: (mapEvent) async {
                       await limitAreaMap();
