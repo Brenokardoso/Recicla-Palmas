@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
-Drawer customDrawer({List<Widget>? itens,required double width}) {
+Drawer customDrawer({
+  List<Widget>? itens,
+  required double width,
+}) {
   return Drawer(
     backgroundColor: CustomColors.cardColor,
     elevation: 2,
@@ -11,7 +14,6 @@ Drawer customDrawer({List<Widget>? itens,required double width}) {
     ),
     shadowColor: Colors.black54,
     width: width,
-    
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,

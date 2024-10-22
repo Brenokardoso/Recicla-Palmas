@@ -105,17 +105,22 @@ Widget customCardItem({
               space,
               textDescription(descricaoDosMateriais),
               space,
-              space,
-              Center(
-                child: CustomButtons.buttonSecondary(
-                  label: "Ir para o ponto de reciclagem",
-                  icon: Icons.abc,
-                  fontSize: 12,
-                  width: 225,
-                  height: 60,
-                  function: () => func!.call(),
-                ),
-              )
+              LayoutBuilder(builder: (context, constratits) {
+                return Container(
+                  alignment: Alignment.bottomCenter,
+                  padding: const EdgeInsets.only(bottom: 5),
+                  width: constratits.maxWidth,
+                  height: 400,
+                  child: CustomButtons.buttonSecondary(
+                    label: "Ir para o ponto de reciclagem",
+                    icon: Icons.abc,
+                    fontSize: 12,
+                    width: 225,
+                    height: 60,
+                    function: () => func!.call(),
+                  ),
+                );
+              })
             ],
           ),
         )

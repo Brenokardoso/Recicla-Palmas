@@ -42,6 +42,7 @@ dependencies:
   flutter_osm_interface: 0.7.0
   pointer_interceptor: 0.10.1
   dio: 5.7.0
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:

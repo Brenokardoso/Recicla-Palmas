@@ -60,28 +60,26 @@ class _HomePage extends State<HomePage> {
   }
 
   Widget customHeader(BuildContext context, String label) {
-    return Flexible(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Text(
-                label,
-                style: const TextStyle(
-                  fontSize: 24,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  overflow: TextOverflow.fade,
-                ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Flexible(
+          child: Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 24,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                overflow: TextOverflow.fade,
               ),
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 import 'package:recicla_palmas/app/core/utils/json_read.dart';
 import 'package:recicla_palmas/app/core/widgets/custom_card_item.dart';
@@ -73,9 +75,15 @@ class _OSMState extends State<OsmImplemetation> {
   @override
   void initState() {
     super.initState();
-    mapController = MapController.withUserPosition(
-        trackUserLocation: const UserTrackingOption(
-            enableTracking: true, unFollowUser: false));
+    //mapController = MapController.withUserPosition(
+    //   trackUserLocation: const UserTrackingOption(
+    //     enableTracking: true, unFollowUser: false));
+    mapController = MapController(
+      initPosition: GeoPoint(
+        latitude: -10.1689,
+        longitude: -48.3317,
+      ),
+    );
     cathGeoPoitns();
     cathEcoPoints();
   }
@@ -140,11 +148,24 @@ class _OSMState extends State<OsmImplemetation> {
                         ),
                       ),
                       Positioned(
-                          child: Container(
-                        width: 50,
-                        height: 50,
-                        color: Colors.red,
-                      ))
+                        bottom: 30,
+                        right: 40,
+                        child: SizedBox(
+                          width: 50,
+                          height: 50,
+                          child: PointerInterceptor(
+                            child: IconButton.filled(
+                              onPressed: () async {
+                                GeoPoint myLocation =
+                                    await mapController.myLocation();
+                                await mapController.goToLocation(myLocation);
+                                await mapController.changeLocation(myLocation);
+                              },
+                              icon: const Icon(FontAwesomeIcons.mapLocation),
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
