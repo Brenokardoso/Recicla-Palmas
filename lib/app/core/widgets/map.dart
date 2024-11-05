@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 import 'package:recicla_palmas/app/core/utils/json_read.dart';
+import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/custom_card_item.dart';
 
 class OsmImplemetation extends StatefulWidget {
@@ -206,6 +207,8 @@ class _OSMState extends State<OsmImplemetation> {
                     descricao:
                         "Ecoponto da ACNO 1 (103 Norte) - Anexo III da Corregedoria da Justiça",
                     descricaoDosMateriais: "Metal, papel, plástico",
+                    func: () =>
+                        Navigator.of(context).pushNamed(Routes.point103),
                   ),
                   customCardItem(
                     pathImage: cardImage,
