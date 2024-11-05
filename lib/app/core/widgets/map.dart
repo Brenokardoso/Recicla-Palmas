@@ -154,14 +154,24 @@ class _OSMState extends State<OsmImplemetation> {
                           width: 50,
                           height: 50,
                           child: PointerInterceptor(
-                            child: IconButton.filled(
+                            child: IconButton(
+                              color: CustomColors.green500,
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    WidgetStateProperty.all<Color?>(
+                                  CustomColors.green500,
+                                ),
+                              ),
                               onPressed: () async {
                                 GeoPoint myLocation =
                                     await mapController.myLocation();
                                 await mapController.goToLocation(myLocation);
                                 await mapController.changeLocation(myLocation);
                               },
-                              icon: const Icon(FontAwesomeIcons.mapLocation),
+                              icon: const Icon(
+                                FontAwesomeIcons.mapLocation,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

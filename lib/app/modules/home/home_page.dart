@@ -30,16 +30,16 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double sizeWidth = MediaQuery.of(context).size.width;
+    // double sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: customAppBar('Página inicial'),
-      drawer: customDrawer(
-        width: sizeWidth / 10,
-        itens: [
-          DrawerItens.drawerHeader("Breno Cardoso"),
-          DrawerItens.logOutSystem(context, "Sair")
-        ],
-      ),
+      // drawer: customDrawer(
+      //   width: sizeWidth / 10,
+      //   itens: [
+      //     DrawerItens.drawerHeader("Breno Cardoso"),
+      //     DrawerItens.logOutSystem(context, "Sair")
+      //   ],
+      // ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
