@@ -52,50 +52,13 @@ Widget customCardItem({
       children: [
         Container(
           width: 360,
-          height: 205,
-          decoration: BoxDecoration(
-            border: const Border(
-              left: BorderSide(
-                width: 2.0,
-                color: Colors.greenAccent,
-              ),
-              right: BorderSide(
-                width: 2.0,
-                color: Colors.greenAccent,
-              ),
-              top: BorderSide(
-                width: 2.0,
-                color: Colors.greenAccent,
-              ),
-            ),
-            image: DecorationImage(
-              fit: BoxFit.fitWidth,
-              image: AssetImage(
-                pathImage,
-              ),
-            ),
-          ),
+          height: 245,
+          decoration: cardTopDecoration(pathImage),
         ),
         Container(
           width: 360,
           height: 250,
-          decoration: BoxDecoration(
-            color: CustomColors.green400,
-            border: const Border(
-              left: BorderSide(
-                width: 2.0,
-                color: Colors.greenAccent,
-              ),
-              right: BorderSide(
-                width: 2.0,
-                color: Colors.greenAccent,
-              ),
-              bottom: BorderSide(
-                width: 2.0,
-                color: Colors.greenAccent,
-              ),
-            ),
-          ),
+          decoration: cardBottomDecoration(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,26 +68,65 @@ Widget customCardItem({
               space,
               textDescription(descricaoDosMateriais),
               space,
-              LayoutBuilder(builder: (context, constratits) {
-                return Container(
-                  alignment: Alignment.bottomCenter,
-                  padding: const EdgeInsets.only(bottom: 5),
-                  width: constratits.maxWidth,
-                  height: 400,
-                  child: CustomButtons.buttonSecondary(
-                    label: "Ir para o ponto de reciclagem",
-                    icon: Icons.abc,
-                    fontSize: 12,
-                    width: 225,
-                    height: 60,
-                    function: () => func!.call(),
-                  ),
-                );
-              })
+              Center(
+                child: CustomButtons.buttonSecondary(
+                  label: "Ir para o ponto de reciclagem",
+                  icon: Icons.abc,
+                  fontSize: 12,
+                  width: 225,
+                  height: 60,
+                  function: () => func!.call(),
+                ),
+              )
             ],
           ),
         )
       ],
     ),
   );
+}
+
+BoxDecoration cardBottomDecoration() {
+  return BoxDecoration(
+          color: CustomColors.green400,
+          border: const Border(
+            left: BorderSide(
+              width: 2.0,
+              color: Colors.greenAccent,
+            ),
+            right: BorderSide(
+              width: 2.0,
+              color: Colors.greenAccent,
+            ),
+            bottom: BorderSide(
+              width: 2.0,
+              color: Colors.greenAccent,
+            ),
+          ),
+        );
+}
+
+BoxDecoration cardTopDecoration(String pathImage) {
+  return BoxDecoration(
+          border: const Border(
+            left: BorderSide(
+              width: 2.0,
+              color: Colors.greenAccent,
+            ),
+            right: BorderSide(
+              width: 2.0,
+              color: Colors.greenAccent,
+            ),
+            top: BorderSide(
+              width: 2.0,
+              color: Colors.greenAccent,
+            ),
+          ),
+          image: DecorationImage(
+            fit: BoxFit.fitWidth,
+            image: AssetImage(
+              pathImage,
+            ),
+          ),
+        );
 }

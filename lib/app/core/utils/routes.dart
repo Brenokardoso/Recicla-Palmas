@@ -8,6 +8,6 @@ class Routes {
 }
 
 Map<String, Widget Function(BuildContext)> myRoutes = {
-  Routes.authRoute: (context) => const AuthPage(),
+  // Routes.authRoute: (context) => const AuthPage(),
   Routes.homeRoute: (context) => const HomePage(),
 };
