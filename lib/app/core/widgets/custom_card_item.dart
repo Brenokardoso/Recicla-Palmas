@@ -48,8 +48,9 @@ Widget customCardItem({
       );
 
   return Container(
-    decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(100)),
     child: Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(60)),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
