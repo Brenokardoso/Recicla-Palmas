@@ -182,13 +182,13 @@ class _OSMState extends State<OsmImplemetation> {
               ),
             ),
           ),
-          Padding(
+          const Padding(
             padding: const EdgeInsets.all(24.0),
             child: Center(
               child: SizedBox(
                 child: Text(
                   "Locais para o descarte de materais recicláveis:",
-                  style: TextStyle(fontSize: 20, color: Colors.grey[900]!),
+                  style: TextStyle(fontSize: 24, color: Colors.black),
                 ),
               ),
             ),
