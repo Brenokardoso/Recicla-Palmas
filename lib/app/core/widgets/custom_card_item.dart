@@ -47,44 +47,47 @@ Widget customCardItem({
         ),
       );
 
-  return Card(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 360,
-          height: 300,
-          decoration: cardTopDecoration(pathImage),
-        ),
-        Container(
-          width: 360,
-          height: 250,
-          decoration: cardBottomDecoration(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              titleTextDescription(descricao),
-              space,
-              textDescription(descricaoDosMateriais),
-              space,
-              Center(
-                child: CustomButtons.buttonSecondary(
-                  label: "Ir para o ponto de reciclagem",
-                  icon: Icons.travel_explore_rounded,
-                  fontSize: 12,
-                  width: 225,
-                  height: 60,
-                  function: () => func!.call(),
-                ),
-              )
-            ],
+  return Container(
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
+    child: Card(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 360,
+            height: 300,
+            decoration: cardTopDecoration(pathImage),
           ),
-        )
-      ],
+          Container(
+            width: 360,
+            height: 250,
+            decoration: cardBottomDecoration(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                titleTextDescription(descricao),
+                space,
+                textDescription(descricaoDosMateriais),
+                space,
+                Center(
+                  child: CustomButtons.buttonSecondary(
+                    label: "Ir para o ponto de reciclagem",
+                    icon: Icons.travel_explore_rounded,
+                    fontSize: 12,
+                    width: 225,
+                    height: 60,
+                    function: () => func!.call(),
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      ),
     ),
   );
 }
