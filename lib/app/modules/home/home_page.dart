@@ -33,6 +33,7 @@ class _HomePage extends State<HomePage> {
     // double sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: customAppBar('Recicla Palmas'),
+      backgroundColor: Colors.white,
       // drawer: customDrawer(
       //   width: sizeWidth / 10,
       //   itens: [

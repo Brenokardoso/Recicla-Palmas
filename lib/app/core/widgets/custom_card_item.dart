@@ -10,14 +10,14 @@ Widget customCardItem({
 }) {
   SizedBox space = const SizedBox(height: 15);
 
-  TextStyle titleTextStyle = const TextStyle(
-    color: Colors.white,
+  TextStyle titleTextStyle = TextStyle(
+    color: Colors.grey[600]!,
     fontSize: 18,
     fontWeight: FontWeight.w700,
   );
 
-  TextStyle descriptionTextStyle = const TextStyle(
-    color: Colors.white,
+  TextStyle descriptionTextStyle = TextStyle(
+    color: Colors.grey[600]!,
     fontSize: 15,
     fontWeight: FontWeight.w200,
     overflow: TextOverflow.ellipsis,
@@ -76,8 +76,8 @@ Widget customCardItem({
                 space,
                 Center(
                   child: CustomButtons.buttonSecondary(
-                    label: "Ir para o ponto de reciclagem",
-                    icon: Icons.travel_explore_rounded,
+                    label: "Ponto de reciclagem",
+                    icon: Icons.recycling,
                     fontSize: 12,
                     width: 225,
                     height: 60,
@@ -99,19 +99,19 @@ BoxDecoration cardBottomDecoration() {
       bottomLeft: Radius.circular(30),
       bottomRight: Radius.circular(30),
     ),
-    color: CustomColors.green400,
-    border: const Border(
+    color: Colors.white,
+    border: Border(
       left: BorderSide(
         width: 2.0,
-        color: Colors.greenAccent,
+        color: Colors.grey[300]!,
       ),
       right: BorderSide(
         width: 2.0,
-        color: Colors.greenAccent,
+        color: Colors.grey[300]!,
       ),
       bottom: BorderSide(
         width: 2.0,
-        color: Colors.greenAccent,
+        color: Colors.grey[300]!,
       ),
     ),
   );
@@ -125,18 +125,18 @@ BoxDecoration cardTopDecoration(String pathImage) {
         30,
       ),
     ),
-    border: const Border(
+    border: Border(
       left: BorderSide(
         width: 2.0,
-        color: Colors.greenAccent,
+        color: Colors.grey[300]!,
       ),
       right: BorderSide(
         width: 2.0,
-        color: Colors.greenAccent,
+        color: Colors.grey[300]!,
       ),
       top: BorderSide(
         width: 2.0,
-        color: Colors.greenAccent,
+        color: Colors.grey[300]!,
       ),
     ),
     image: DecorationImage(

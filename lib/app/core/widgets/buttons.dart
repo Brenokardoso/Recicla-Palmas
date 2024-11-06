@@ -68,18 +68,19 @@ class CustomButtons {
     required double height,
     void Function()? function,
     Color? colorFont,
-    Color? colorBackground,
+    Color? colorBackgroundButton,
   }) =>
       ElevatedButton.icon(
         iconAlignment: IconAlignment.end,
         icon: Icon(
           icon,
-          color: CustomColors.green400,
+          color: Colors.white,
         ),
         label: Text(
           label,
           style: TextStyle(
-            color: colorFont ?? Colors.black,
+            color: colorFont ?? Colors.white,
+            fontWeight: FontWeight.w500,
           ),
         ),
         onPressed: function,
@@ -88,7 +89,7 @@ class CustomButtons {
           fontSize: fontSize,
           width: width,
           height: height,
-          colorBackground: colorBackground,
+          colorBackground: colorBackgroundButton ?? Colors.green[900],
         ),
       );
 }

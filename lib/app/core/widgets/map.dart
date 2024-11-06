@@ -109,7 +109,6 @@ class _OSMState extends State<OsmImplemetation> {
         children: [
           Center(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
@@ -183,11 +182,14 @@ class _OSMState extends State<OsmImplemetation> {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(24.0),
+          Padding(
+            padding: const EdgeInsets.all(24.0),
             child: Center(
               child: SizedBox(
-                child: Text("Locais para o descarte de materais recicláveis:"),
+                child: Text(
+                  "Locais para o descarte de materais recicláveis:",
+                  style: TextStyle(fontSize: 20, color: Colors.grey[900]!),
+                ),
               ),
             ),
           ),
