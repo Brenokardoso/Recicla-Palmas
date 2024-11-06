@@ -34,23 +34,16 @@ class _HomePage extends State<HomePage> {
     return Scaffold(
       appBar: customAppBar('Recicla Palmas'),
       backgroundColor: Colors.white,
-      // drawer: customDrawer(
-      //   width: sizeWidth / 10,
-      //   itens: [
-      //     DrawerItens.drawerHeader("Breno Cardoso"),
-      //     DrawerItens.logOutSystem(context, "Sair")
-      //   ],
-      // ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Container(
-            // decoration: const BoxDecoration(
-            //   image: DecorationImage(
-            //     image: AssetImage(
-            //         "lib/app/core/assets/img/nature_backgorund_application.png"),
-            //     fit: BoxFit.fill,
-            //   ),
-            // ),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    "lib/app/core/assets/img/nature_backgorund_application.png"),
+                fit: BoxFit.fill,
+              ),
+            ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
