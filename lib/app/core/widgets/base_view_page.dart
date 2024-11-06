@@ -17,13 +17,15 @@ class BaseViewPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                  child: Container(
-                color: Colors.red,
-              )),
+                child: Container(
+                  color: Colors.red,
+                ),
+              ),
               Expanded(
-                  child: Container(
-                color: Colors.blue,
-              ))
+                child: Container(
+                  color: Colors.blue,
+                ),
+              )
             ],
           ),
         );

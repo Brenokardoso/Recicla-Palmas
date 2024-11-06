@@ -32,7 +32,7 @@ class _HomePage extends State<HomePage> {
   Widget build(BuildContext context) {
     // double sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: customAppBar('Página inicial'),
+      appBar: customAppBar('Recicla Palmas'),
       // drawer: customDrawer(
       //   width: sizeWidth / 10,
       //   itens: [
@@ -42,16 +42,25 @@ class _HomePage extends State<HomePage> {
       // ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          return SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                customHeader(
-                    context, "Descubra os locais de reciclagem perto de você"),
-                const OsmImplemetation(),
-              ],
+          return Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    "lib/app/core/assets/img/nature_backgorund_application.png"),
+                fit: BoxFit.fill,
+              ),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  customHeader(context,
+                      "Descubra os locais de reciclagem perto de você"),
+                  const OsmImplemetation(),
+                ],
+              ),
             ),
           );
         },

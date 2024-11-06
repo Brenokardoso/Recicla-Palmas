@@ -55,7 +55,7 @@ Widget customCardItem({
       children: [
         Container(
           width: 360,
-          height: 245,
+          height: 300,
           decoration: cardTopDecoration(pathImage),
         ),
         Container(
@@ -91,6 +91,10 @@ Widget customCardItem({
 
 BoxDecoration cardBottomDecoration() {
   return BoxDecoration(
+    borderRadius: const BorderRadius.only(
+      bottomLeft: Radius.circular(30),
+      bottomRight: Radius.circular(30),
+    ),
     color: CustomColors.green400,
     border: const Border(
       left: BorderSide(
@@ -111,6 +115,12 @@ BoxDecoration cardBottomDecoration() {
 
 BoxDecoration cardTopDecoration(String pathImage) {
   return BoxDecoration(
+    borderRadius: const BorderRadius.only(
+      topLeft: Radius.circular(30),
+      topRight: Radius.circular(
+        30,
+      ),
+    ),
     border: const Border(
       left: BorderSide(
         width: 2.0,
