@@ -42,21 +42,24 @@ class CustomBorderStyles {
     ),
   );
 
-  static InputDecoration completeDecoration(
-          {required String label, Widget? icon}) =>
+  static InputDecoration completeDecoration({
+    required String label,
+    Widget? icon,
+  }) =>
       InputDecoration(
-          labelText: label,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
-            borderSide: const BorderSide(
-              color: Colors.black,
-              width: 1,
-            ),
+        labelText: label,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(30),
+          borderSide: const BorderSide(
+            color: Colors.black,
+            width: 1,
           ),
-          focusedBorder: CustomBorderStyles.focusBorder,
-          errorBorder: CustomBorderStyles.erroBorder,
-          focusedErrorBorder: CustomBorderStyles.erroFocusBorder,
-          enabledBorder: CustomBorderStyles.enableBorder,
-          disabledBorder: CustomBorderStyles.disableBorder,
-          suffixIcon: icon ?? const SizedBox.shrink());
+        ),
+        focusedBorder: CustomBorderStyles.focusBorder,
+        errorBorder: CustomBorderStyles.erroBorder,
+        focusedErrorBorder: CustomBorderStyles.erroFocusBorder,
+        enabledBorder: CustomBorderStyles.enableBorder,
+        disabledBorder: CustomBorderStyles.disableBorder,
+        suffixIcon: icon ?? const SizedBox.shrink(),
+      );
 }

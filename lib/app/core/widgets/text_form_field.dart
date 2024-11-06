@@ -6,9 +6,10 @@ import 'package:recicla_palmas/app/core/widgets/text_form_validate.dart';
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField._();
 
-  static Widget user(
-          {required TextEditingController controller,
-          required String placeholder}) =>
+  static Widget user({
+    required TextEditingController controller,
+    required String placeholder,
+  }) =>
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: TextFormField(
@@ -30,10 +31,11 @@ class CustomTextFormField extends StatelessWidget {
         ),
       );
 
-  static Widget password(
-          {required TextEditingController controller,
-          required String placeholder,
-          required ValueNotifier<bool> visible}) =>
+  static Widget password({
+    required TextEditingController controller,
+    required String placeholder,
+    required ValueNotifier<bool> visible,
+  }) =>
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: ValueListenableBuilder(
