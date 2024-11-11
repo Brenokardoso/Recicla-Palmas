@@ -110,7 +110,7 @@ class _OSMState extends State<OsmImplemetation> {
           Center(
             child: ClipRRect(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.symmetric(horizontal: 14),
                 child: SizedBox(
                   width: sizeWidth * 0.8,
                   height: sizeHeight * 0.65,

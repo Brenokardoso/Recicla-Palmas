@@ -7,7 +7,7 @@ AppBarTheme appBarTheme = AppBarTheme(
   centerTitle: true,
   titleTextStyle: const TextStyle(
     fontSize: 25,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w700,
     fontStyle: FontStyle.normal,
     color: Colors.white,
   ),

@@ -17,15 +17,16 @@ class _HomePage extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timestamp) {
-      SupabaseDb.supabase.auth.onAuthStateChange.listen(
-        (authState) {
-          if (authState.session == null && mounted) {
-            Navigator.of(context).pushReplacementNamed(Routes.authRoute);
-          }
-        },
-      );
-    });
+    // TODO: este trecho só deve ser descomentado se a auth pelo supabase estiver ativada!
+    // WidgetsBinding.instance.addPostFrameCallback((timestamp) {
+    //   SupabaseDb.supabase.auth.onAuthStateChange.listen(
+    //     (authState) {
+    //       if (authState.session == null && mounted) {
+    //         Navigator.of(context).pushReplacementNamed(Routes.authRoute);
+    //       }
+    //     },
+    //   );
+    // });
   }
 
   @override
@@ -37,13 +38,13 @@ class _HomePage extends State<HomePage> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                    "lib/app/core/assets/img/nature_backgorund_application.png"),
-                fit: BoxFit.fill,
-              ),
-            ),
+            // decoration: const BoxDecoration(
+            //   image: DecorationImage(
+            //     image: AssetImage(
+            //         "lib/app/core/assets/img/nature_backgorund_application.png"),
+            //     fit: BoxFit.fill,
+            //   ),
+            // ),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,

@@ -75,6 +75,7 @@ class CustomButtons {
         icon: Icon(
           icon,
           color: Colors.white,
+          size: 16,
         ),
         label: Text(
           label,
