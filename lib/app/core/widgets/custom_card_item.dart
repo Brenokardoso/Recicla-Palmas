@@ -12,14 +12,14 @@ Widget customCardItem({
 
   TextStyle titleTextStyle = TextStyle(
     color: Colors.grey[600]!,
-    fontSize: 18,
+    fontSize: 18.5,
     fontWeight: FontWeight.w700,
   );
 
   TextStyle descriptionTextStyle = TextStyle(
     color: Colors.grey[600]!,
-    fontSize: 15,
-    fontWeight: FontWeight.w200,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
     overflow: TextOverflow.ellipsis,
   );
 

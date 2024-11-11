@@ -12,6 +12,11 @@ class EcoPonto103Norte extends StatefulWidget {
 class _EcoPonto103NorteState extends State<EcoPonto103Norte> {
   @override
   Widget build(BuildContext context) {
-    return BasePageView(appBarTitlle: "Eco Ponto 103 Norte");
+    return BasePageView(
+      appBarTitlle: "Eco Ponto 103 Norte",
+      whoWeAre:
+          "Somos um ponto de coleta especializado nas coletas de materiais reciclaveis",
+      oqueFazemos: "Coletamos os seguintes materiais:",
+    );
   }
 }

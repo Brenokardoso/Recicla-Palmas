@@ -12,15 +12,13 @@
 - [x] Inicar o banco
 - [x]  Construir o headers do Drawer
 - [x]  Padronizar os itens do Drawer
-- [] Fazer os testes com o device preview
+- [x] Fazer os testes com o device preview
 
 
 [Front]
 
-- [] Imagem de fundo (natureza)
-- [] Trocar o fundo do card para um branco e borda com elevação / boxshandow
+- [x] Imagem de fundo (natureza)
+- [x] Trocar o fundo do card para um branco e borda com elevação / boxshandow
 
 
 [Bugs]
-
-- [] mensagems de auth para cadastro e login
