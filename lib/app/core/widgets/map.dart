@@ -109,86 +109,86 @@ class _OSMState extends State<OsmImplemetation> {
         children: [
           Center(
             child: ClipRRect(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 14),
-                child: SizedBox(
-                  width: sizeWidth * 0.8,
-                  height: sizeHeight * 0.65,
-                  child: Stack(
-                    children: [
-                      OSMFlutter(
-                        mapIsLoading: mapIsLoading(
-                          context,
-                          sizeWidth / 10,
-                          sizeHeight / 7,
-                        ),
-                        onGeoPointClicked: (clickedGeoPoint) {
-                          for (var item in geoPointList) {
-                            if (item == clickedGeoPoint) {
-                              null;
-                            }
-                          }
-                        },
-                        onMapIsReady: (mapEvent) async {
-                          await limitAreaMap();
-                          await drawnTocantinsMap();
-                          await drawPointsIntheMap();
-                        },
-                        controller: mapController,
-                        osmOption: const OSMOption(
-                          zoomOption: ZoomOption(
-                            // Zoom para fixar no Tocantins
-                            initZoom: 6.48505,
-                            minZoomLevel: 6.48505,
-                            maxZoomLevel: 19,
-                          ),
-                          showContributorBadgeForOSM: true,
-                          showDefaultInfoWindow: true,
-                          showZoomController: false,
-                        ),
+              child: SizedBox(
+                width: sizeWidth * 0.8075,
+                height: sizeHeight * 0.65,
+                child: Stack(
+                  children: [
+                    OSMFlutter(
+                      mapIsLoading: mapIsLoading(
+                        context,
+                        sizeWidth / 10,
+                        sizeHeight / 7,
                       ),
-                      Positioned(
-                        bottom: 30,
-                        right: 40,
-                        child: SizedBox(
-                          width: 50,
-                          height: 50,
-                          child: PointerInterceptor(
-                            child: IconButton(
-                              color: CustomColors.green500,
-                              style: ButtonStyle(
-                                backgroundColor:
-                                    WidgetStateProperty.all<Color?>(
-                                  CustomColors.green500,
-                                ),
+                      onGeoPointClicked: (clickedGeoPoint) {
+                        for (var item in geoPointList) {
+                          if (item == clickedGeoPoint) {
+                            null;
+                          }
+                        }
+                      },
+                      onMapIsReady: (mapEvent) async {
+                        await limitAreaMap();
+                        await drawnTocantinsMap();
+                        await drawPointsIntheMap();
+                      },
+                      controller: mapController,
+                      osmOption: const OSMOption(
+                        zoomOption: ZoomOption(
+                          // Zoom para fixar no Tocantins
+                          initZoom: 6.48505,
+                          minZoomLevel: 6.48505,
+                          maxZoomLevel: 19,
+                        ),
+                        showContributorBadgeForOSM: true,
+                        showDefaultInfoWindow: true,
+                        showZoomController: false,
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 30,
+                      right: 40,
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: PointerInterceptor(
+                          child: IconButton(
+                            color: CustomColors.green500,
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStateProperty.all<Color?>(
+                                CustomColors.green500,
                               ),
-                              onPressed: () async {
-                                GeoPoint myLocation =
-                                    await mapController.myLocation();
-                                await mapController.goToLocation(myLocation);
-                                await mapController.changeLocation(myLocation);
-                              },
-                              icon: const Icon(
-                                FontAwesomeIcons.mapLocation,
-                                color: Colors.white,
-                              ),
+                            ),
+                            onPressed: () async {
+                              GeoPoint myLocation =
+                                  await mapController.myLocation();
+                              await mapController.goToLocation(myLocation);
+                              await mapController.changeLocation(myLocation);
+                            },
+                            icon: const Icon(
+                              FontAwesomeIcons.mapLocation,
+                              color: Colors.white,
                             ),
                           ),
                         ),
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
           ),
           const Padding(
-            padding: const EdgeInsets.all(24.0),
+            padding: EdgeInsets.all(24.0),
             child: Center(
               child: SizedBox(
                 child: Text(
                   "Locais para o descarte de materais recicláveis:",
-                  style: TextStyle(fontSize: 24, color: Colors.black),
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),

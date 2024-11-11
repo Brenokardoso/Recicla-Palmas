@@ -103,15 +103,15 @@ BoxDecoration cardBottomDecoration() {
     border: Border(
       left: BorderSide(
         width: 2.0,
-        color: Colors.grey[300]!,
+        color: Colors.grey[350]!,
       ),
       right: BorderSide(
         width: 2.0,
-        color: Colors.grey[300]!,
+        color: Colors.grey[350]!,
       ),
       bottom: BorderSide(
         width: 2.0,
-        color: Colors.grey[300]!,
+        color: Colors.grey[350]!,
       ),
     ),
   );
@@ -128,15 +128,15 @@ BoxDecoration cardTopDecoration(String pathImage) {
     border: Border(
       left: BorderSide(
         width: 2.0,
-        color: Colors.grey[300]!,
+        color: Colors.grey[350]!,
       ),
       right: BorderSide(
         width: 2.0,
-        color: Colors.grey[300]!,
+        color: Colors.grey[350]!,
       ),
       top: BorderSide(
         width: 2.0,
-        color: Colors.grey[300]!,
+        color: Colors.grey[350]!,
       ),
     ),
     image: DecorationImage(
