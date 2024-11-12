@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
 AppBarTheme appBarTheme = AppBarTheme(
-  color: CustomColors.green500,
+  color: CustomColors.green600,
   elevation: 1,
   centerTitle: true,
   titleTextStyle: const TextStyle(

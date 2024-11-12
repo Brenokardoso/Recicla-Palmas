@@ -6,7 +6,7 @@ import 'package:recicla_palmas/app/modules/pages/eco_ponto_103_norte.dart';
 class Routes {
   static String authRoute = "auth";
   static String homeRoute = "/";
-  static String point103 = "pages/ecoponto 103 norte";
+  static String point103 = "/ecoponto 103 norte";
 }
 
 Map<String, Widget Function(BuildContext)> myRoutes = {

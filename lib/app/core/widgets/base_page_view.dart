@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
+import 'package:recicla_palmas/app/core/widgets/custom_table_calendar.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class BasePageView extends StatefulWidget {
   BasePageView({
     required this.appBarTitlle,
-    required this.whoWeAre,
+    required this.quemSomos,
     required this.oqueFazemos,
     this.hasRadioativo,
     this.hasColetaNaoReciclavel,
@@ -21,7 +23,7 @@ class BasePageView extends StatefulWidget {
   });
 
   String appBarTitlle;
-  String whoWeAre;
+  String quemSomos;
   String oqueFazemos;
   bool? hasRadioativo;
   bool? hasColetaNaoReciclavel;
@@ -51,8 +53,13 @@ class _BasePageViewState extends State<BasePageView> {
         height: pageHeight,
         decoration: BoxDecoration(
           image: DecorationImage(
+            onError: (exception, stackTrace) =>
+                Text("Houve um erro por $exception e $stackTrace"),
+            opacity: 2,
+            colorFilter: const ColorFilter.srgbToLinearGamma(),
             fit: BoxFit.fill,
-            image: AssetImage(
+            filterQuality: FilterQuality.high,
+            image: const AssetImage(
               "lib/app/core/assets/img/simbolos_reciclagem/planta.jpg",
             ),
           ),
@@ -66,7 +73,7 @@ class _BasePageViewState extends State<BasePageView> {
             children: [
               quemSomos(
                 widgetWidth: pageWidth,
-                quemSomos: widget.whoWeAre,
+                quemSomos: widget.quemSomos,
                 oqueFazemos: widget.oqueFazemos,
               ),
               space,
@@ -81,7 +88,9 @@ class _BasePageViewState extends State<BasePageView> {
                 hasResiduosAmbulatorios: widget.hasResiduosAmbulatorios,
                 hasToxico: widget.hasToxico,
                 hasVidro: widget.hasVidro,
-              )
+              ),
+              space,
+              CustomTableCalendar()
             ],
           ),
         ),
@@ -98,7 +107,7 @@ Widget quemSomos({
   SizedBox spaceheight = const SizedBox(height: 15);
   return SizedBox(
     width: widgetWidth,
-    height: 100,
+    // height: 100,
     child: Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.start,

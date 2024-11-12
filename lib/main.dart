@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 import 'package:recicla_palmas/app/core/themes/custom_themeData.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   SupabaseDb.init();
@@ -23,6 +23,17 @@ class MyApp extends StatelessWidget {
       theme: customTheme,
       initialRoute: Routes.homeRoute,
       routes: myRoutes,
+      locale: const Locale("pt", "BR"),
+      supportedLocales: const [
+        Locale("en"),
+        Locale("pt"),
+        Locale("es"),
+      ],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
     );
   }
 }

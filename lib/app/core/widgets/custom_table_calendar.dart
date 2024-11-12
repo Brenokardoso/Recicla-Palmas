@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
+import 'package:table_calendar/table_calendar.dart';
+
+class CustomTableCalendar extends StatefulWidget {
+  const CustomTableCalendar({super.key});
+
+  @override
+  State<CustomTableCalendar> createState() => _CustomTableCalendarState();
+}
+
+class _CustomTableCalendarState extends State<CustomTableCalendar> {
+  @override
+  Widget build(BuildContext context) {
+    double pageWidth = MediaQuery.of(context).size.width;
+    return SizedBox(
+      width: pageWidth / 2,
+      height: 500,
+      child: Card(
+        color: CustomColors.cardColor,
+        child: TableCalendar(
+          locale: "pt_BR",
+          // calendarFormat: CalendarFormat.month,
+          focusedDay: DateTime.now(),
+          firstDay: DateTime(1999),
+          lastDay: DateTime(2050),
+        ),
+      ),
+    );
+  }
+}
