@@ -91,8 +91,11 @@ class _BasePageViewState extends State<BasePageView> {
               ),
               space,
               space,
-              const Text("Deseja agendar uma coleta?"),
-              const CustomTableCalendar()
+              const Text(
+                "Deseja agendar uma coleta?",
+                style: TextStyle(color: Colors.white),
+              ),
+              CustomTableCalendar()
             ],
           ),
         ),
