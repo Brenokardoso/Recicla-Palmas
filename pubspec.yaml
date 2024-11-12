@@ -82,7 +82,8 @@ flutter:
     - lib/app/core/assets/img/simbolos_reciclagem/plastico.jpg
     - lib/app/core/assets/img/simbolos_reciclagem/residuos_ambulatorios.jpg
     - lib/app/core/assets/img/simbolos_reciclagem/toxico.jpg
-    - lib/app/core/assets/img/simbolos_reciclagem/vidro.jpg
+    - lib/app/core/assets/img/simbolos_reciclagem/vidro.jpg  
+    - lib/app/core/assets/img/simbolos_reciclagem/planta.jpg  
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

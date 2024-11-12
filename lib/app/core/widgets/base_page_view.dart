@@ -7,12 +7,32 @@ class BasePageView extends StatefulWidget {
     required this.appBarTitlle,
     required this.whoWeAre,
     required this.oqueFazemos,
+    this.hasRadioativo,
+    this.hasColetaNaoReciclavel,
+    this.hasMadeira,
+    this.hasMaterialOrganico,
+    this.hasMetal,
+    this.hasPapel,
+    this.hasPlastico,
+    this.hasResiduosAmbulatorios,
+    this.hasToxico,
+    this.hasVidro,
     super.key,
   });
 
   String appBarTitlle;
   String whoWeAre;
   String oqueFazemos;
+  bool? hasRadioativo;
+  bool? hasColetaNaoReciclavel;
+  bool? hasMadeira;
+  bool? hasMaterialOrganico;
+  bool? hasMetal;
+  bool? hasPapel;
+  bool? hasPlastico;
+  bool? hasResiduosAmbulatorios;
+  bool? hasToxico;
+  bool? hasVidro;
 
   @override
   State<BasePageView> createState() => _BasePageViewState();
@@ -23,12 +43,24 @@ class _BasePageViewState extends State<BasePageView> {
   Widget build(BuildContext context) {
     double pageWidth = MediaQuery.of(context).size.width;
     double pageHeight = MediaQuery.of(context).size.height;
+    SizedBox space = const SizedBox(height: 16);
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: customAppBar(widget.appBarTitlle),
-      body: Card(
+      body: Container(
+        height: pageHeight,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage(
+              "lib/app/core/assets/img/simbolos_reciclagem/planta.jpg",
+            ),
+          ),
+        ),
         child: SingleChildScrollView(
+          padding: const EdgeInsets.all(12),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,7 +69,19 @@ class _BasePageViewState extends State<BasePageView> {
                 quemSomos: widget.whoWeAre,
                 oqueFazemos: widget.oqueFazemos,
               ),
-              atividadesQueRealizamos()
+              space,
+              atividadesQueRealizamos(
+                hasColetaNaoReciclavel: widget.hasColetaNaoReciclavel,
+                hasMadeira: widget.hasMadeira,
+                hasMaterialOrganico: widget.hasMaterialOrganico,
+                hasMetal: widget.hasMetal,
+                hasPapel: widget.hasPapel,
+                hasPlastico: widget.hasPlastico,
+                hasRadioativo: widget.hasRadioativo,
+                hasResiduosAmbulatorios: widget.hasResiduosAmbulatorios,
+                hasToxico: widget.hasToxico,
+                hasVidro: widget.hasVidro,
+              )
             ],
           ),
         ),
@@ -71,6 +115,7 @@ Widget quemSomos({
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -86,8 +131,9 @@ Widget quemSomos({
               child: Text(
                 "O que fazemos: $oqueFazemos",
                 style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -98,7 +144,20 @@ Widget quemSomos({
   );
 }
 
-Widget atividadesQueRealizamos() {
+Widget atividadesQueRealizamos({
+  bool? hasRadioativo,
+  bool? hasColetaNaoReciclavel,
+  bool? hasMadeira,
+  bool? hasMaterialOrganico,
+  bool? hasMetal,
+  bool? hasPapel,
+  bool? hasPlastico,
+  bool? hasResiduosAmbulatorios,
+  bool? hasToxico,
+  bool? hasVidro,
+}) {
+  SizedBox spaceheight = const SizedBox(height: 16);
+
   return Column(
     mainAxisSize: MainAxisSize.min,
     mainAxisAlignment: MainAxisAlignment.start,
@@ -111,58 +170,101 @@ Widget atividadesQueRealizamos() {
         children: [
           Flexible(
             child: Text(
-              "Atvidades que realizamos",
+              "Coletas que realizamos:",
               style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w400,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: Colors.white,
               ),
             ),
           ),
         ],
       ),
+      spaceheight,
+      spaceheight,
       Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: constructCardImage(),
+        mainAxisSize: MainAxisSize.max,
+        children: constructCardImage(
+          hasRadioativo: hasRadioativo ?? false,
+          hasColetaNaoReciclavel: hasColetaNaoReciclavel ?? false,
+          hasMadeira: hasMadeira ?? false,
+          hasMaterialOrganico: hasMaterialOrganico ?? false,
+          hasMetal: hasMetal ?? false,
+          hasPapel: hasPapel ?? false,
+          hasPlastico: hasPlastico ?? false,
+          hasResiduosAmbulatorios: hasResiduosAmbulatorios ?? false,
+          hasToxico: hasToxico ?? false,
+          hasVidro: hasVidro ?? false,
+        ),
       )
     ],
   );
 }
 
-List<Widget> constructCardImage() {
-  List<String> listCardItem = [
-    "lib/app/core/assets/img/simbolos_reciclagem/radioativo.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/coleta_nao_reciclavel.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/madeira.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/material_organico.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/metal.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/papel.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/plastico.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/residuos_ambulatorios.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/toxico.jpg",
-    "lib/app/core/assets/img/simbolos_reciclagem/vidro.jpg",
-  ];
+List<Widget> constructCardImage({
+  bool hasRadioativo = false,
+  bool hasColetaNaoReciclavel = false,
+  bool hasMadeira = false,
+  bool hasMaterialOrganico = false,
+  bool hasMetal = false,
+  bool hasPapel = false,
+  bool hasPlastico = false,
+  bool hasResiduosAmbulatorios = false,
+  bool hasToxico = false,
+  bool hasVidro = false,
+}) {
+  Map<String, bool> itemVisibility = {
+    "radioativo": hasRadioativo,
+    "coleta_nao_reciclavel": hasColetaNaoReciclavel,
+    "madeira": hasMadeira,
+    "material_organico": hasMaterialOrganico,
+    "metal": hasMetal,
+    "papel": hasPapel,
+    "plastico": hasPlastico,
+    "residuos_ambulatorios": hasResiduosAmbulatorios,
+    "toxico": hasToxico,
+    "vidro": hasVidro,
+  };
 
-  List<Widget> listWidgets = List.generate(
-    listCardItem.length,
-    (index) {
-      return Flexible(
+  Map<String, String> mapCardItem = {
+    "radioativo": "lib/app/core/assets/img/simbolos_reciclagem/radioativo.jpg",
+    "coleta_nao_reciclavel":
+        "lib/app/core/assets/img/simbolos_reciclagem/coleta_nao_reciclavel.jpg",
+    "madeira": "lib/app/core/assets/img/simbolos_reciclagem/madeira.jpg",
+    "material_organico":
+        "lib/app/core/assets/img/simbolos_reciclagem/material_organico.jpg",
+    "metal": "lib/app/core/assets/img/simbolos_reciclagem/metal.jpg",
+    "papel": "lib/app/core/assets/img/simbolos_reciclagem/papel.jpg",
+    "plastico": "lib/app/core/assets/img/simbolos_reciclagem/plastico.jpg",
+    "residuos_ambulatorios":
+        "lib/app/core/assets/img/simbolos_reciclagem/residuos_ambulatorios.jpg",
+    "toxico": "lib/app/core/assets/img/simbolos_reciclagem/toxico.jpg",
+    "vidro": "lib/app/core/assets/img/simbolos_reciclagem/vidro.jpg",
+  };
+
+  List<Widget> listWidgets = mapCardItem.entries.map((entry) {
+    String item = entry.key;
+    String imagePath = entry.value;
+
+    return Visibility(
+      visible: itemVisibility[item] ?? false,
+      child: Flexible(
         child: Container(
           width: 200,
           height: 150,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.contain,
-              image: AssetImage(
-                listCardItem[index],
-              ),
+              filterQuality: FilterQuality.high,
+              image: AssetImage(imagePath),
             ),
           ),
         ),
-      );
-    },
-  );
+      ),
+    );
+  }).toList();
 
   return listWidgets;
 }
