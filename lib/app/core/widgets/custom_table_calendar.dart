@@ -14,13 +14,14 @@ class _CustomTableCalendarState extends State<CustomTableCalendar> {
   Widget build(BuildContext context) {
     double pageWidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      width: pageWidth / 2,
-      height: 500,
+      width: pageWidth / 3,
+      height: 375,
       child: Card(
         color: CustomColors.cardColor,
         child: TableCalendar(
           locale: "pt_BR",
           // calendarFormat: CalendarFormat.month,
+          availableCalendarFormats: const {CalendarFormat.month: 'Month'},
           focusedDay: DateTime.now(),
           firstDay: DateTime(1999),
           lastDay: DateTime(2050),

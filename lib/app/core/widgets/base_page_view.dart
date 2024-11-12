@@ -90,7 +90,9 @@ class _BasePageViewState extends State<BasePageView> {
                 hasVidro: widget.hasVidro,
               ),
               space,
-              CustomTableCalendar()
+              space,
+              const Text("Deseja agendar uma coleta?"),
+              const CustomTableCalendar()
             ],
           ),
         ),
@@ -119,12 +121,14 @@ Widget quemSomos({
           mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              child: Text(
-                "Quem Somos: $quemSomos",
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
+              child: Card(
+                child: Text(
+                  "Quem Somos: $quemSomos",
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    // color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -137,12 +141,14 @@ Widget quemSomos({
           mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              child: Text(
-                "O que fazemos: $oqueFazemos",
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
+              child: Card(
+                child: Text(
+                  "O que fazemos: $oqueFazemos",
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600,
+                    // color: Colors.white,
+                  ),
                 ),
               ),
             ),
