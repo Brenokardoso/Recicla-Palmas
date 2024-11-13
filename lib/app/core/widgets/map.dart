@@ -131,6 +131,7 @@ class _OSMState extends State<OsmImplemetation> {
                         await limitAreaMap();
                         await drawnTocantinsMap();
                         await drawPointsIntheMap();
+                        await goTocurrentLocation();
                       },
                       controller: mapController,
                       osmOption: const OSMOption(
@@ -323,6 +324,13 @@ class _OSMState extends State<OsmImplemetation> {
         );
       },
     );
+  }
+
+  Future<void> goTocurrentLocation() async {
+    GeoPoint myLocation = await mapController.myLocation();
+    await mapController.goToLocation(myLocation);
+    await mapController.zoomIn();
+    await mapController.zoomIn();
   }
 
   RoadOption customRoadOption = const RoadOption(

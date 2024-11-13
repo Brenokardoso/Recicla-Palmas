@@ -28,7 +28,6 @@ class _CustomTableCalendarState extends State<CustomTableCalendar> {
             mainAxisSize: MainAxisSize.max,
             children: [
               const Text(
-                
                 "Deseja agendar uma coleta?",
                 style: TextStyle(fontSize: 20),
               ),
@@ -41,7 +40,6 @@ class _CustomTableCalendarState extends State<CustomTableCalendar> {
                 lastDay: DateTime(2050),
                 onDaySelected: (selectedDay, focusedDay) {
                   daySelected = selectedDay;
-                  print(selectedDay);
                 },
               ),
             ],

@@ -13,6 +13,7 @@
 - [x]  Construir o headers do Drawer
 - [x]  Padronizar os itens do Drawer
 - [x] Fazer os testes com o device preview
+- [] Configurar o mapa
 
 
 [Front]

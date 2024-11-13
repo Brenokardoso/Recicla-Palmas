@@ -31,7 +31,7 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // double sizeWidth = MediaQuery.of(context).size.width;
+    double sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: customAppBar('Recicla Palmas'),
       backgroundColor: Colors.white,
@@ -41,7 +41,8 @@ class _HomePage extends State<HomePage> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                    "lib/app/core/assets/img/nature_backgorund_application.png",),
+                  "lib/app/core/assets/img/nature_backgorund_application.png",
+                ),
                 fit: BoxFit.fill,
                 colorFilter: ColorFilter.srgbToLinearGamma(),
                 filterQuality: FilterQuality.high,
