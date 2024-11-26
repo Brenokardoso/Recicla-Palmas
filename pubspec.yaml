@@ -89,8 +89,7 @@ flutter:
     - lib/app/core/assets/img/simbolos_reciclagem/toxico.jpg
     - lib/app/core/assets/img/simbolos_reciclagem/vidro.jpg  
     - lib/app/core/assets/img/simbolos_reciclagem/planta.jpg  
-    - lib/app/core/assets/svg/logo.svg  
-    - lib/app/core/assets/img/logo.jpg
+    - lib/app/core/assets/img/logologin.png
 
 
 

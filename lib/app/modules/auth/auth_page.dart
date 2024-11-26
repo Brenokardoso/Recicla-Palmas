@@ -80,26 +80,24 @@ class _AuthPageState extends State<AuthPage> {
                       transform: GradientRotation((pi / 2)),
                     ),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Container(
-                          decoration: const BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(
-                                  "lib/app/core/assets/img/logo.jpg"),
-                            ),
+                        Image(
+                          image: AssetImage(
+                            "lib/app/core/assets/img/logologin.png",
                           ),
                         ),
-                        const SizedBox(height: 10),
-                        const Text(
+                        SizedBox(height: 10),
+                        Text(
                           "Recicla Palmas",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 45,
                             color: Colors.white,
+                            fontWeight: FontWeight.w600,
                           ),
                         )
                       ],
@@ -249,10 +247,10 @@ class _AuthPageState extends State<AuthPage> {
                 children: [
                   CustomButtons.buttonPrimary(
                     label: "Acessar",
-                    fontSize: 10,
+                    fontSize: 25,
                     colorBackground: CustomColors.green500,
                     colorFont: Colors.white,
-                    width: maxWidth / 8,
+                    width: maxWidth / 5,
                     height: maxHeight / 16,
                     function: () {
                       if (formKey.currentState?.validate() == true) {
@@ -269,13 +267,15 @@ class _AuthPageState extends State<AuthPage> {
                       }
                     },
                   ),
+                  const SizedBox(height: 15),
                   CustomButtons.buttonPrimary(
                     label: "Cadastre-se",
-                    fontSize: 10,
-                    width: maxWidth / 8,
+                    fontSize: 25,
+                    width: maxWidth / 5,
                     height: maxHeight / 16,
-                    colorBackground: CustomColors.green500,
-                    colorFont: Colors.white,
+                    colorBackground: Colors.white,
+                    colorFont: CustomColors.green500,
+                    elevation: 0,
                     function: () {
                       SupabaseAuth.signUp(
                         context: context,

@@ -50,8 +50,8 @@ class CustomBorderStyles {
       InputDecoration(
         labelText: label,
         hintText: placeholder,
-        labelStyle: TextStyle(fontSize: 24, color: Colors.grey[500]!),
-        hintStyle: TextStyle(fontSize: 12, color: Colors.grey[500]!),
+        labelStyle: TextStyle(fontSize: 24, color: Colors.grey[600]!),
+        hintStyle: TextStyle(fontSize: 12, color: Colors.grey[600]!),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(

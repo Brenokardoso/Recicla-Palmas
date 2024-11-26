@@ -10,6 +10,7 @@ class CustomButtons {
     required double width,
     required double height,
     required Color? colorBackground,
+    double? elevation,
   }) =>
       ButtonStyle(
         textStyle: WidgetStateProperty.all<TextStyle>(
@@ -27,7 +28,7 @@ class CustomButtons {
           Size(width, height),
         ),
         alignment: Alignment.center,
-        elevation: WidgetStateProperty.all<double>(1),
+        elevation: WidgetStateProperty.all<double>(elevation ?? 1),
         padding: WidgetStateProperty.all<EdgeInsets>(const EdgeInsets.all(10)),
         backgroundColor: WidgetStateProperty.all<Color?>(
           colorBackground,
@@ -42,6 +43,7 @@ class CustomButtons {
     void Function()? function,
     Color? colorFont,
     Color? colorBackground,
+    double? elevation,
   }) =>
       ElevatedButton(
         onPressed: function,
@@ -51,6 +53,7 @@ class CustomButtons {
           width: width,
           height: height,
           colorBackground: colorBackground,
+          elevation: elevation,
         ),
         child: Text(
           label,
@@ -69,6 +72,7 @@ class CustomButtons {
     void Function()? function,
     Color? colorFont,
     Color? colorBackgroundButton,
+    double? elevation,
   }) =>
       ElevatedButton.icon(
         iconAlignment: IconAlignment.end,
@@ -91,6 +95,7 @@ class CustomButtons {
           width: width,
           height: height,
           colorBackground: colorBackgroundButton ?? Colors.green[900],
+          elevation: elevation,
         ),
       );
 }
