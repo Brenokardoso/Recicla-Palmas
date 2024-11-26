@@ -87,6 +87,8 @@ class _AuthPageState extends State<AuthPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image(
+                          filterQuality: FilterQuality.high,
+                          fit: BoxFit.contain,
                           image: AssetImage(
                             "lib/app/core/assets/img/logologin.png",
                           ),
@@ -252,15 +254,17 @@ class _AuthPageState extends State<AuthPage> {
                     colorFont: Colors.white,
                     width: maxWidth / 5,
                     height: maxHeight / 16,
+                    fontWeight: FontWeight.w600,
                     function: () {
                       if (formKey.currentState?.validate() == true) {
                         Navigator.of(context).pushNamed(Routes.homeRoute);
+                        print("Login");
 
-                        SupabaseAuth.signIn(
-                          context: context,
-                          email: emailController.value.text,
-                          passsword: passwordController.value.text,
-                        );
+                        // SupabaseAuth.signIn(
+                        //   context: context,
+                        //   email: emailController.value.text,
+                        //   passsword: passwordController.value.text,
+                        // );
                         userController.clear();
                         passwordController.clear();
                         emailController.clear();
@@ -269,19 +273,22 @@ class _AuthPageState extends State<AuthPage> {
                   ),
                   const SizedBox(height: 15),
                   CustomButtons.buttonPrimary(
-                    label: "Cadastre-se",
+                    label: "Me cadastrar",
                     fontSize: 25,
                     width: maxWidth / 5,
                     height: maxHeight / 16,
                     colorBackground: Colors.white,
                     colorFont: CustomColors.green500,
                     elevation: 0,
+                    fontWeight: FontWeight.w600,
                     function: () {
-                      SupabaseAuth.signUp(
-                        context: context,
-                        email: emailController.value.text,
-                        password: passwordController.value.text,
-                      );
+                      print("Cadastro");
+
+                      // SupabaseAuth.signUp(
+                      //   context: context,
+                      //   email: emailController.value.text,
+                      //   password: passwordController.value.text,
+                      // );
                     },
                   ),
                 ],

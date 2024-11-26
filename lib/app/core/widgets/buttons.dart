@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
@@ -10,6 +12,7 @@ class CustomButtons {
     required double width,
     required double height,
     required Color? colorBackground,
+    FontWeight? fontWeight,
     double? elevation,
   }) =>
       ButtonStyle(
@@ -17,6 +20,7 @@ class CustomButtons {
           TextStyle(
             color: Colors.white,
             fontSize: fontSize,
+            fontWeight: fontWeight ?? FontWeight.normal,
           ),
         ),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -44,9 +48,10 @@ class CustomButtons {
     Color? colorFont,
     Color? colorBackground,
     double? elevation,
+    FontWeight? fontWeight,
   }) =>
       ElevatedButton(
-        onPressed: function,
+        onPressed: function.call(),
         style: _customButtomStyle(
           label: label,
           fontSize: fontSize,
@@ -54,6 +59,7 @@ class CustomButtons {
           height: height,
           colorBackground: colorBackground,
           elevation: elevation,
+          fontWeight: fontWeight,
         ),
         child: Text(
           label,
@@ -73,8 +79,19 @@ class CustomButtons {
     Color? colorFont,
     Color? colorBackgroundButton,
     double? elevation,
+    FontWeight? fontWeight,
   }) =>
       ElevatedButton.icon(
+        onPressed: function.call(),
+        style: _customButtomStyle(
+          label: label,
+          fontSize: fontSize,
+          width: width,
+          height: height,
+          colorBackground: colorBackgroundButton ?? Colors.green[900],
+          elevation: elevation,
+          fontWeight: fontWeight,
+        ),
         iconAlignment: IconAlignment.end,
         icon: Icon(
           icon,
@@ -87,15 +104,6 @@ class CustomButtons {
             color: colorFont ?? Colors.white,
             fontWeight: FontWeight.w500,
           ),
-        ),
-        onPressed: function,
-        style: _customButtomStyle(
-          label: label,
-          fontSize: fontSize,
-          width: width,
-          height: height,
-          colorBackground: colorBackgroundButton ?? Colors.green[900],
-          elevation: elevation,
         ),
       );
 }
