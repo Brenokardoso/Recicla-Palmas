@@ -60,28 +60,54 @@ class _AuthPageState extends State<AuthPage> {
         builder: (context, constraits) {
           return ValueListenableBuilder(
             valueListenable: changeForms,
-            builder: (_, value, __) => Column(
+            builder: (_, value, __) => Row(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
               children: [
-                Form(
-                  key: formKey,
-                  child: value
-                      ? cardCadastro(
-                          maxWidth: constraits.maxWidth,
-                          maxHeight: constraits.maxHeight,
-                        )
-                      : cardLogin(
-                          maxWidth: constraits.maxWidth,
-                          maxHeight: constraits.maxHeight,
-                        ),
+                Container(
+                  width: constraits.maxWidth / 2,
+                  height: constraits.maxHeight,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        const Color(0xFF0DC5A5), // Verde-azulado (topo)
+                        const Color(0xFF17A84A), // Verde vívido (base)
+                        Colors.green[700]!,
+                        Colors.green[900]!
+                      ],
+                    ),
+                  ),
                 ),
-                buttons(
-                  maxWidth: constraits.maxWidth,
-                  maxHeight: constraits.maxHeight,
-                  change: value,
-                )
+                Container(
+                  width: constraits.maxWidth / 2,
+                  height: constraits.maxHeight,
+                  color: Colors.orangeAccent,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Form(
+                        key: formKey,
+                        child: value
+                            ? cardCadastro(
+                                maxWidth: constraits.maxWidth / 2,
+                                maxHeight: constraits.maxHeight / 2,
+                              )
+                            : cardLogin(
+                                maxWidth: constraits.maxWidth / 2,
+                                maxHeight: constraits.maxHeight / 2,
+                              ),
+                      ),
+                      buttons(
+                        maxWidth: constraits.maxWidth,
+                        maxHeight: constraits.maxHeight,
+                        change: value,
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           );
