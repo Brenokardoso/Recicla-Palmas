@@ -44,10 +44,14 @@ class CustomBorderStyles {
 
   static InputDecoration completeDecoration({
     required String label,
+    String? placeholder,
     Widget? icon,
   }) =>
       InputDecoration(
         labelText: label,
+        hintText: placeholder,
+        labelStyle: TextStyle(fontSize: 24, color: Colors.grey[500]!),
+        hintStyle: TextStyle(fontSize: 12, color: Colors.grey[500]!),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(

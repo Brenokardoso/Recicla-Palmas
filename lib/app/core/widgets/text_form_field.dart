@@ -8,24 +8,33 @@ class CustomTextFormField extends StatelessWidget {
 
   static Widget user({
     required TextEditingController controller,
-    required String placeholder,
+    required String text,
+    String? placeholder,
   }) =>
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: TextFormField(
-          decoration: CustomBorderStyles.completeDecoration(label: placeholder),
+          decoration: CustomBorderStyles.completeDecoration(
+            label: text,
+            placeholder: placeholder,
+          ),
           validator: (text) => TextValidate.userValidator(text),
           controller: controller,
         ),
       );
 
-  static Widget email(
-          {required TextEditingController controller,
-          required String placeholder}) =>
+  static Widget email({
+    required TextEditingController controller,
+    required String text,
+    String? placeholder,
+  }) =>
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
         child: TextFormField(
-          decoration: CustomBorderStyles.completeDecoration(label: placeholder),
+          decoration: CustomBorderStyles.completeDecoration(
+            label: text,
+            placeholder: placeholder,
+          ),
           validator: (text) => TextValidate.emailValidator(text),
           controller: controller,
         ),
@@ -33,8 +42,9 @@ class CustomTextFormField extends StatelessWidget {
 
   static Widget password({
     required TextEditingController controller,
-    required String placeholder,
+    required String text,
     required ValueNotifier<bool> visible,
+    String? placeholder,
   }) =>
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -42,7 +52,8 @@ class CustomTextFormField extends StatelessWidget {
           valueListenable: visible,
           builder: (_, value, __) => TextFormField(
             decoration: CustomBorderStyles.completeDecoration(
-              label: placeholder,
+              label: text,
+              placeholder: placeholder,
               icon: value
                   ? IconButton(
                       padding: const EdgeInsets.all(8.0),

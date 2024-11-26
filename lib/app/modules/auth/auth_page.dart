@@ -100,13 +100,13 @@ class _AuthPageState extends State<AuthPage> {
                               style: TextStyle(
                                 fontSize: 26,
                                 color: Colors.grey[700]!,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           )
                         ],
                       ),
-                      const SizedBox(height: 60),
+                      const SizedBox(height: 64),
                       Form(
                         key: formKey,
                         child: value
@@ -151,17 +151,17 @@ class _AuthPageState extends State<AuthPage> {
         children: [
           Flexible(
             child: CustomTextFormField.user(
-              controller: emailController,
-              placeholder: "Email",
-            ),
+                controller: emailController,
+                text: "Email",
+                placeholder: "Digite seu email...."),
           ),
           space,
           Flexible(
             child: CustomTextFormField.password(
-              controller: passwordController,
-              placeholder: "Senha",
-              visible: changePassword,
-            ),
+                controller: passwordController,
+                text: "Senha",
+                visible: changePassword,
+                placeholder: "Digite a sua senha..."),
           ),
           space,
         ],
@@ -186,15 +186,17 @@ class _AuthPageState extends State<AuthPage> {
           Flexible(
             child: CustomTextFormField.email(
               controller: emailController,
-              placeholder: "Email",
+              text: "Email",
+              placeholder: "Digite seu email...",
             ),
           ),
           space,
           Flexible(
             child: CustomTextFormField.password(
               controller: passwordController,
-              placeholder: "Senha",
+              text: "Senha",
               visible: changePassword,
+              placeholder: "Digite a sua senha",
             ),
           ),
           space,
@@ -215,23 +217,12 @@ class _AuthPageState extends State<AuthPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Flexible(
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   CustomButtons.buttonPrimary(
-                    label: change ? "Login" : "Cadastre-se",
-                    fontSize: 10,
-                    width: maxWidth / 12,
-                    height: maxHeight / 16,
-                    colorBackground: CustomColors.green500,
-                    colorFont: Colors.white,
-                    function: () {
-                      changeForms.value = !changeForms.value;
-                    },
-                  ),
-                  CustomButtons.buttonPrimary(
-                    label: "Enviar",
+                    label: "Acessar",
                     fontSize: 10,
                     colorBackground: CustomColors.green500,
                     colorFont: Colors.white,
@@ -240,23 +231,33 @@ class _AuthPageState extends State<AuthPage> {
                     function: () {
                       if (formKey.currentState?.validate() == true) {
                         Navigator.of(context).pushNamed(Routes.homeRoute);
-                        // change
-                        //     ? SupabaseAuth.signUp(
-                        //         context: context,
-                        //         email: emailController.value.text,
-                        //         password: passwordController.value.text,
-                        //       )
-                        //     : SupabaseAuth.signIn(
-                        //         context: context,
-                        //         email: emailController.value.text,
-                        //         passsword: passwordController.value.text,
-                        //       );
+
+                        SupabaseAuth.signIn(
+                          context: context,
+                          email: emailController.value.text,
+                          passsword: passwordController.value.text,
+                        );
                         userController.clear();
                         passwordController.clear();
                         emailController.clear();
                       }
                     },
-                  )
+                  ),
+                  CustomButtons.buttonPrimary(
+                    label: "Cadastre-se",
+                    fontSize: 10,
+                    width: maxWidth / 12,
+                    height: maxHeight / 16,
+                    colorBackground: CustomColors.green500,
+                    colorFont: Colors.white,
+                    function: () {
+                      SupabaseAuth.signUp(
+                        context: context,
+                        email: emailController.value.text,
+                        password: passwordController.value.text,
+                      );
+                    },
+                  ),
                 ],
               ),
             )
