@@ -3,7 +3,7 @@ import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
 class CustomBorderStyles {
   static OutlineInputBorder focusBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(30),
+    borderRadius: BorderRadius.circular(10),
     borderSide: BorderSide(
       color: CustomColors.inputBorderFocusColor,
       width: 1,
@@ -11,7 +11,7 @@ class CustomBorderStyles {
   );
 
   static OutlineInputBorder erroBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(30),
+    borderRadius: BorderRadius.circular(10),
     borderSide: BorderSide(
       color: CustomColors.inputBorderErrorColor,
       width: 1,
@@ -19,7 +19,7 @@ class CustomBorderStyles {
   );
 
   static OutlineInputBorder erroFocusBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(30),
+    borderRadius: BorderRadius.circular(10),
     borderSide: BorderSide(
       color: CustomColors.inputBorderErrorColor,
       width: 2,
@@ -27,15 +27,15 @@ class CustomBorderStyles {
   );
 
   static OutlineInputBorder enableBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(30),
+    borderRadius: BorderRadius.circular(10),
     borderSide: BorderSide(
-      color: CustomColors.inputBorderEnableColor,
-      width: 1,
+      color: Colors.grey[400]!,
+      width: 1.5,
     ),
   );
 
   static OutlineInputBorder disableBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(30),
+    borderRadius: BorderRadius.circular(10),
     borderSide: BorderSide(
       color: CustomColors.halfBlack,
       width: 1,
@@ -49,7 +49,7 @@ class CustomBorderStyles {
       InputDecoration(
         labelText: label,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(
             color: Colors.black,
             width: 1,

@@ -53,8 +53,8 @@ class _AuthPageState extends State<AuthPage> {
 
   @override
   Widget build(BuildContext scaffoldContext) {
+    double pi = 3.14159;
     return Scaffold(
-      appBar: customAppBar("Recicla Palmas"),
       backgroundColor: Colors.white,
       body: LayoutBuilder(
         builder: (context, constraits) {
@@ -66,28 +66,47 @@ class _AuthPageState extends State<AuthPage> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: constraits.maxWidth / 2,
+                  width: constraits.maxWidth * .45,
                   height: constraits.maxHeight,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        const Color(0xFF0DC5A5), // Verde-azulado (topo)
-                        const Color(0xFF17A84A), // Verde vívido (base)
+                        const Color(0xFF0DC5A5),
+                        const Color(0xFF17A84A),
                         Colors.green[700]!,
                         Colors.green[900]!
                       ],
+                      transform: GradientRotation((pi / 2)),
                     ),
                   ),
                 ),
                 Container(
-                  width: constraits.maxWidth / 2,
+                  width: constraits.maxWidth * .55,
                   height: constraits.maxHeight,
-                  color: Colors.orangeAccent,
+                  color: Colors.white,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              "Acesse sua conta",
+                              style: TextStyle(
+                                fontSize: 26,
+                                color: Colors.grey[700]!,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 60),
                       Form(
                         key: formKey,
                         child: value
@@ -122,36 +141,31 @@ class _AuthPageState extends State<AuthPage> {
   }) {
     SizedBox space = const SizedBox(height: 40);
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const Text(
-          "Login",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+    return Container(
+      width: 600,
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Flexible(
+            child: CustomTextFormField.user(
+              controller: emailController,
+              placeholder: "Email",
+            ),
           ),
-        ),
-        space,
-        space,
-        Flexible(
-          child: CustomTextFormField.user(
-            controller: emailController,
-            placeholder: "Email",
+          space,
+          Flexible(
+            child: CustomTextFormField.password(
+              controller: passwordController,
+              placeholder: "Senha",
+              visible: changePassword,
+            ),
           ),
-        ),
-        space,
-        Flexible(
-          child: CustomTextFormField.password(
-            controller: passwordController,
-            placeholder: "Senha",
-            visible: changePassword,
-          ),
-        ),
-        space,
-      ],
+          space,
+        ],
+      ),
     );
   }
 
@@ -161,35 +175,31 @@ class _AuthPageState extends State<AuthPage> {
   }) {
     SizedBox space = const SizedBox(height: 40);
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const Text(
-          "Cadastro",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+    return Container(
+      width: 600,
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Flexible(
+            child: CustomTextFormField.email(
+              controller: emailController,
+              placeholder: "Email",
+            ),
           ),
-        ),
-        space,
-        Flexible(
-          child: CustomTextFormField.email(
-            controller: emailController,
-            placeholder: "Email",
+          space,
+          Flexible(
+            child: CustomTextFormField.password(
+              controller: passwordController,
+              placeholder: "Senha",
+              visible: changePassword,
+            ),
           ),
-        ),
-        space,
-        Flexible(
-          child: CustomTextFormField.password(
-            controller: passwordController,
-            placeholder: "Senha",
-            visible: changePassword,
-          ),
-        ),
-        space,
-      ],
+          space,
+        ],
+      ),
     );
   }
 
