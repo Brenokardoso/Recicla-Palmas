@@ -47,6 +47,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: any
+  flutter_svg: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +89,10 @@ flutter:
     - lib/app/core/assets/img/simbolos_reciclagem/toxico.jpg
     - lib/app/core/assets/img/simbolos_reciclagem/vidro.jpg  
     - lib/app/core/assets/img/simbolos_reciclagem/planta.jpg  
+    - lib/app/core/assets/svg/logo.svg  
+    - lib/app/core/assets/img/logo.jpg
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

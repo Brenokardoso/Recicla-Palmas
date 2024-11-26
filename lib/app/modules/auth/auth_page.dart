@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:recicla_palmas/app/core/database/supabase_auth.dart';
 import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
@@ -77,6 +78,31 @@ class _AuthPageState extends State<AuthPage> {
                         Colors.green[900]!
                       ],
                       transform: GradientRotation((pi / 2)),
+                    ),
+                  ),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  "lib/app/core/assets/img/logo.jpg"),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        const Text(
+                          "Recicla Palmas",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -226,7 +252,7 @@ class _AuthPageState extends State<AuthPage> {
                     fontSize: 10,
                     colorBackground: CustomColors.green500,
                     colorFont: Colors.white,
-                    width: maxWidth / 12,
+                    width: maxWidth / 8,
                     height: maxHeight / 16,
                     function: () {
                       if (formKey.currentState?.validate() == true) {
@@ -246,7 +272,7 @@ class _AuthPageState extends State<AuthPage> {
                   CustomButtons.buttonPrimary(
                     label: "Cadastre-se",
                     fontSize: 10,
-                    width: maxWidth / 12,
+                    width: maxWidth / 8,
                     height: maxHeight / 16,
                     colorBackground: CustomColors.green500,
                     colorFont: Colors.white,
