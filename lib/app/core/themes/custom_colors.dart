@@ -5,6 +5,21 @@ class CustomColors {
   static Color? green400 = Colors.green[400];
   static Color? green500 = Colors.green[500];
   static Color? green600 = Colors.green[500];
+  static List<Color> gradientColorsAuth = [
+    const Color(0xFF0DC5A5),
+    const Color(0xFF17A84A),
+    Colors.green[700]!,
+    Colors.green[900]!
+  ];
+  static List<Color> gradientColorsDrawer = [
+    const Color(0xFF01B596),
+    const Color.fromARGB(255, 4, 211, 73),
+    const Color.fromARGB(255, 4, 211, 73),
+    // const Color(0xFF00A844),
+    // const Color.fromARGB(255, 4, 211, 73),
+    // const Color(0xFF007E31),
+    // const Color(0xFF004D2E),
+  ];
 
   static Color halfBlack = Colors.black45;
   static List<Color> colorGradientHeader = [

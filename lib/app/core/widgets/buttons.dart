@@ -1,5 +1,3 @@
-import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
-
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
@@ -51,7 +49,7 @@ class CustomButtons {
     FontWeight? fontWeight,
   }) =>
       ElevatedButton(
-        onPressed: function.call(),
+        onPressed: function,
         style: _customButtomStyle(
           label: label,
           fontSize: fontSize,
@@ -82,7 +80,7 @@ class CustomButtons {
     FontWeight? fontWeight,
   }) =>
       ElevatedButton.icon(
-        onPressed: function.call(),
+        onPressed: function,
         style: _customButtomStyle(
           label: label,
           fontSize: fontSize,

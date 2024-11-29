@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/database/supabase_db.dart';
+import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer.dart';
@@ -31,62 +32,39 @@ class _HomePage extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double pi = 3.14159;
+    double sizeHeight = MediaQuery.of(context).size.height;
     double sizeWidth = MediaQuery.of(context).size.width;
+    int indexPage = 0;
     return Scaffold(
-      appBar: customAppBar('Recicla Palmas'),
-      backgroundColor: Colors.white,
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  "lib/app/core/assets/img/nature_backgorund_application.png",
-                ),
-                fit: BoxFit.fill,
-                colorFilter: ColorFilter.srgbToLinearGamma(),
-                filterQuality: FilterQuality.high,
-              ),
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          CustomDrawer(context: context, drawerItens: []),
+          LayoutBuilder(
+            builder: (context, constraits) {
+              return IndexedStack(
+                index: indexPage,
                 children: [
-                  customHeader(context,
-                      "Descubra os locais de reciclagem perto de você"),
-                  const OsmImplemetation(),
+                  Container(
+                    width: sizeWidth - 300,
+                    height: constraits.maxHeight,
+                    color: Colors.blueGrey[50],
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [],
+                    ),
+                  ),
                 ],
-              ),
-            ),
-          );
-        },
+              );
+            },
+          )
+        ],
       ),
-    );
-  }
-
-  Widget customHeader(BuildContext context, String label) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Flexible(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: Text(
-              label,
-              style: const TextStyle(
-                fontSize: 24,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                overflow: TextOverflow.fade,
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

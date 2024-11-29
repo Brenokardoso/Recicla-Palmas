@@ -55,6 +55,11 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext scaffoldContext) {
     double pi = 3.14159;
+    Future.delayed(Duration(seconds: 1), () {
+      if (mounted) {
+        Navigator.of(context).pushNamed(Routes.homeRoute);
+      }
+    });
     return Scaffold(
       backgroundColor: Colors.white,
       body: LayoutBuilder(
@@ -71,12 +76,7 @@ class _AuthPageState extends State<AuthPage> {
                   height: constraits.maxHeight,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [
-                        const Color(0xFF0DC5A5),
-                        const Color(0xFF17A84A),
-                        Colors.green[700]!,
-                        Colors.green[900]!
-                      ],
+                      colors: CustomColors.gradientColorsAuth,
                       transform: GradientRotation((pi / 2)),
                     ),
                   ),
@@ -96,6 +96,7 @@ class _AuthPageState extends State<AuthPage> {
                         SizedBox(height: 10),
                         Text(
                           "Recicla Palmas",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 45,
                             color: Colors.white,
@@ -254,11 +255,11 @@ class _AuthPageState extends State<AuthPage> {
                     colorFont: Colors.white,
                     width: maxWidth / 5,
                     height: maxHeight / 16,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     function: () {
+                      print("Login");
                       if (formKey.currentState?.validate() == true) {
                         Navigator.of(context).pushNamed(Routes.homeRoute);
-                        print("Login");
 
                         // SupabaseAuth.signIn(
                         //   context: context,
@@ -280,7 +281,7 @@ class _AuthPageState extends State<AuthPage> {
                     colorBackground: Colors.white,
                     colorFont: CustomColors.green500,
                     elevation: 0,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     function: () {
                       print("Cadastro");
 
