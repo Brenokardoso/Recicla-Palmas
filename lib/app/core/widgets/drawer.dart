@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
-Widget CustomDrawer({
+Widget customDrawer({
   required BuildContext context,
   required List<Widget>  drawerItens,
 }) {

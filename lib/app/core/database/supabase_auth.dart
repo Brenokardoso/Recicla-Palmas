@@ -103,7 +103,7 @@ class SupabaseAuth {
   static Future<void> signOut(BuildContext context) async {
     try {
       final dbInstance = SupabaseDb.supabase;
-      final response = await dbInstance.auth.signOut().whenComplete(
+      await dbInstance.auth.signOut().whenComplete(
         () {
           if (context.mounted) {
             CustomWarnings.showSuccessSnackBar(

@@ -6,6 +6,7 @@ import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
 import 'package:recicla_palmas/app/core/widgets/buttons.dart';
+import 'package:recicla_palmas/app/core/widgets/image.dart';
 import 'package:recicla_palmas/app/core/widgets/text_form_field.dart';
 
 class AuthPage extends StatefulWidget {
@@ -80,21 +81,15 @@ class _AuthPageState extends State<AuthPage> {
                       transform: GradientRotation((pi / 2)),
                     ),
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image(
-                          filterQuality: FilterQuality.high,
-                          fit: BoxFit.contain,
-                          image: AssetImage(
-                            "lib/app/core/assets/img/logologin.png",
-                          ),
-                        ),
-                        SizedBox(height: 10),
-                        Text(
+                        imageReciclaPalmas,
+                        const SizedBox(height: 10),
+                        const Text(
                           "Recicla Palmas",
                           textAlign: TextAlign.center,
                           style: TextStyle(

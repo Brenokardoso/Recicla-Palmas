@@ -15,10 +15,6 @@ class CustomColors {
     const Color(0xFF01B596),
     const Color.fromARGB(255, 4, 211, 73),
     const Color.fromARGB(255, 4, 211, 73),
-    // const Color(0xFF00A844),
-    // const Color.fromARGB(255, 4, 211, 73),
-    // const Color(0xFF007E31),
-    // const Color(0xFF004D2E),
   ];
 
   static Color halfBlack = Colors.black45;
@@ -33,5 +29,4 @@ class CustomColors {
   static Color inputBorderEnableColor = Colors.green;
   static Color inputBorderErrorColor = Colors.red;
   static Color inputBorderColor = Colors.yellow;
-  // static Color? inputBorder_Color = Colors.blue[500];
 }
