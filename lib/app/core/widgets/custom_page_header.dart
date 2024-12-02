@@ -13,11 +13,17 @@ Widget customPage({
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          pageHeader(pageWidth: pageWidth, pageHeight: pageHeight),
+          pageHeader(
+            pageWidth: pageWidth,
+            pageHeight: pageHeight,
+          ),
           LayoutBuilder(
             builder: (context, constraits) {
               return Container(
-                width: constraits.maxHeight,
+                constraints: constraits,
+                width: constraits.maxWidth,
+                height: pageHeight - 126.01,
+                color: Colors.transparent,
               );
             },
           )
@@ -25,7 +31,10 @@ Widget customPage({
       ),
     );
 
-Widget pageHeader({required double pageWidth, required double pageHeight}) =>
+Widget pageHeader({
+  required double pageWidth,
+  required double pageHeight,
+}) =>
     Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +51,7 @@ Widget pageHeader({required double pageWidth, required double pageHeight}) =>
               color: Colors.red,
               child: const ListTile(
                 title: Text("Painel de Coletas"),
-                subtitle: Text('Seja bem vindo(a) ao recicla palmas'),
+                subtitle: Text('Seja bem vindo(a) ao recicla Palmas'),
               ),
             ),
             Container(

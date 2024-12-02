@@ -40,6 +40,7 @@ class _HomePage extends State<HomePage> {
     SizedBox spaceDrawerItem = const SizedBox(height: 25);
     ValueNotifier<int> indexPage = ValueNotifier<int>(0);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
