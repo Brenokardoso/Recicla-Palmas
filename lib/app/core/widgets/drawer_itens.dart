@@ -26,7 +26,10 @@ Widget customDrawerItem({
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.max,
               children: [
-                Icon(icon),
+                Icon(
+                  icon,
+                  color: Colors.white,
+                ),
                 const SizedBox(
                   width: 10,
                 ),
