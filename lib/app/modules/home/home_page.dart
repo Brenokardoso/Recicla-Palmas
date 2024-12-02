@@ -59,11 +59,29 @@ class _HomePage extends State<HomePage> {
                       width: sizeWidth - 300,
                       height: constraits.maxHeight,
                       color: Colors.blueGrey[50],
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
-                        children: [],
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Container(
+                                width: (sizeWidth - 300) / 2,
+                                height: 110,
+                                color: Colors.red,
+                              ),
+                              Container(
+                                width: (sizeWidth - 300) / 2,
+                                height: 110,
+                                color: Colors.orange,
+                              )
+                            ],
+                          )
+                        ],
                       ),
                     ),
                     Container(

@@ -51,27 +51,29 @@ Widget customDrawerItem({
   );
 }
 
-Widget logoHeaderDrawer = Column(
-  mainAxisSize: MainAxisSize.min,
-  mainAxisAlignment: MainAxisAlignment.start,
-  crossAxisAlignment: CrossAxisAlignment.center,
-  children: [
-    SizedBox(
-      width: 340,
-      height: 70,
-      child: imageReciclaPalmas,
-    ),
-    const SizedBox(height: 10),
-    const Text(
-      "Recicla Palmas",
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.w400,
+Widget logoHeaderDrawer = Padding(
+  padding: const EdgeInsets.only(top: 20.0),
+  child: Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(
+        width: 340,
+        height: 70,
+        child: imageReciclaPalmas,
       ),
-    ),
-    const SizedBox(height: 20),
-  ],
+      const Text(
+        "Recicla Palmas",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+      const SizedBox(height: 20),
+    ],
+  ),
 );
 
 List<Widget> listDrawerItens({required ValueNotifier indexPage}) => [
