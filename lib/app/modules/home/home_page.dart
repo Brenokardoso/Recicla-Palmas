@@ -56,7 +56,7 @@ class _HomePage extends State<HomePage> {
                 return IndexedStack(
                   index: value,
                   children: [
-                    customPageHeader(
+                    customPage(
                       pageWidth: sizeWidth,
                       pageHeight: constraits.maxHeight,
                     ),
