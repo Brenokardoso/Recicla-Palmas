@@ -46,32 +46,13 @@ class _HomePage extends State<HomePage> {
           customDrawer(
             context: context,
             drawerItens: [
-              SizedBox(
-                width: 300,
-                height: 70,
-                child: imageReciclaPalmas,
-              ),
-              ElevatedButton.icon(
-                onPressed: () {
-                  indexPage.value = 0;
-                },
-                label: const Text("page 0"),
-                icon: const Icon(Icons.keyboard_arrow_down_rounded),
-              ),
-              ElevatedButton.icon(
-                onPressed: () {
-                  indexPage.value = 1;
-                },
-                label: const Text("dpage 1 "),
-                icon: const Icon(Icons.lunch_dining_outlined),
-              ),
-              ElevatedButton.icon(
-                onPressed: () {
-                  indexPage.value = 2;
-                },
-                label: const Text("page 2"),
-                icon: const Icon(Icons.sunny),
-              )
+              logoHeaderDrawer,
+              customDrawerItem(
+                  icon: Icons.abc,
+                  title: "Todo Painel",
+                  func: () {
+                    print('Retorno da função');
+                  }),
             ],
           ),
           ValueListenableBuilder(
@@ -123,4 +104,27 @@ class _HomePage extends State<HomePage> {
       ),
     );
   }
+
+  Widget logoHeaderDrawer = Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      SizedBox(
+        width: 300,
+        height: 70,
+        child: imageReciclaPalmas,
+      ),
+      const SizedBox(height: 10),
+      const Text(
+        "Recicla Palmas",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+      const SizedBox(height: 20),
+    ],
+  );
 }
