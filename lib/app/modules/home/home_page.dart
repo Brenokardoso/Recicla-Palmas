@@ -36,6 +36,7 @@ class _HomePage extends State<HomePage> {
     double pi = 3.14159;
     double sizeHeight = MediaQuery.of(context).size.height;
     double sizeWidth = MediaQuery.of(context).size.width;
+    SizedBox space = const SizedBox(height: 10);
     ValueNotifier<int> indexPage = ValueNotifier<int>(0);
     return Scaffold(
       body: Row(
@@ -52,6 +53,20 @@ class _HomePage extends State<HomePage> {
                   title: "Todo Painel",
                   func: () {
                     print('Retorno da função');
+                  }),
+              space,
+              customDrawerItem(
+                  title: "Mapa de coleta",
+                  icon: Icons.question_answer,
+                  func: () {
+                    print('Retorno da função 2 ');
+                  }),
+              space,
+              customDrawerItem(
+                  title: "Pontos de coleta",
+                  icon: Icons.question_answer,
+                  func: () {
+                    print('Retorno da função 3 ');
                   }),
             ],
           ),
