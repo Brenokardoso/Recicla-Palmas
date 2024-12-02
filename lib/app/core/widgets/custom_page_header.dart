@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget customPageView({
+Widget customPageHeader({
   required double pageWidth,
   required double pageHeight,
 }) =>

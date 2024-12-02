@@ -3,7 +3,7 @@ import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
-import 'package:recicla_palmas/app/core/widgets/custom_page_view.dart';
+import 'package:recicla_palmas/app/core/widgets/custom_page_header.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer_itens.dart';
 import 'package:recicla_palmas/app/core/widgets/image.dart';
@@ -56,7 +56,7 @@ class _HomePage extends State<HomePage> {
                 return IndexedStack(
                   index: value,
                   children: [
-                    customPageView(
+                    customPageHeader(
                       pageWidth: sizeWidth,
                       pageHeight: constraits.maxHeight,
                     ),
