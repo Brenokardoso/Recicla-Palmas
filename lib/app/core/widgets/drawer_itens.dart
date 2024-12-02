@@ -70,3 +70,33 @@ Widget logoHeaderDrawer = Column(
     const SizedBox(height: 20),
   ],
 );
+
+List<Widget> listDrawerItens({required ValueNotifier indexPage}) => [
+      logoHeaderDrawer,
+      customDrawerItem(
+          icon: Icons.dashboard,
+          title: "Todo Painel",
+          valueNotifier: indexPage,
+          compareValue: 0,
+          func: () {
+            indexPage.value = 0;
+          }),
+      const SizedBox(height: 20),
+      customDrawerItem(
+          title: "Mapa de coleta",
+          icon: Icons.location_on,
+          valueNotifier: indexPage,
+          compareValue: 1,
+          func: () {
+            indexPage.value = 1;
+          }),
+      const SizedBox(height: 20),
+      customDrawerItem(
+          title: "Pontos de coleta",
+          icon: Icons.view_carousel,
+          valueNotifier: indexPage,
+          compareValue: 2,
+          func: () {
+            indexPage.value = 2;
+          }),
+    ];

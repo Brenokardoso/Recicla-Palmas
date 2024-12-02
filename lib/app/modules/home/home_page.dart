@@ -46,38 +46,7 @@ class _HomePage extends State<HomePage> {
         children: [
           customDrawer(
             context: context,
-            drawerItens: [
-              logoHeaderDrawer,
-              customDrawerItem(
-                  icon: Icons.abc,
-                  title: "Todo Painel",
-                  valueNotifier: indexPage,
-                  compareValue: 0,
-                  func: () {
-                    indexPage.value = 0;
-                    print('Retorno da função');
-                  }),
-              spaceDrawerItem,
-              customDrawerItem(
-                  title: "Mapa de coleta",
-                  icon: Icons.question_answer,
-                  valueNotifier: indexPage,
-                  compareValue: 1,
-                  func: () {
-                    indexPage.value = 1;
-                    print('Retorno da função 2 ');
-                  }),
-              spaceDrawerItem,
-              customDrawerItem(
-                  title: "Pontos de coleta",
-                  icon: Icons.question_answer,
-                  valueNotifier: indexPage,
-                  compareValue: 2,
-                  func: () {
-                    indexPage.value = 2;
-                    print('Retorno da função 3 ');
-                  }),
-            ],
+            drawerItens: listDrawerItens(indexPage: indexPage),
           ),
           ValueListenableBuilder(
             valueListenable: indexPage,
