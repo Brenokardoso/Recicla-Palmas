@@ -7,7 +7,7 @@ Widget customPage({
     Container(
       width: pageWidth - 300,
       height: pageWidth,
-      color: Colors.blueGrey[50],
+      color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

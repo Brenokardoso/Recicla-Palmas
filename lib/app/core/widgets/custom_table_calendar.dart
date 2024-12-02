@@ -33,7 +33,6 @@ class _CustomTableCalendarState extends State<CustomTableCalendar> {
               ),
               TableCalendar(
                 locale: "pt_BR",
-                // calendarFormat: CalendarFormat.month,
                 availableCalendarFormats: const {CalendarFormat.month: 'Month'},
                 focusedDay: daySelected,
                 firstDay: DateTime(1999),
