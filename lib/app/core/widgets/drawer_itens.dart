@@ -16,7 +16,7 @@ Widget customDrawerItem({
           return ListTile(
             leading: Container(
               width: 5,
-              height: 35,
+              height: 30,
               color: valueNotifier.value == compareValue
                   ? Colors.white
                   : Colors.transparent,
