@@ -53,22 +53,22 @@ class _HomePage extends State<HomePage> {
               onPressed: () {
                 indexPage.value = 0;
               },
-              label: Text("page 0"),
-              icon: Icon(Icons.keyboard_arrow_down_rounded),
+              label: const Text("page 0"),
+              icon: const Icon(Icons.keyboard_arrow_down_rounded),
             ),
             ElevatedButton.icon(
               onPressed: () {
                 indexPage.value = 1;
               },
-              label: Text("dpage 1 "),
-              icon: Icon(Icons.lunch_dining_outlined),
+              label: const Text("dpage 1 "),
+              icon: const Icon(Icons.lunch_dining_outlined),
             ),
             ElevatedButton.icon(
               onPressed: () {
                 indexPage.value = 2;
               },
-              label: Text("page 2"),
-              icon: Icon(Icons.sunny),
+              label: const Text("page 2"),
+              icon: const Icon(Icons.sunny),
             )
           ]),
           ValueListenableBuilder(
@@ -82,7 +82,7 @@ class _HomePage extends State<HomePage> {
                       width: sizeWidth - 300,
                       height: constraits.maxHeight,
                       color: Colors.blueGrey[50],
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
@@ -93,7 +93,7 @@ class _HomePage extends State<HomePage> {
                       width: sizeWidth - 300,
                       height: constraits.maxHeight,
                       color: Colors.yellow,
-                      child: Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
@@ -104,7 +104,7 @@ class _HomePage extends State<HomePage> {
                       width: sizeWidth - 300,
                       height: constraits.maxHeight,
                       color: Colors.pink,
-                      child: Column(
+                      child:const  Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
