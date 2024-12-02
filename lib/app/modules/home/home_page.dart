@@ -36,7 +36,7 @@ class _HomePage extends State<HomePage> {
     double pi = 3.14159;
     double sizeHeight = MediaQuery.of(context).size.height;
     double sizeWidth = MediaQuery.of(context).size.width;
-    SizedBox space = const SizedBox(height: 10);
+    SizedBox spaceDrawerItem = const SizedBox(height: 25);
     ValueNotifier<int> indexPage = ValueNotifier<int>(0);
     return Scaffold(
       body: Row(
@@ -51,21 +51,30 @@ class _HomePage extends State<HomePage> {
               customDrawerItem(
                   icon: Icons.abc,
                   title: "Todo Painel",
+                  valueNotifier: indexPage,
+                  compareValue: 0,
                   func: () {
+                    indexPage.value = 0;
                     print('Retorno da função');
                   }),
-              space,
+              spaceDrawerItem,
               customDrawerItem(
                   title: "Mapa de coleta",
                   icon: Icons.question_answer,
+                  valueNotifier: indexPage,
+                  compareValue: 1,
                   func: () {
+                    indexPage.value = 1;
                     print('Retorno da função 2 ');
                   }),
-              space,
+              spaceDrawerItem,
               customDrawerItem(
                   title: "Pontos de coleta",
                   icon: Icons.question_answer,
+                  valueNotifier: indexPage,
+                  compareValue: 2,
                   func: () {
+                    indexPage.value = 2;
                     print('Retorno da função 3 ');
                   }),
             ],
@@ -119,27 +128,4 @@ class _HomePage extends State<HomePage> {
       ),
     );
   }
-
-  Widget logoHeaderDrawer = Column(
-    mainAxisSize: MainAxisSize.min,
-    mainAxisAlignment: MainAxisAlignment.start,
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      SizedBox(
-        width: 300,
-        height: 70,
-        child: imageReciclaPalmas,
-      ),
-      const SizedBox(height: 10),
-      const Text(
-        "Recicla Palmas",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-      const SizedBox(height: 20),
-    ],
-  );
 }
