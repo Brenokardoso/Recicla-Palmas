@@ -43,34 +43,37 @@ class _HomePage extends State<HomePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          customDrawer(context: context, drawerItens: [
-            SizedBox(
-              width: 300,
-              height: 70,
-              child: imageReciclaPalmas,
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                indexPage.value = 0;
-              },
-              label: const Text("page 0"),
-              icon: const Icon(Icons.keyboard_arrow_down_rounded),
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                indexPage.value = 1;
-              },
-              label: const Text("dpage 1 "),
-              icon: const Icon(Icons.lunch_dining_outlined),
-            ),
-            ElevatedButton.icon(
-              onPressed: () {
-                indexPage.value = 2;
-              },
-              label: const Text("page 2"),
-              icon: const Icon(Icons.sunny),
-            )
-          ]),
+          customDrawer(
+            context: context,
+            drawerItens: [
+              SizedBox(
+                width: 300,
+                height: 70,
+                child: imageReciclaPalmas,
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  indexPage.value = 0;
+                },
+                label: const Text("page 0"),
+                icon: const Icon(Icons.keyboard_arrow_down_rounded),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  indexPage.value = 1;
+                },
+                label: const Text("dpage 1 "),
+                icon: const Icon(Icons.lunch_dining_outlined),
+              ),
+              ElevatedButton.icon(
+                onPressed: () {
+                  indexPage.value = 2;
+                },
+                label: const Text("page 2"),
+                icon: const Icon(Icons.sunny),
+              )
+            ],
+          ),
           ValueListenableBuilder(
             valueListenable: indexPage,
             builder: (_, value, __) => LayoutBuilder(
@@ -104,7 +107,7 @@ class _HomePage extends State<HomePage> {
                       width: sizeWidth - 300,
                       height: constraits.maxHeight,
                       color: Colors.pink,
-                      child:const  Column(
+                      child: const Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
