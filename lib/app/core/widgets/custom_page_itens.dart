@@ -45,57 +45,8 @@ Widget pageHeader({
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Container(
-              width: (pageWidth - 300) / 2,
-              height: 110,
-              color: Colors.red,
-              child: const ListTile(
-                title: Text("Painel de Coletas"),
-                subtitle: Text('Seja bem vindo(a) ao recicla Palmas'),
-              ),
-            ),
-            Container(
-              width: (pageWidth - 300) / 2,
-              height: 110,
-              color: Colors.orange,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.notification_add_rounded,
-                      color: Colors.grey,
-                    ),
-                  ),
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              image: const DecorationImage(
-                                  image: AssetImage(
-                                      "lib/app/core/assets/img/image_user.png"))),
-                        ),
-                        const ListTile(
-                          title: Text(
-                            "User Name",
-                            style: TextStyle(fontSize: 14),
-                          ),
-                          subtitle: Text("Profissão"),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
+            headerLeft(pageWidth),
+            headerRight(pageWidth),
           ],
         ),
         const Padding(
@@ -105,4 +56,71 @@ Widget pageHeader({
           ),
         )
       ],
+    );
+
+Widget headerLeft(double pageWidth) => Container(
+      width: (pageWidth - 300) / 2,
+      height: 110,
+      color: Colors.red,
+      child: const ListTile(
+        title: Text("Painel de Coletas"),
+        subtitle: Text('Seja bem vindo(a) ao recicla Palmas'),
+      ),
+    );
+
+Widget headerRight(double pageWidth) => Container(
+      width: (pageWidth - 300) / 2,
+      height: 110,
+      color: Colors.orange,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.notification_add_rounded,
+              color: Colors.grey,
+            ),
+          ),
+          SizedBox(
+            width: 250,
+            height: 150,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                  child: Container(
+                    width: 75,
+                    height: 75,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      image: const DecorationImage(
+                        fit: BoxFit.cover,
+                        filterQuality: FilterQuality.high,
+                        image: AssetImage(
+                          "lib/app/core/assets/img/image_user.png",
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const Flexible(
+                  child: ListTile(
+                    title: Text(
+                      "User Name",
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    subtitle: Text("Profissão"),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
