@@ -71,46 +71,9 @@ class _HomePage extends State<HomePage> {
                       constMaxheight: constraits.maxHeight,
                       valueNotifier: indexPage,
                     ),
-                    customPage(
-                      pageWidth: sizeWidth,
-                      pageHeight: constraits.maxHeight,
-                      itens: [
-                        Container(
-                          height: constraits.maxHeight,
-                          width: sizeWidth,
-                          color: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10),
-                                  child: ListTile(
-                                    title: Text(
-                                      "Mapa de coleta",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          color: CustomColors.green500,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    subtitle: Text(
-                                      "Clique no ponto e navegue na rota mais próxima de você",
-                                      style: TextStyle(
-                                        color: Colors.grey[600],
-                                        fontSize: 15,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        // customGridCards(listCustomCardsItens(context: context)),
-                      ],
+                    page3(
+                      sizeWidth: sizeWidth,
+                      constMaxheight: constraits.maxHeight,
                     )
                   ],
                 );
@@ -231,7 +194,7 @@ class _HomePage extends State<HomePage> {
   }) {
     return customPage(
       pageWidth: sizeWidth,
-      pageHeight: constMaxheight,
+      pageHeight: constMaxheight + 100,
       itens: [
         Padding(
           padding: const EdgeInsets.only(left: 10),
@@ -265,4 +228,50 @@ class _HomePage extends State<HomePage> {
       ],
     );
   }
+
+  Widget page3({
+    required double sizeWidth,
+    required double constMaxheight,
+  }) =>
+      customPage(
+        pageWidth: sizeWidth,
+        pageHeight: constMaxheight,
+        itens: [
+          Container(
+            height: constMaxheight,
+            width: sizeWidth,
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: ListTile(
+                      title: Text(
+                        "Mapa de coleta",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: CustomColors.green500,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      subtitle: Text(
+                        "Clique no ponto e navegue na rota mais próxima de você",
+                        style: TextStyle(
+                          color: Colors.grey[600],
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          // customGridCards(listCustomCardsItens(context: context)),
+        ],
+      );
 }
