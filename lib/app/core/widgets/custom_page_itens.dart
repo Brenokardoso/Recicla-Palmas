@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 Widget customPage({
   required double pageWidth,
   required double pageHeight,
+  List<Widget>? itens,
 }) =>
     Container(
       width: pageWidth - 300,
@@ -23,7 +24,13 @@ Widget customPage({
                 constraints: constraits,
                 width: constraits.maxWidth,
                 height: pageHeight - 126.01,
-                color: Colors.grey[300],
+                color: Colors.white,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  children: itens ?? [],
+                ),
               );
             },
           )
@@ -50,7 +57,7 @@ Widget pageHeader({
           ],
         ),
         const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding: EdgeInsets.symmetric(horizontal: 30),
           child: Divider(
             color: Colors.grey,
           ),
@@ -107,16 +114,16 @@ Widget headerRight(double pageWidth) => Container(
               children: [
                 Flexible(
                   child: Container(
-                    width: 50,
-                    height: 50,
+                    width: 75,
+                    height: 75,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(60),
+                      borderRadius: BorderRadius.circular(0),
                       image: const DecorationImage(
                         fit: BoxFit.cover,
                         filterQuality: FilterQuality.high,
                         image: AssetImage(
-                          "lib/app/core/assets/img/image_user.png",
+                          "lib/app/core/assets/img/user-profile-icon-free-vector.jpg",
                         ),
                       ),
                     ),

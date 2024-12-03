@@ -60,29 +60,34 @@ class _HomePage extends State<HomePage> {
                     customPage(
                       pageWidth: sizeWidth,
                       pageHeight: constraits.maxHeight,
+                      itens: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              height: constraits.maxHeight,
+                              width: (constraits.maxWidth - 300) / 2,
+                              color: Colors.red,
+                            ),
+                            Container(
+                              height: constraits.maxHeight,
+                              width: (constraits.maxWidth - 300) / 2,
+                              color: Colors.blue,
+                            ),
+                          ],
+                        )
+                      ],
                     ),
-                    Container(
-                      width: sizeWidth - 300,
-                      height: constraits.maxHeight,
-                      color: Colors.yellow,
-                      child: const Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [],
-                      ),
+                    customPage(
+                      pageWidth: sizeWidth,
+                      pageHeight: constraits.maxHeight,
                     ),
-                    Container(
-                      width: sizeWidth - 300,
-                      height: constraits.maxHeight,
-                      color: Colors.pink,
-                      child: const Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [],
-                      ),
-                    ),
+                    customPage(
+                      pageWidth: sizeWidth,
+                      pageHeight: constraits.maxHeight,
+                    )
                   ],
                 );
               },
