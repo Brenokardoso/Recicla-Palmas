@@ -88,89 +88,91 @@ class _HomePage extends State<HomePage> {
 
   Widget page1({required double sizeWidth, required double constMaxheight}) =>
       customPage(
-          pageWidth: sizeWidth,
-          pageHeight: constMaxheight + 100,
-          itens: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                  height: constMaxheight + 100,
-                  width: (sizeWidth - 300) / 2,
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: ListTile(
-                            title: Text(
-                              "Mapa de coleta",
-                              style: TextStyle(
-                                fontSize: 14,
+        pageWidth: sizeWidth,
+        pageHeight: constMaxheight + 100,
+        itens: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                height: constMaxheight + 100,
+                width: (sizeWidth - 300) / 2,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: ListTile(
+                          title: Text(
+                            "Mapa de coleta",
+                            style: TextStyle(
+                                fontSize: 18,
                                 color: CustomColors.green500,
-                              ),
-                            ),
-                            subtitle: Text(
-                              "Clique no ponto e navegue na rota mais próxima de você",
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 15,
-                              ),
+                                fontWeight: FontWeight.w600),
+                          ),
+                          subtitle: Text(
+                            "Clique no ponto e navegue na rota mais próxima de você",
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 15,
                             ),
                           ),
                         ),
-                        OsmImplemetation(
-                          heightScream: constMaxheight - 50,
-                        ),
-                      ],
-                    ),
+                      ),
+                      OsmImplemetation(
+                        heightScream: constMaxheight - 50,
+                      ),
+                    ],
                   ),
                 ),
-                Container(
-                  height: constMaxheight + 100,
-                  width: (sizeWidth - 300) / 2,
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: ListTile(
-                            title: Text(
-                              "Pontos de coleta",
-                              style: TextStyle(
-                                fontSize: 14,
+              ),
+              Container(
+                height: constMaxheight + 100,
+                width: (sizeWidth - 300) / 2,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: ListTile(
+                          title: Text(
+                            "Pontos de coleta",
+                            style: TextStyle(
+                                fontSize: 18,
                                 color: CustomColors.green500,
-                              ),
-                            ),
-                            subtitle: Text(
-                              "Conheça mais sobre os contos de coleta que você pode estar descartando",
-                              style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 15,
-                              ),
+                                fontWeight: FontWeight.w600),
+                          ),
+                          subtitle: Text(
+                            "Conheça mais sobre os contos de coleta que você pode estar descartando",
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 15,
                             ),
                           ),
                         ),
-                        ListView(
-                          children: listCustomCardsItens(context: context),
-                        )
-                      ],
-                    ),
+                      ),
+                      // ListView(
+                      //   shrinkWrap: true,
+                      //   children: listCustomCardsItens(context: context),
+                      // )
+                    ],
                   ),
                 ),
-              ],
-            )
-          ]);
+              ),
+            ],
+          )
+        ],
+      );
 }
