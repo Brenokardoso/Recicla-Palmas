@@ -142,7 +142,7 @@ class _OSMState extends State<OsmImplemetation> {
                       osmOption: const OSMOption(
                         zoomOption: ZoomOption(
                           // Zoom para fixar no Tocantins
-                          initZoom: 6.48505,
+                          initZoom: 14.5,
                           minZoomLevel: 6.48505,
                           maxZoomLevel: 19,
                         ),
