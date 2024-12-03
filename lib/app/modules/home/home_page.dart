@@ -62,9 +62,9 @@ class _HomePage extends State<HomePage> {
                   index: value,
                   children: [
                     page1(
-                      sizeWidth: sizeWidth,
-                      constMaxheight: constraits.maxHeight + 200,
-                    ),
+                        sizeWidth: sizeWidth,
+                        constMaxheight: constraits.maxHeight + 200,
+                        valueNotifier: indexPage),
                     customPage(
                       pageWidth: sizeWidth,
                       pageHeight: constraits.maxHeight,
@@ -131,6 +131,7 @@ class _HomePage extends State<HomePage> {
   Widget page1({
     required double sizeWidth,
     required double constMaxheight,
+    required ValueNotifier valueNotifier,
   }) =>
       customPage(
         pageWidth: sizeWidth,
@@ -141,43 +142,50 @@ class _HomePage extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                height: constMaxheight + 100,
-                width: (sizeWidth - 300) / 2,
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: ListTile(
-                          title: Text(
-                            "Mapa de coleta",
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: CustomColors.green500,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          subtitle: Text(
-                            "Clique no ponto e navegue na rota mais próxima de você",
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 15,
+              ValueListenableBuilder(
+                  valueListenable: valueNotifier,
+                  builder: (_, value, __) {
+                    return Container(
+                      height: constMaxheight + 100,
+                      width: (sizeWidth - 300) / 2,
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 10),
+                              child: ListTile(
+                                title: Text(
+                                  "Mapa de coleta",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: CustomColors.green500,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                subtitle: Text(
+                                  "Clique no ponto e navegue na rota mais próxima de você",
+                                  style: TextStyle(
+                                    color: Colors.grey[600],
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
+                            Visibility(
+                              visible: valueNotifier.value == 0 ? true : false,
+                              child: OsmImplemetation(
+                                heightScream: constMaxheight - 50,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      OsmImplemetation(
-                        heightScream: constMaxheight - 50,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+                    );
+                  }),
               Container(
                 height: constMaxheight + 200,
                 width: (sizeWidth - 300) / 2,
