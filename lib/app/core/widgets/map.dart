@@ -80,15 +80,13 @@ class _OSMState extends State<OsmImplemetation> {
   @override
   void initState() {
     super.initState();
-    //mapController = MapController.withUserPosition(
-    //   trackUserLocation: const UserTrackingOption(
-    //     enableTracking: true, unFollowUser: false));
     mapController = MapController(
       initPosition: GeoPoint(
         latitude: -10.1689,
         longitude: -48.3317,
       ),
     );
+
     cathGeoPoitns();
     cathEcoPoints();
   }

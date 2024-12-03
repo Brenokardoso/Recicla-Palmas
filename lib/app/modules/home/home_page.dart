@@ -3,11 +3,13 @@ import 'package:recicla_palmas/app/core/database/supabase_db.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/app_bar.dart';
+import 'package:recicla_palmas/app/core/widgets/custom_card_item.dart';
 import 'package:recicla_palmas/app/core/widgets/custom_page_itens.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer.dart';
 import 'package:recicla_palmas/app/core/widgets/drawer_itens.dart';
 import 'package:recicla_palmas/app/core/widgets/image.dart';
 import 'package:recicla_palmas/app/core/widgets/map.dart';
+import 'package:recicla_palmas/app/core/widgets/map_open.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,7 +67,9 @@ class _HomePage extends State<HomePage> {
                       pageWidth: sizeWidth,
                       pageHeight: constraits.maxHeight,
                       itens: [
-                        // OsmImplemetation(),
+                        // OsmImplemetationOpenMap(
+                        //   heightScream: constraits.maxHeight - 50,
+                        // ),
                       ],
                     ),
                     customPage(
@@ -84,58 +88,89 @@ class _HomePage extends State<HomePage> {
 
   Widget page1({required double sizeWidth, required double constMaxheight}) =>
       customPage(
-        pageWidth: sizeWidth,
-        pageHeight: constMaxheight + 100,
-        itens: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                height: constMaxheight + 100,
-                width: (sizeWidth - 300) / 2,
-                color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: ListTile(
-                          title: Text(
-                            "Mapa de coleta",
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: CustomColors.green500,
+          pageWidth: sizeWidth,
+          pageHeight: constMaxheight + 100,
+          itens: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  height: constMaxheight + 100,
+                  width: (sizeWidth - 300) / 2,
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: ListTile(
+                            title: Text(
+                              "Mapa de coleta",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: CustomColors.green500,
+                              ),
                             ),
-                          ),
-                          subtitle: Text(
-                            "Clique no ponto e navegue na rota mais próxima de você",
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 15,
+                            subtitle: Text(
+                              "Clique no ponto e navegue na rota mais próxima de você",
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 15,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      OsmImplemetation(
-                        heightScream: constMaxheight - 50,
-                      ),
-                    ],
+                        OsmImplemetation(
+                          heightScream: constMaxheight - 50,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                height: constMaxheight + 100,
-                width: (sizeWidth - 300) / 2,
-                color: Colors.blue,
-              ),
-            ],
-          )
-        ],
-      );
+                Container(
+                  height: constMaxheight + 100,
+                  width: (sizeWidth - 300) / 2,
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: ListTile(
+                            title: Text(
+                              "Pontos de coleta",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: CustomColors.green500,
+                              ),
+                            ),
+                            subtitle: Text(
+                              "Conheça mais sobre os contos de coleta que você pode estar descartando",
+                              style: TextStyle(
+                                color: Colors.grey[600],
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ),
+                        ListView(
+                          children: listCustomCardsItens(context: context),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ]);
 }

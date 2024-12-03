@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
+import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/buttons.dart';
 
 Widget customCardItem({
@@ -146,4 +147,74 @@ BoxDecoration cardTopDecoration(String pathImage) {
       ),
     ),
   );
+}
+
+List<Widget> listCustomCardsItens({required BuildContext context}) {
+  String cardImage = "lib/app/core/assets/img/image_auth_backgorund.png";
+
+  return [
+    customCardItem(
+      pathImage: cardImage,
+      descricao:
+          "Ecoponto da ACNO 1 (103 Norte) - Anexo III da Corregedoria da Justiça",
+      descricaoDosMateriais: "Metal, papel, plástico",
+      func: () => Navigator.of(context).pushNamed(Routes.point103),
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto da Arse 34 (310 Sul) - IFTO",
+      descricaoDosMateriais: "Papel, plástico, metal, vidro",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao:
+          "Ecoponto da AASE 50 (502 Sul) - Defensoria Pública na Avenida Teotônio Segurado",
+      descricaoDosMateriais: "Metal, plástico, papel",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto da Arno 12 (105 Norte) Prédio Royal",
+      descricaoDosMateriais: "Plástico, metal, papel",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto na Praça da Arso 42 (405 Sul)",
+      descricaoDosMateriais: "Vidro, metal, papel, plástico",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto na Praça da Arse 21 (204 Sul)",
+      descricaoDosMateriais: "Papel, vidro, metal, plástico",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto da Arso 61 (603 Sul)",
+      descricaoDosMateriais: "Papel, metal, plástico",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto da Arso 102 (1005 Sul)",
+      descricaoDosMateriais: "Metal, plástico, papel",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto na Praça dos Girassóis (Terratins)",
+      descricaoDosMateriais: "Plástico, papel, metal, vidro",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto da Arno 22 (205 Norte) Condomínio Privillege",
+      descricaoDosMateriais: "Papel, metal, plástico",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto na Praça dos Girassóis (Tribunal de Justiça)",
+      descricaoDosMateriais: "Metal, vidro, plástico, papel",
+    ),
+    customCardItem(
+      pathImage: cardImage,
+      descricao: "Ecoponto na Praça da Arne 13 (108 Norte)",
+      descricaoDosMateriais: "Papel, plástico, metal, vidro",
+    ),
+  ];
 }

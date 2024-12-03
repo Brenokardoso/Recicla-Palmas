@@ -7,8 +7,8 @@ import 'package:recicla_palmas/app/core/utils/json_read.dart';
 import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/custom_card_item.dart';
 
-class OsmImplemetation extends StatefulWidget {
-  const OsmImplemetation({
+class OsmImplemetationOpenMap extends StatefulWidget {
+  const OsmImplemetationOpenMap({
     this.widthScream,
     this.heightScream,
     super.key,
@@ -17,11 +17,11 @@ class OsmImplemetation extends StatefulWidget {
   final double? widthScream;
 
   @override
-  State<OsmImplemetation> createState() => _OSMState();
+  State<OsmImplemetationOpenMap> createState() => _OSMState();
 }
 
-class _OSMState extends State<OsmImplemetation> {
-  late final MapController mapController;
+class _OSMState extends State<OsmImplemetationOpenMap> {
+  late final MapController openMapcontroller;
   Map<String, dynamic> tocantinsMap = {};
   Map<String, dynamic> ecoPoints = {};
   List<GeoPoint> geoPointList = [
@@ -80,22 +80,20 @@ class _OSMState extends State<OsmImplemetation> {
   @override
   void initState() {
     super.initState();
-    //mapController = MapController.withUserPosition(
-    //   trackUserLocation: const UserTrackingOption(
-    //     enableTracking: true, unFollowUser: false));
-    mapController = MapController(
-      initPosition: GeoPoint(
-        latitude: -10.1689,
-        longitude: -48.3317,
-      ),
-    );
+
+ openMapcontroller = MapController(
+            initPosition: GeoPoint(
+              latitude: -10.1689,
+              longitude: -48.3317,
+            ),
+          );
     cathGeoPoitns();
     cathEcoPoints();
   }
 
   @override
   void dispose() {
-    mapController.dispose();
+    openMapcontroller.dispose();
     super.dispose();
   }
 
@@ -137,11 +135,11 @@ class _OSMState extends State<OsmImplemetation> {
                         await drawPointsIntheMap();
                         // await goTocurrentLocation();
                       },
-                      controller: mapController,
+                      controller: openMapcontroller,
                       osmOption: const OSMOption(
                         zoomOption: ZoomOption(
                           // Zoom para fixar no Tocantins
-                         initZoom: 13.5,
+                          initZoom: 13.5,
                           minZoomLevel: 6.0,
                           maxZoomLevel: 19,
                         ),
@@ -166,9 +164,10 @@ class _OSMState extends State<OsmImplemetation> {
                             ),
                             onPressed: () async {
                               GeoPoint myLocation =
-                                  await mapController.myLocation();
-                              await mapController.goToLocation(myLocation);
-                              await mapController.changeLocation(myLocation);
+                                  await openMapcontroller.myLocation();
+                              await openMapcontroller.goToLocation(myLocation);
+                              await openMapcontroller
+                                  .changeLocation(myLocation);
                             },
                             icon: const Icon(
                               FontAwesomeIcons.mapLocation,
@@ -192,7 +191,7 @@ class _OSMState extends State<OsmImplemetation> {
     // FAVOR,NÃO TROQUE ESSA BOSTA POR UM .MAP
     geoPointList.forEach(
       (geoPoint) async {
-        await mapController.addMarker(
+        await openMapcontroller.addMarker(
           geoPoint,
           markerIcon: MarkerIcon(
             icon: Icon(
@@ -226,7 +225,7 @@ class _OSMState extends State<OsmImplemetation> {
   Future<void> drawnTocantinsMap() async {
     geoMap.forEach(
       (cityName, geoPoitsCity) async {
-        await mapController.drawRoadManually(
+        await openMapcontroller.drawRoadManually(
           geoPoitsCity,
           customRoadOption,
         );
@@ -235,10 +234,10 @@ class _OSMState extends State<OsmImplemetation> {
   }
 
   Future<void> goTocurrentLocation() async {
-    GeoPoint myLocation = await mapController.myLocation();
-    await mapController.goToLocation(myLocation);
-    await mapController.zoomIn();
-    await mapController.zoomIn();
+    GeoPoint myLocation = await openMapcontroller.myLocation();
+    await openMapcontroller.goToLocation(myLocation);
+    await openMapcontroller.zoomIn();
+    await openMapcontroller.zoomIn();
   }
 
   RoadOption customRoadOption = const RoadOption(
@@ -289,7 +288,7 @@ class _OSMState extends State<OsmImplemetation> {
   }
 
   Future<void> limitAreaMap() async {
-    await mapController.limitAreaMap(
+    await openMapcontroller.limitAreaMap(
       BoundingBox(
         east: -45.54,
         north: -4.91,
