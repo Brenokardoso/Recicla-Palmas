@@ -80,10 +80,10 @@ class _OSMState extends State<OsmImplemetation> {
   @override
   void initState() {
     super.initState();
-    mapController = MapController(
-      initPosition: GeoPoint(
-        latitude: -10.1689,
-        longitude: -48.3317,
+    mapController = MapController.withUserPosition(
+      trackUserLocation: const UserTrackingOption(
+        enableTracking: true,
+        unFollowUser: false,
       ),
     );
 
@@ -197,7 +197,7 @@ class _OSMState extends State<OsmImplemetation> {
             icon: Icon(
               Icons.location_on,
               color: CustomColors.inputBorderEnableColor,
-              size: 25,
+              size: 35,
             ),
           ),
         );
