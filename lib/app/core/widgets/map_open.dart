@@ -113,7 +113,6 @@ class _OSMState extends State<OsmImplemetation> {
         children: [
           Center(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(30),
               child: SizedBox(
                 width: widget.widthScream ?? sizeWidth * 0.8075,
                 height: widget.heightScream ?? sizeHeight * 0.65,

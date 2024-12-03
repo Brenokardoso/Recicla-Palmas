@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomColors {
   static Color? cardColor = Colors.grey[350];
   static Color? green400 = Colors.green[400];
-  static Color? green500 = Colors.green[500];
+  static Color? green500 = const Color(0xFF00953A);
   static Color? green600 = Colors.green[500];
   static List<Color> gradientColorsAuth = [
     const Color(0xFF0DC5A5),
