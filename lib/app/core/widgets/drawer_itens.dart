@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recicla_palmas/app/core/utils/routes.dart';
 import 'package:recicla_palmas/app/core/widgets/image.dart';
 
 Widget customDrawerItem({
@@ -48,6 +49,44 @@ Widget customDrawerItem({
             },
           );
         }),
+  );
+}
+
+Widget customPageDrawerItem({
+  required String title,
+  required IconData icon,
+  void Function()? func,
+}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 15),
+    child: ListTile(
+      leading: Container(width: 5, height: 30, color: Colors.transparent),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Icon(
+            icon,
+            color: Colors.white,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+      onTap: () {
+        func?.call();
+      },
+    ),
   );
 }
 
@@ -104,4 +143,24 @@ List<Widget> listDrawerItens({required ValueNotifier indexPage}) => [
           func: () {
             indexPage.value = 2;
           }),
+    ];
+
+List<Widget> listDrawerItensAGendamento({required BuildContext context}) => [
+      logoHeaderDrawer,
+      customPageDrawerItem(
+          icon: Icons.dashboard,
+          title: "Todo Painel",
+          func: () {
+            Navigator.of(context).pushNamed(Routes.homeRoute);
+          }),
+      const SizedBox(height: 20),
+      customPageDrawerItem(
+        title: "Mapa de coleta",
+        icon: Icons.location_on,
+      ),
+      const SizedBox(height: 20),
+      customPageDrawerItem(
+        title: "Pontos de coleta",
+        icon: Icons.view_carousel,
+      ),
     ];
