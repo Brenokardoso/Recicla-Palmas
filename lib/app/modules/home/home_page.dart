@@ -137,49 +137,50 @@ class _HomePage extends State<HomePage> {
             mainAxisSize: MainAxisSize.max,
             children: [
               ValueListenableBuilder(
-                  valueListenable: valueNotifier,
-                  builder: (_, value, __) {
-                    return Container(
-                      height: constMaxheight + 100,
-                      width: (sizeWidth - 300) / 2,
-                      color: Colors.white,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: ListTile(
-                                title: Text(
-                                  "Mapa de coleta",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      color: CustomColors.green500,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                subtitle: Text(
-                                  "Clique no ponto e navegue na rota mais próxima de você",
-                                  style: TextStyle(
-                                    color: Colors.grey[600],
-                                    fontSize: 15,
-                                  ),
+                valueListenable: valueNotifier,
+                builder: (_, value, __) {
+                  return Container(
+                    height: constMaxheight + 100,
+                    width: (sizeWidth - 300) / 2,
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: ListTile(
+                              title: Text(
+                                "Mapa de coleta",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: CustomColors.green500,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              subtitle: Text(
+                                "Clique no ponto e navegue na rota mais próxima de você",
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 15,
                                 ),
                               ),
                             ),
-                            Visibility(
-                              visible: valueNotifier.value == 0 ? true : false,
-                              child: OsmImplemetation(
-                                heightScream: constMaxheight - 50,
-                              ),
+                          ),
+                          Visibility(
+                            visible: valueNotifier.value == 0 ? true : false,
+                            child: OsmImplemetation(
+                              heightScream: constMaxheight - 50,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    );
-                  }),
+                    ),
+                  );
+                },
+              ),
               Container(
                 height: constMaxheight + 200,
                 width: (sizeWidth - 300) / 2,
@@ -210,9 +211,9 @@ class _HomePage extends State<HomePage> {
                           ),
                         ),
                       ),
-                      customCarousel(
-                        listCustomCardsItens(context: context),
-                      )
+                      // customCarousel(
+                      //   listCustomCardsItens(context: context),
+                      // )
                     ],
                   ),
                 ),
