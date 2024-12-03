@@ -136,14 +136,14 @@ class _OSMState extends State<OsmImplemetation> {
                         await limitAreaMap();
                         await drawnTocantinsMap();
                         await drawPointsIntheMap();
-                        await goTocurrentLocation();
+                        // await goTocurrentLocation();
                       },
                       controller: mapController,
                       osmOption: const OSMOption(
                         zoomOption: ZoomOption(
                           // Zoom para fixar no Tocantins
-                          initZoom: 14.5,
-                          minZoomLevel: 6.48505,
+                          initZoom: 13.5,
+                          minZoomLevel: 6.0,
                           maxZoomLevel: 19,
                         ),
                         showContributorBadgeForOSM: true,

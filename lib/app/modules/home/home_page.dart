@@ -57,60 +57,9 @@ class _HomePage extends State<HomePage> {
                 return IndexedStack(
                   index: value,
                   children: [
-                    customPage(
-                      pageWidth: sizeWidth,
-                      pageHeight: constraits.maxHeight + 100,
-                      itens: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Container(
-                              height: constraits.maxHeight + 100,
-                              width: (sizeWidth - 300) / 2,
-                              color: Colors.white,
-                              child: Padding(
-                                padding: const EdgeInsets.all(20),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: ListTile(
-                                        title: Text(
-                                          "Mapa de coleta",
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            color: CustomColors.green500,
-                                          ),
-                                        ),
-                                        subtitle: Text(
-                                          "Clique no ponto e navegue na rota mais próxima de você",
-                                          style: TextStyle(
-                                            color: Colors.grey[600],
-                                            fontSize: 15,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    OsmImplemetation(
-                                      heightScream: constraits.maxHeight - 200,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: constraits.maxHeight + 100,
-                              width: (sizeWidth - 300) / 2,
-                              color: Colors.blue,
-                            ),
-                          ],
-                        )
-                      ],
+                    page1(
+                      sizeWidth: sizeWidth,
+                      constMaxheight: constraits.maxHeight,
                     ),
                     customPage(
                       pageWidth: sizeWidth,
@@ -132,4 +81,61 @@ class _HomePage extends State<HomePage> {
       ),
     );
   }
+
+  Widget page1({required double sizeWidth, required double constMaxheight}) =>
+      customPage(
+        pageWidth: sizeWidth,
+        pageHeight: constMaxheight + 100,
+        itens: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                height: constMaxheight + 100,
+                width: (sizeWidth - 300) / 2,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: ListTile(
+                          title: Text(
+                            "Mapa de coleta",
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: CustomColors.green500,
+                            ),
+                          ),
+                          subtitle: Text(
+                            "Clique no ponto e navegue na rota mais próxima de você",
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 15,
+                            ),
+                          ),
+                        ),
+                      ),
+                      OsmImplemetation(
+                        heightScream: constMaxheight - 50,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                height: constMaxheight + 100,
+                width: (sizeWidth - 300) / 2,
+                color: Colors.blue,
+              ),
+            ],
+          )
+        ],
+      );
 }
