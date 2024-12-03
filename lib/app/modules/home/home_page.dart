@@ -233,6 +233,25 @@ class _HomePage extends State<HomePage> {
       pageWidth: sizeWidth,
       pageHeight: constMaxheight,
       itens: [
+        Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: ListTile(
+            title: Text(
+              "Mapa de coleta",
+              style: TextStyle(
+                  fontSize: 18,
+                  color: CustomColors.green500,
+                  fontWeight: FontWeight.w600),
+            ),
+            subtitle: Text(
+              "Clique no ponto e navegue na rota mais próxima de você",
+              style: TextStyle(
+                color: Colors.grey[600],
+                fontSize: 15,
+              ),
+            ),
+          ),
+        ),
         Visibility(
           visible: valueNotifier.value == 1 ? true : false,
           child: Container(
