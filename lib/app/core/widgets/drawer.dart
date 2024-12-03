@@ -3,7 +3,7 @@ import 'package:recicla_palmas/app/core/themes/custom_colors.dart';
 
 Widget customDrawer({
   required BuildContext context,
-  required List<Widget>  drawerItens,
+  required List<Widget> drawerItens,
 }) {
   double sizeHeight = MediaQuery.of(context).size.height;
 

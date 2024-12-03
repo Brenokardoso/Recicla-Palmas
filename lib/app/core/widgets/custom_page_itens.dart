@@ -5,36 +5,38 @@ Widget customPage({
   required double pageHeight,
   List<Widget>? itens,
 }) =>
-    Container(
-      width: pageWidth - 300,
-      height: pageWidth,
-      color: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          pageHeader(
-            pageWidth: pageWidth,
-            pageHeight: pageHeight,
-          ),
-          LayoutBuilder(
-            builder: (context, constraits) {
-              return Container(
-                constraints: constraits,
-                width: constraits.maxWidth,
-                height: pageHeight - 126.01,
-                color: Colors.white,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.max,
-                  children: itens ?? [],
-                ),
-              );
-            },
-          )
-        ],
+    SingleChildScrollView(
+      child: Container(
+        width: pageWidth - 300,
+        height: pageWidth,
+        color: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            pageHeader(
+              pageWidth: pageWidth,
+              pageHeight: pageHeight,
+            ),
+            LayoutBuilder(
+              builder: (context, constraits) {
+                return Container(
+                  constraints: constraits,
+                  width: constraits.maxWidth,
+                  height: pageHeight,
+                  color: Colors.white,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: itens ?? [],
+                  ),
+                );
+              },
+            )
+          ],
+        ),
       ),
     );
 

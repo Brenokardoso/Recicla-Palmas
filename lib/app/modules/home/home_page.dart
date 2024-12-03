@@ -68,12 +68,12 @@ class _HomePage extends State<HomePage> {
                           children: [
                             Container(
                               height: constraits.maxHeight,
-                              width: (constraits.maxWidth - 300) / 2,
+                              width: (sizeWidth - 300) / 2,
                               color: Colors.red,
                             ),
                             Container(
                               height: constraits.maxHeight,
-                              width: (constraits.maxWidth - 300) / 2,
+                              width: (sizeWidth - 300) / 2,
                               color: Colors.blue,
                             ),
                           ],
