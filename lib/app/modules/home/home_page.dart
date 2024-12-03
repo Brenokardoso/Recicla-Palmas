@@ -156,9 +156,10 @@ class _HomePage extends State<HomePage> {
                               title: Text(
                                 "Mapa de coleta",
                                 style: TextStyle(
-                                    fontSize: 18,
-                                    color: CustomColors.green500,
-                                    fontWeight: FontWeight.w600),
+                                  fontSize: 18,
+                                  color: CustomColors.green500,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                               subtitle: Text(
                                 "Clique no ponto e navegue na rota mais próxima de você",
@@ -211,9 +212,9 @@ class _HomePage extends State<HomePage> {
                           ),
                         ),
                       ),
-                      // customCarousel(
-                      //   listCustomCardsItens(context: context),
-                      // )
+                      customCarousel(
+                        listCustomCardsItens(context: context),
+                      )
                     ],
                   ),
                 ),
