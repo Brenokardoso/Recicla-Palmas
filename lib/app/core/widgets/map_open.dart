@@ -81,12 +81,12 @@ class _OSMState extends State<OsmImplemetationOpenMap> {
   void initState() {
     super.initState();
 
- openMapcontroller = MapController(
-            initPosition: GeoPoint(
-              latitude: -10.1689,
-              longitude: -48.3317,
-            ),
-          );
+    openMapcontroller = MapController(
+      initPosition: GeoPoint(
+        latitude: -10.1689,
+        longitude: -48.3317,
+      ),
+    );
     cathGeoPoitns();
     cathEcoPoints();
   }
@@ -111,6 +111,7 @@ class _OSMState extends State<OsmImplemetationOpenMap> {
         children: [
           Center(
             child: ClipRRect(
+              borderRadius: BorderRadius.circular(30),
               child: SizedBox(
                 width: widget.widthScream ?? sizeWidth * 0.8075,
                 height: widget.heightScream ?? sizeHeight * 0.65,
@@ -188,7 +189,6 @@ class _OSMState extends State<OsmImplemetationOpenMap> {
   }
 
   dynamic drawPointsIntheMap() async {
-    // FAVOR,NÃO TROQUE ESSA BOSTA POR UM .MAP
     geoPointList.forEach(
       (geoPoint) async {
         await openMapcontroller.addMarker(
@@ -197,7 +197,7 @@ class _OSMState extends State<OsmImplemetationOpenMap> {
             icon: Icon(
               Icons.location_on,
               color: CustomColors.inputBorderEnableColor,
-              size: 25,
+              size: 40,
             ),
           ),
         );

@@ -12,6 +12,7 @@ import 'package:recicla_palmas/app/core/widgets/map.dart';
 import 'package:recicla_palmas/app/core/widgets/map_open.dart';
 
 import '../../core/widgets/carrousel.dart';
+import '../../core/widgets/grid_view.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -65,10 +66,10 @@ class _HomePage extends State<HomePage> {
                         sizeWidth: sizeWidth,
                         constMaxheight: constraits.maxHeight + 200,
                         valueNotifier: indexPage),
-                    customPage(
-                      pageWidth: sizeWidth,
-                      pageHeight: constraits.maxHeight,
-                      itens: [],
+                    page2(
+                      sizeWidth: sizeWidth,
+                      constMaxheight: constraits.maxHeight,
+                      valueNotifier: indexPage,
                     ),
                     customPage(
                       pageWidth: sizeWidth,
@@ -108,14 +109,7 @@ class _HomePage extends State<HomePage> {
                             ),
                           ),
                         ),
-                        SingleChildScrollView(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: listCustomCardsItens(context: context),
-                          ),
-                        )
+                        // customGridCards(listCustomCardsItens(context: context)),
                       ],
                     )
                   ],
@@ -227,4 +221,27 @@ class _HomePage extends State<HomePage> {
           )
         ],
       );
+
+  Widget page2({
+    required double sizeWidth,
+    required double constMaxheight,
+    required ValueNotifier valueNotifier,
+  }) {
+    return customPage(
+      pageWidth: sizeWidth,
+      pageHeight: constMaxheight,
+      itens: [
+        Visibility(
+          visible: valueNotifier.value == 1 ? true : false,
+          child: Container(
+            height: constMaxheight,
+            width: sizeWidth,
+            child: OsmImplemetationOpenMap(
+              heightScream: constMaxheight,
+            ),
+          ),
+        )
+      ],
+    );
+  }
 }
