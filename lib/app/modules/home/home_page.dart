@@ -68,6 +68,11 @@ class _HomePage extends State<HomePage> {
                     customPage(
                       pageWidth: sizeWidth,
                       pageHeight: constraits.maxHeight,
+                      itens: [],
+                    ),
+                    customPage(
+                      pageWidth: sizeWidth,
+                      pageHeight: constraits.maxHeight,
                       itens: [
                         Container(
                           height: constraits.maxHeight,
@@ -103,12 +108,16 @@ class _HomePage extends State<HomePage> {
                             ),
                           ),
                         ),
+                        SingleChildScrollView(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: listCustomCardsItens(context: context),
+                          ),
+                        )
                       ],
-                    ),
-                    customPage(
-                        pageWidth: sizeWidth,
-                        pageHeight: constraits.maxHeight,
-                        itens: [])
+                    )
                   ],
                 );
               },
