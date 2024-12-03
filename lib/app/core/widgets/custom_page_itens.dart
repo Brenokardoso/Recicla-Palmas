@@ -61,17 +61,29 @@ Widget pageHeader({
 Widget headerLeft(double pageWidth) => Container(
       width: (pageWidth - 300) / 2,
       height: 110,
-      color: Colors.red,
-      child: const ListTile(
-        title: Text("Painel de Coletas"),
-        subtitle: Text('Seja bem vindo(a) ao recicla Palmas'),
+      color: Colors.white,
+      child: ListTile(
+        title: Text(
+          "Painel de Coletas",
+          style: TextStyle(
+            color: Colors.grey[600],
+            fontSize: 30,
+          ),
+        ),
+        subtitle: Text(
+          'Seja bem vindo(a) ao recicla Palmas',
+          style: TextStyle(
+            color: Colors.grey[600],
+            fontSize: 15,
+          ),
+        ),
       ),
     );
 
 Widget headerRight(double pageWidth) => Container(
       width: (pageWidth - 300) / 2,
       height: 110,
-      color: Colors.orange,
+      color: Colors.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -79,9 +91,10 @@ Widget headerRight(double pageWidth) => Container(
         children: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
+              size: 24,
               Icons.notification_add_rounded,
-              color: Colors.grey,
+              color: Colors.grey[600],
             ),
           ),
           SizedBox(
@@ -94,11 +107,11 @@ Widget headerRight(double pageWidth) => Container(
               children: [
                 Flexible(
                   child: Container(
-                    width: 75,
-                    height: 75,
+                    width: 50,
+                    height: 50,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(60),
                       image: const DecorationImage(
                         fit: BoxFit.cover,
                         filterQuality: FilterQuality.high,
@@ -109,13 +122,18 @@ Widget headerRight(double pageWidth) => Container(
                     ),
                   ),
                 ),
-                const Flexible(
+                Flexible(
                   child: ListTile(
                     title: Text(
                       "User Name",
-                      style: TextStyle(fontSize: 14),
+                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
                     ),
-                    subtitle: Text("Profissão"),
+                    subtitle: Text(
+                      "Profissão",
+                      style: TextStyle(
+                        color: Colors.grey[600],
+                      ),
+                    ),
                   ),
                 ),
               ],
