@@ -23,7 +23,7 @@ Widget customPage({
                 constraints: constraits,
                 width: constraits.maxWidth,
                 height: pageHeight - 126.01,
-                color: Colors.transparent,
+                color: Colors.grey[300],
               );
             },
           )
@@ -42,7 +42,7 @@ Widget pageHeader({
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
             Container(
@@ -58,6 +58,43 @@ Widget pageHeader({
               width: (pageWidth - 300) / 2,
               height: 110,
               color: Colors.orange,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.notification_add_rounded,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              image: const DecorationImage(
+                                  image: AssetImage(
+                                      "lib/app/core/assets/img/image_user.png"))),
+                        ),
+                        const ListTile(
+                          title: Text(
+                            "User Name",
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          subtitle: Text("Profissão"),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             )
           ],
         ),
