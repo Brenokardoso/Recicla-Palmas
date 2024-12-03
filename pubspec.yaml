@@ -91,7 +91,7 @@ flutter:
     - lib/app/core/assets/img/simbolos_reciclagem/planta.jpg  
     - lib/app/core/assets/img/logologin.png
     - lib/app/core/assets/img/background_verde.png  
-    - lib/app/core/assets/img/user-profile-icon-free-vector.jpg 
+    - lib/app/core/assets/img/user_green.png 
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

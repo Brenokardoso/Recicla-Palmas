@@ -64,7 +64,7 @@ Widget customCardItem({
           ),
           Container(
             width: 360,
-            height: 250,
+            height: 245,
             decoration: cardBottomDecoration(),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,

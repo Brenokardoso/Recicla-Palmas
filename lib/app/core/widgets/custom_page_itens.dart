@@ -8,7 +8,7 @@ Widget customPage({
     SingleChildScrollView(
       child: Container(
         width: pageWidth - 300,
-        height: pageWidth,
+        height: pageHeight + 200,
         color: Colors.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -116,8 +116,8 @@ Widget headerRight(double pageWidth) => Container(
               children: [
                 Flexible(
                   child: Container(
-                    width: 75,
-                    height: 75,
+                    width: 50,
+                    height: 50,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(0),
@@ -125,7 +125,7 @@ Widget headerRight(double pageWidth) => Container(
                         fit: BoxFit.cover,
                         filterQuality: FilterQuality.high,
                         image: AssetImage(
-                          "lib/app/core/assets/img/user-profile-icon-free-vector.jpg",
+                          "lib/app/core/assets/img/user_green.png",
                         ),
                       ),
                     ),

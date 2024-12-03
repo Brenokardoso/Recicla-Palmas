@@ -11,6 +11,8 @@ import 'package:recicla_palmas/app/core/widgets/image.dart';
 import 'package:recicla_palmas/app/core/widgets/map.dart';
 import 'package:recicla_palmas/app/core/widgets/map_open.dart';
 
+import '../../core/widgets/carrousel.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -61,21 +63,52 @@ class _HomePage extends State<HomePage> {
                   children: [
                     page1(
                       sizeWidth: sizeWidth,
-                      constMaxheight: constraits.maxHeight,
+                      constMaxheight: constraits.maxHeight + 200,
                     ),
                     customPage(
                       pageWidth: sizeWidth,
                       pageHeight: constraits.maxHeight,
                       itens: [
-                        // OsmImplemetationOpenMap(
-                        //   heightScream: constraits.maxHeight - 50,
-                        // ),
+                        Container(
+                          height: constraits.maxHeight,
+                          width: sizeWidth,
+                          color: Colors.white,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10),
+                                  child: ListTile(
+                                    title: Text(
+                                      "Mapa de coleta",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          color: CustomColors.green500,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    subtitle: Text(
+                                      "Clique no ponto e navegue na rota mais próxima de você",
+                                      style: TextStyle(
+                                        color: Colors.grey[600],
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                     customPage(
-                      pageWidth: sizeWidth,
-                      pageHeight: constraits.maxHeight,
-                    )
+                        pageWidth: sizeWidth,
+                        pageHeight: constraits.maxHeight,
+                        itens: [])
                   ],
                 );
               },
@@ -86,10 +119,13 @@ class _HomePage extends State<HomePage> {
     );
   }
 
-  Widget page1({required double sizeWidth, required double constMaxheight}) =>
+  Widget page1({
+    required double sizeWidth,
+    required double constMaxheight,
+  }) =>
       customPage(
         pageWidth: sizeWidth,
-        pageHeight: constMaxheight + 100,
+        pageHeight: constMaxheight + 200,
         itens: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -134,7 +170,7 @@ class _HomePage extends State<HomePage> {
                 ),
               ),
               Container(
-                height: constMaxheight + 100,
+                height: constMaxheight + 200,
                 width: (sizeWidth - 300) / 2,
                 color: Colors.white,
                 child: Padding(
@@ -163,10 +199,9 @@ class _HomePage extends State<HomePage> {
                           ),
                         ),
                       ),
-                      // ListView(
-                      //   shrinkWrap: true,
-                      //   children: listCustomCardsItens(context: context),
-                      // )
+                      customCarousel(
+                        listCustomCardsItens(context: context),
+                      )
                     ],
                   ),
                 ),
